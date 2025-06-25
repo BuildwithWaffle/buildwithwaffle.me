@@ -79,7 +79,7 @@ export default function Home() {
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 3 }
         }}
-        autoplay={{ delay: 1500, disableOnInteraction: false }}
+        autoplay={{ delay: 2200, disableOnInteraction: false }}
         loop={true}
         modules={[Autoplay]}
       >
