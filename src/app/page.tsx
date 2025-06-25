@@ -3,10 +3,10 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main
-        className="bg-black text-white min-h-screen">
+        className="bg-black text-white min-h-screen pt-32">
       {/* Main Intro */}
       <Navbar />
-     <section
+     <section id="home"
         className="relative px-6 md:px-40 pt-32 pb-20 h-[1408px] bg-no-repeat bg-right-top"
         style={{
           backgroundImage: `url("/images/LandingBackground.png")`,
@@ -38,8 +38,8 @@ export default function Home() {
       </section>
 
 
-      {/* Start a Chapter */}
-      <section
+      {/* About  Section*/}
+      <section id="about"
   className="relative min-h-screen px-6 py-24 overflow-hidden -mt-100"
   style={{
     backgroundImage: 'url("/images/Startchapter.png")',
@@ -47,18 +47,15 @@ export default function Home() {
     backgroundPosition: 'center',
   }}
 >
-
   {/* Content */}
   <div className="relative z-10 max-w-3xl ml-auto text-right pr-10">
-    <h2 className="text-4xl md:text-5xl font-bold text-white">Start a Chapter</h2>
-    <p className="italic text-sm mt-2 text-white">you're the main character</p>
+    <h2 className="text-4xl md:text-5xl font-bold text-white">About Waffel</h2>
+    <p className="italic text-sm mt-2 text-white">ou're the main character</p>
     <div className="mt-4 max-w-md text-sm text-right ml-auto pr-2 leading-relaxed space-y-2">
-      <p>You don’t need permission to start something unforgettable.</p>
-      <p>Waffle chapters are run by students who got tired of waiting.</p>
-      <p>Tired of boring fests. Tired of “innovation” that’s just filler.</p>
-      <p>They wanted a space to actually build, share,</p>
-      <p> and connect — so they created it.</p>
-</div>
+      <p>Ever felt like you didn’t belong?</p>
+      <p>We did too. Like you had ideas, but no place to start? That’s why we’re building this. Not a tech cult. Not a startup grindset. Just a space to build whatever the hell you want. Day zero begins July.</p>
+      <p>🧇#wafflespace</p>
+    </div>
 <Link
   href="/about"
   className="mt-8 inline-block text-white underline underline-offset-4 hover:text-gray-300 transition duration-200"
@@ -68,8 +65,6 @@ export default function Home() {
 
   </div>
 </section>
-
-
       {/* Events Section */}
       <section className="bg-black text-white py-12 px-4">
         <h2 className="text-3xl font-bold mb-6 text-center">Events</h2>
