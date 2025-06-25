@@ -49,7 +49,7 @@ export default function Home() {
 >
 
   {/* Content */}
-  <div className="relative z-10 max-w-3xl ml-auto text-right pr-10"> {/* 👈 pushes text to center-right */}
+  <div className="relative z-10 max-w-3xl ml-auto text-right pr-10">
     <h2 className="text-4xl md:text-5xl font-bold text-white">Start a Chapter</h2>
     <p className="italic text-sm mt-2 text-white">you're the main character</p>
     <div className="mt-4 max-w-md text-sm text-right ml-auto pr-2 leading-relaxed space-y-2">
