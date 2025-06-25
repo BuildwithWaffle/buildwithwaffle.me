@@ -5,99 +5,166 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
 export default function Home() {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   return (
-    <main
-        className="bg-black text-white min-h-screen pt-32">
-      {/* Main Intro */}
+    <main className="bg-black text-white">
       <Navbar />
-     <section id="home"
+      {/* Home Section */}
+      <motion.section
+        ref={heroRef}
+        id="home"
         className="relative px-6 md:px-40 pt-32 pb-20 h-[1408px] bg-no-repeat bg-right-top"
         style={{
           backgroundImage: `url("/images/LandingBackground.png")`,
           backgroundSize: "auto 100%",
+          opacity,
         }}
       >
         <p className="text-gray-400">by Students, for Everyone.</p>
         <h1 className="text-4xl md:text-6xl font-bold mt-4">Hi, Build</h1>
         <h1 className="text-4xl md:text-6xl font-bold mt-4">with Waffle</h1>
         <p className="mt-4 max-w-xl text-sm md:text-base text-gray-300">
-          We aren’t a club. we are a call to action.for the misfits, the quiet builders, the kids with half-finished dreams.thanks for giving this a shot.
+          We aren’t a club. We are a call to action. For the misfits, the quiet
+          builders, the kids with half-finished dreams. Thanks for giving this a shot.
         </p>
+
         <div className="mt-6 flex gap-4">
-        <Link
-          href="/join"
-          className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200"
-        >
-          JOIN US
-        </Link>
-        <Link
-          href="/later"
-          className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200"
-        >
-          Later
-        </Link>
-      </div>
+          <Link
+            href="/join"
+            className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200"
+          >
+            JOIN US
+          </Link>
+          <Link
+            href="/later"
+            className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200"
+          >
+            Later
+          </Link>
+        </div>
         <p className="mt-4 px-20 text-sm text-gray-400">200+ Students</p>
-      </section>
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent pointer-events-none z-20" />
+      </motion.section>
 
-
-      {/* About  Section*/}
-      <section id="about"
-  className="relative min-h-screen px-6 py-24 overflow-hidden -mt-100"
-  style={{
-    backgroundImage: 'url("/images/Startchapter.png")',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  }}
->
-  <div className="relative z-10 max-w-3xl ml-auto text-right pr-10">
-    <h2 className="text-4xl md:text-5xl font-bold text-white">About Waffel</h2>
-    <p className="italic text-sm mt-2 text-white">ou're the main character</p>
-    <div className="mt-4 max-w-md text-sm text-right ml-auto pr-2 leading-relaxed space-y-2">
-      <p>Ever felt like you didn’t belong?</p>
-      <p>We did too. Like you had ideas, but no place to start? That’s why we’re building this. Not a tech cult. Not a startup grindset. Just a space to build whatever the hell you want. Day zero begins July.</p>
-      <p>🧇#wafflespace</p>
-    </div>
-<Link
-  href="/about"
-  className="mt-8 inline-block text-white underline underline-offset-4 hover:text-gray-300 transition duration-200"
->
-  Know more
-</Link>
-  </div>
-</section>
-
-
-      {/* Events Section */}
-      <section className="bg-black text-white py-12 px-4">
-      <h2 className="text-3xl font-bold mb-6 text-center">Events</h2>
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={1}
-        breakpoints={{
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 }
+      {/* ABOUT SECTION */}
+      <section
+        id="about"
+        className="relative min-h-screen px-6 py-24 overflow-hidden"
+        style={{
+          backgroundImage: 'url("/images/Startchapter.png")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
-        autoplay={{ delay: 2200, disableOnInteraction: false }}
-        loop={true}
-        modules={[Autoplay]}
       >
-        {[1, 2, 3, 4, 5, 6].map((n) => (
-          <SwiperSlide key={n}>
-            <div className="bg-zinc-900 rounded-xl p-4 border border-zinc-700 h-full">
-              <div className="bg-orange-500 h-48 rounded-md mb-4"></div>
-              <p className="text-sm">Sunday, April {n}, 2025</p>
-              <p className="text-xs text-gray-400">Location: Amity Lucknow | Time: 12PM–5PM</p>
-              <p className="text-xs text-gray-400">Venue: Auditorium</p>
-              <button className="mt-2 bg-orange-500 text-black px-4 py-1 rounded-full text-sm">
-                {n % 2 === 0 ? "View Gallery" : "Register Now"}
-              </button>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-black/50 z-0" />
+        <div className="relative z-10 max-w-3xl ml-auto text-right pr-10">
+          <h2 className="text-4xl md:text-5xl font-bold text-white">About Waffel</h2>
+          <p className="italic text-sm mt-2 text-white">You're the main character</p>
+          <div className="mt-4 max-w-md text-sm text-right ml-auto pr-2 leading-relaxed space-y-2 text-white">
+            <p>Ever felt like you didn’t belong?</p>
+            <p>
+              We did too. Like you had ideas, but no place to start? That’s why we’re building this.
+              Not a tech cult. Not a startup grindset. Just a space to build whatever the hell you want.
+              Day zero begins July.
+            </p>
+            <p>🧇#wafflespace</p>
+          </div>
+
+          <Link
+            href="/about"
+            className="mt-8 inline-block text-white underline underline-offset-4 hover:text-gray-300 transition duration-200"
+          >
+            Know more
+          </Link>
+        </div>
       </section>
+
+      
+{/* Events Section */}
+<section className="bg-black text-white py-12 px-4">
+  <h2 className="text-3xl font-bold mb-6 text-center">Events</h2>
+
+  <Swiper
+    spaceBetween={20}
+    slidesPerView={1}
+    breakpoints={{
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    }}
+    autoplay={{ delay: 2500, disableOnInteraction: false }}
+    loop={true}
+    modules={[Autoplay]}
+  >
+    {[
+      {
+        date: "Sunday, April 12, 2025",
+        location: "Amity Lucknow",
+        time: "12PM–5PM",
+        venue: "Auditorium",
+        action: "Register Now",
+      },
+      {
+        date: "Monday, May 5, 2025",
+        location: "IIT Kanpur",
+        time: "2PM–6PM",
+        venue: "Main Hall",
+        action: "View Gallery",
+      },
+      {
+        date: "Wednesday, June 18, 2025",
+        location: "BITS Pilani",
+        time: "11AM–4PM",
+        venue: "Innovation Lab",
+        action: "Register Now",
+      },
+      {
+        date: "Friday, July 7, 2025",
+        location: "NIT Trichy",
+        time: "1PM–6PM",
+        venue: "Auditorium",
+        action: "View Gallery",
+      },
+      {
+        date: "Saturday, August 15, 2025",
+        location: "IIT Delhi",
+        time: "10AM–3PM",
+        venue: "Startup Hall",
+        action: "Register Now",
+      },
+      {
+        date: "Sunday, September 10, 2025",
+        location: "Amity Noida",
+        time: "12PM–5PM",
+        venue: "Auditorium",
+        action: "View Gallery",
+      },
+    ].map((event, index) => (
+      <SwiperSlide key={index}>
+        <div className="bg-zinc-900 rounded-xl p-4 border border-zinc-700 h-full">
+          <div className="bg-orange-500 h-48 rounded-md mb-4"></div>
+          <p className="text-sm">{event.date}</p>
+          <p className="text-xs text-gray-400">
+            Location: {event.location} | Time: {event.time}
+          </p>
+          <p className="text-xs text-gray-400">Venue: {event.venue}</p>
+          <button className="mt-2 bg-orange-500 text-black px-4 py-1 rounded-full text-sm">
+            {event.action}
+          </button>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</section>
 
 
       {/* Recent Projects Section */}
