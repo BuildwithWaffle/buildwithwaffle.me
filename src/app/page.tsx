@@ -21,32 +21,41 @@ export default function Home() {
   return (
     <main className="bg-black text-white">
       <Navbar />
-      {/* HERO SECTION */}
-      <div id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
-        <motion.div
-          className="absolute inset-0 z-0 bg-no-repeat bg-right-top"
-          style={{
-            backgroundImage: `url("/images/LandingBackground.png")`,
-            backgroundSize: "auto 1408px",
-            opacity: heroOpacity,
-          }}
-        />
-        <section className="relative z-10 px-6 md:px-40 pt-32 pb-16 min-h-screen flex flex-col justify-center">
-          <p className="text-gray-400">by Students, for Everyone.</p>
-          <h1 className="text-4xl md:text-6xl font-bold mt-4">Hi, Build</h1>
-          <h1 className="text-4xl md:text-6xl font-bold mt-4">with Waffle</h1>
-          <p className="mt-4 max-w-xl text-sm md:text-base text-gray-300">
-            We aren’t a club. We are a call to action. For the misfits, the quiet
-            builders, the kids with half-finished dreams. Thanks for giving this a shot.
-          </p>
-          <div className="mt-6 flex gap-4">
-            <Link href="/join" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">JOIN US</Link>
-            <Link href="/later" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">Letter</Link>
-          </div>
-          <p className="mt-4 px-20 text-sm text-gray-400">200+ Students</p>
-          <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent pointer-events-none z-20" />
+      <section className="relative">
+     {/* HERO SECTION */}
+<div id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
+  <section className="relative z-10 px-6 md:px-20 pt-32 pb-16 min-h-screen flex flex-col md:flex-row items-center justify-between gap-10">
+    
+    {/* Left Content */}
+    <div className="md:w-1/2">
+      <p className="text-gray-400">by Students, for Everyone.</p>
+      <h1 className="text-4xl md:text-6xl font-bold mt-4">Hi, Build</h1>
+      <h1 className="text-4xl md:text-6xl font-bold mt-4">with Waffle</h1>
+      <p className="mt-4 max-w-xl text-sm md:text-base text-gray-300">
+        We aren’t a club. We are a call to action. For the misfits, the quiet
+        builders, the kids with half-finished dreams. Thanks for giving this a shot.
+      </p>
+      <div className="mt-6 flex gap-4 flex-wrap">
+        <Link href="/join" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">JOIN US</Link>
+        <Link href="/later" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">Letter</Link>
+      </div>
+      <p className="mt-4 text-sm text-gray-400">200+ Students</p>
+    </div>
+    <div className="w-full md:w-1/2 h-64 md:h-[480px] relative">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="w-full h-full object-cover rounded-lg"
+      >
+        <source src="/videos/bg_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+       </div>
         </section>
       </div>
+    </section>
 
       {/* ABOUT SECTION */}
       <div id="about" className="relative min-h-screen overflow-hidden">
