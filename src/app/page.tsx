@@ -21,9 +21,8 @@ export default function Home() {
   return (
     <main className="bg-black text-white">
       <Navbar />
-
       {/* HERO SECTION */}
-      <div ref={heroRef} className="relative min-h-screen overflow-hidden">
+      <div id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
         <motion.div
           className="absolute inset-0 z-0 bg-no-repeat bg-right-top"
           style={{
@@ -50,7 +49,7 @@ export default function Home() {
       </div>
 
       {/* ABOUT SECTION */}
-      <div className="relative min-h-screen overflow-hidden">
+      <div id="about" className="relative min-h-screen overflow-hidden">
         <motion.div
           className="absolute inset-0 z-0"
           style={{
