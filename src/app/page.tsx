@@ -22,40 +22,40 @@ export default function Home() {
     <main className="bg-black text-white">
       <Navbar />
       <section className="relative">
-     {/* HERO SECTION */}
-<div id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
-  <section className="relative z-10 px-6 md:px-20 pt-32 pb-16 min-h-screen flex flex-col md:flex-row items-center justify-between gap-10">
-    
-    {/* Left Content */}
-    <div className="md:w-1/2">
-      <p className="text-gray-400">by Students, for Everyone.</p>
-      <h1 className="text-4xl md:text-6xl font-bold mt-4">Hi, Build</h1>
-      <h1 className="text-4xl md:text-6xl font-bold mt-4">with Waffle</h1>
-      <p className="mt-4 max-w-xl text-sm md:text-base text-gray-300">
-        We aren’t a club. We are a call to action. For the misfits, the quiet
-        builders, the kids with half-finished dreams. Thanks for giving this a shot.
-      </p>
-      <div className="mt-6 flex gap-4 flex-wrap">
-        <Link href="/join" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">JOIN US</Link>
-        <Link href="/later" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">Letter</Link>
-      </div>
-      <p className="mt-4 text-sm text-gray-400">200+ Students</p>
-    </div>
-    <div className="w-full md:w-1/2 h-64 md:h-[480px] relative">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="w-full h-full object-cover rounded-lg"
-      >
-        {/* <source src="/videos/bg_video.mp4" type="video/mp4" /> */}
-        Your browser does not support the video tag.
-      </video>
-       </div>
-        </section>
-      </div>
-    </section>
+        {/* HERO SECTION */}
+        <div id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
+          <section className="relative z-10 px-6 md:px-20 pt-32 pb-16 min-h-screen flex flex-col md:flex-row items-center justify-between gap-10">
+
+            {/* Left Content */}
+            <div className="md:w-1/2">
+              <p className="text-gray-400">by Students, for Everyone.</p>
+              <h1 className="text-4xl md:text-6xl font-bold mt-4">Hi, Build</h1>
+              <h1 className="text-4xl md:text-6xl font-bold mt-4">with Waffle</h1>
+              <p className="mt-4 max-w-xl text-sm md:text-base text-gray-300">
+                We aren’t a club. We are a call to action. For the misfits, the quiet
+                builders, the kids with half-finished dreams. Thanks for giving this a shot.
+              </p>
+              <div className="mt-6 flex gap-4 flex-wrap">
+                <Link href="/join" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">JOIN US</Link>
+                <Link href="/later" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">Letter</Link>
+              </div>
+              <p className="mt-4 text-sm text-gray-400">200+ Students</p>
+            </div>
+            <div className="w-full md:w-1/2 h-64 md:h-[480px] relative">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover rounded-lg"
+              >
+                {/* <source src="/videos/bg_video.mp4" type="video/mp4" /> */}
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </section>
+        </div>
+      </section>
 
       {/* ABOUT SECTION */}
       <div id="about" className="relative min-h-screen overflow-hidden">
@@ -87,86 +87,86 @@ export default function Home() {
           </div>
         </section>
       </div>
-      
-{/* Events Section */}
-<section className="bg-black text-white py-12 px-4">
-  <h2 className="text-3xl font-bold mb-6 text-center">Events</h2>
 
-  <Swiper
-    spaceBetween={20}
-    slidesPerView={1}
-    breakpoints={{
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 },
-    }}
-    autoplay={{ delay: 2500, disableOnInteraction: false }}
-    loop={true}
-    modules={[Autoplay]}
-  >
-    {[
-      {
-        date: "Sunday, April 12, 2025",
-        location: "Amity Lucknow",
-        time: "12PM–5PM",
-        venue: "Auditorium",
-        action: "Register Now",
-      },
-      {
-        date: "Monday, May 5, 2025",
-        location: "IIT Kanpur",
-        time: "2PM–6PM",
-        venue: "Main Hall",
-        action: "View Gallery",
-      },
-      {
-        date: "Wednesday, June 18, 2025",
-        location: "BITS Pilani",
-        time: "11AM–4PM",
-        venue: "Innovation Lab",
-        action: "Register Now",
-      },
-      {
-        date: "Friday, July 7, 2025",
-        location: "NIT Trichy",
-        time: "1PM–6PM",
-        venue: "Auditorium",
-        action: "View Gallery",
-      },
-      {
-        date: "Saturday, August 15, 2025",
-        location: "IIT Delhi",
-        time: "10AM–3PM",
-        venue: "Startup Hall",
-        action: "Register Now",
-      },
-      {
-        date: "Sunday, September 10, 2025",
-        location: "Amity Noida",
-        time: "12PM–5PM",
-        venue: "Auditorium",
-        action: "View Gallery",
-      },
-    ].map((event, index) => (
-      <SwiperSlide key={index}>
-        <div className="bg-zinc-900 rounded-xl p-4 border border-zinc-700 h-full">
-          <div className="bg-orange-500 h-48 rounded-md mb-4"></div>
-          <p className="text-sm">{event.date}</p>
-          <p className="text-xs text-gray-400">
-            Location: {event.location} | Time: {event.time}
-          </p>
-          <p className="text-xs text-gray-400">Venue: {event.venue}</p>
-          <button className="mt-2 bg-orange-500 text-black px-4 py-1 rounded-full text-sm">
-            {event.action}
-          </button>
-        </div>
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</section>
+      {/* Events Section */}
+      <section className="bg-black text-white py-12 px-4">
+        <h2 className="text-3xl font-bold mb-6 text-center">Events</h2>
+
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={1}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          loop={true}
+          modules={[Autoplay]}
+        >
+          {[
+            {
+              date: "Sunday, April 12, 2025",
+              location: "Amity Lucknow",
+              time: "12PM–5PM",
+              venue: "Auditorium",
+              action: "Register Now",
+            },
+            {
+              date: "Monday, May 5, 2025",
+              location: "IIT Kanpur",
+              time: "2PM–6PM",
+              venue: "Main Hall",
+              action: "View Gallery",
+            },
+            {
+              date: "Wednesday, June 18, 2025",
+              location: "BITS Pilani",
+              time: "11AM–4PM",
+              venue: "Innovation Lab",
+              action: "Register Now",
+            },
+            {
+              date: "Friday, July 7, 2025",
+              location: "NIT Trichy",
+              time: "1PM–6PM",
+              venue: "Auditorium",
+              action: "View Gallery",
+            },
+            {
+              date: "Saturday, August 15, 2025",
+              location: "IIT Delhi",
+              time: "10AM–3PM",
+              venue: "Startup Hall",
+              action: "Register Now",
+            },
+            {
+              date: "Sunday, September 10, 2025",
+              location: "Amity Noida",
+              time: "12PM–5PM",
+              venue: "Auditorium",
+              action: "View Gallery",
+            },
+          ].map((event, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-zinc-900 rounded-xl p-4 border border-zinc-700 h-full">
+                <div className="bg-orange-500 h-48 rounded-md mb-4"></div>
+                <p className="text-sm">{event.date}</p>
+                <p className="text-xs text-gray-400">
+                  Location: {event.location} | Time: {event.time}
+                </p>
+                <p className="text-xs text-gray-400">Venue: {event.venue}</p>
+                <button className="mt-2 bg-orange-500 text-black px-4 py-1 rounded-full text-sm">
+                  {event.action}
+                </button>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
 
 
       {/* Recent Projects Section */}
-      
+
       <section className="bg-black text-white py-12 px-4">
         <h2 className="text-3xl font-bold mb-6 text-center">Recent Projects</h2>
         <div className="grid md:grid-cols-3 gap-6">
@@ -246,9 +246,9 @@ export default function Home() {
           ))}
         </div>
         <Link
-            href="/projects"
-            className="text-center block mt-6 underline cursor-pointer transition duration-200">
-            Check Out More.
+          href="/projects"
+          className="text-center block mt-6 underline cursor-pointer transition duration-200">
+          Check Out More.
         </Link>
       </section>
     </main>
