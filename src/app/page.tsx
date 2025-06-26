@@ -14,81 +14,71 @@ export default function Home() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
+  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const aboutOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
     <main className="bg-black text-white">
       <Navbar />
-      {/* Home Section */}
-      <motion.section
-        ref={heroRef}
-        id="home"
-        className="relative px-6 md:px-40 pt-32 pb-20 h-[1408px] bg-no-repeat bg-right-top"
-        style={{
-          backgroundImage: `url("/images/LandingBackground.png")`,
-          backgroundSize: "auto 100%",
-          opacity,
-        }}
-      >
-        <p className="text-gray-400">by Students, for Everyone.</p>
-        <h1 className="text-4xl md:text-6xl font-bold mt-4">Hi, Build</h1>
-        <h1 className="text-4xl md:text-6xl font-bold mt-4">with Waffle</h1>
-        <p className="mt-4 max-w-xl text-sm md:text-base text-gray-300">
-          We aren’t a club. We are a call to action. For the misfits, the quiet
-          builders, the kids with half-finished dreams. Thanks for giving this a shot.
-        </p>
 
-        <div className="mt-6 flex gap-4">
-          <Link
-            href="/join"
-            className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200"
-          >
-            JOIN US
-          </Link>
-          <Link
-            href="/later"
-            className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200"
-          >
-            Later
-          </Link>
-        </div>
-        <p className="mt-4 px-20 text-sm text-gray-400">200+ Students</p>
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent pointer-events-none z-20" />
-      </motion.section>
+      {/* HERO SECTION */}
+      <div ref={heroRef} className="relative min-h-screen overflow-hidden">
+        <motion.div
+          className="absolute inset-0 z-0 bg-no-repeat bg-right-top"
+          style={{
+            backgroundImage: `url("/images/LandingBackground.png")`,
+            backgroundSize: "auto 1408px",
+            opacity: heroOpacity,
+          }}
+        />
+        <section className="relative z-10 px-6 md:px-40 pt-32 pb-16 min-h-screen flex flex-col justify-center">
+          <p className="text-gray-400">by Students, for Everyone.</p>
+          <h1 className="text-4xl md:text-6xl font-bold mt-4">Hi, Build</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mt-4">with Waffle</h1>
+          <p className="mt-4 max-w-xl text-sm md:text-base text-gray-300">
+            We aren’t a club. We are a call to action. For the misfits, the quiet
+            builders, the kids with half-finished dreams. Thanks for giving this a shot.
+          </p>
+          <div className="mt-6 flex gap-4">
+            <Link href="/join" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">JOIN US</Link>
+            <Link href="/later" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">Later</Link>
+          </div>
+          <p className="mt-4 px-20 text-sm text-gray-400">200+ Students</p>
+          <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent pointer-events-none z-20" />
+        </section>
+      </div>
 
       {/* ABOUT SECTION */}
-      <section
-        id="about"
-        className="relative min-h-screen px-6 py-24 overflow-hidden"
-        style={{
-          backgroundImage: 'url("/images/Startchapter.png")',
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-0 bg-black/50 z-0" />
-        <div className="relative z-10 max-w-3xl ml-auto text-right pr-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">About Waffel</h2>
-          <p className="italic text-sm mt-2 text-white">You're the main character</p>
-          <div className="mt-4 max-w-md text-sm text-right ml-auto pr-2 leading-relaxed space-y-2 text-white">
-            <p>Ever felt like you didn’t belong?</p>
-            <p>
-              We did too. Like you had ideas, but no place to start? That’s why we’re building this.
-              Not a tech cult. Not a startup grindset. Just a space to build whatever the hell you want.
-              Day zero begins July.
-            </p>
-            <p>🧇#wafflespace</p>
+      <div className="relative min-h-screen overflow-hidden">
+        <motion.div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url("/images/Startchapter.png")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: aboutOpacity,
+          }}
+        />
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent pointer-events-none z-20" />
+        <section className="relative z-30 px-6 py-24 min-h-screen flex items-center">
+          <div className="max-w-3xl ml-auto text-right pr-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-white">About Waffel</h2>
+            <p className="italic text-sm mt-2 text-white">You're the main character</p>
+            <div className="mt-4 max-w-md text-sm text-right ml-auto pr-2 leading-relaxed space-y-2 text-white">
+              <p>Ever felt like you didn’t belong?</p>
+              <p>
+                We did too. Like you had ideas, but no place to start? That’s why we’re building this.
+                Not a tech cult. Not a startup grindset. Just a space to build whatever the hell you want.
+                Day zero begins July.
+              </p>
+              <p>🧇#wafflespace</p>
+            </div>
+            <Link href="/about" className="mt-8 inline-block text-white underline underline-offset-4 hover:text-gray-300 transition duration-200">Know more</Link>
           </div>
-
-          <Link
-            href="/about"
-            className="mt-8 inline-block text-white underline underline-offset-4 hover:text-gray-300 transition duration-200"
-          >
-            Know more
-          </Link>
-        </div>
-      </section>
-
+        </section>
+      </div>
       
 {/* Events Section */}
 <section className="bg-black text-white py-12 px-4">
