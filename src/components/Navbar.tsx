@@ -4,10 +4,10 @@ import Link from "next/link";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "#about" },
   { label: "Projects", href: "/projects" },
   { label: "Events", href: "/waffelevents" },
-  { label: "Start a Chapter", href: "#about" },
+  { label: "Start a Chapter", href: "/about" },
   { label: "Socials", href: "#socials" },
 ];
 

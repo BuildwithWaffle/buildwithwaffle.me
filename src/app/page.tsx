@@ -41,7 +41,7 @@ export default function Home() {
           </p>
           <div className="mt-6 flex gap-4">
             <Link href="/join" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">JOIN US</Link>
-            <Link href="/later" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">Later</Link>
+            <Link href="/later" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">Letter</Link>
           </div>
           <p className="mt-4 px-20 text-sm text-gray-400">200+ Students</p>
           <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent pointer-events-none z-20" />
