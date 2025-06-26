@@ -35,45 +35,49 @@ export default function Navbar() {
         {/* Animated Hamburger Icon (top-right) */}
         <button
           onClick={toggleMenu}
-          className="relative w-8 h-8 flex flex-col justify-center items-center gap-1 group z-50"
+          className="relative w-8 h-8 flex flex-col justify-center items-center gap-1 z-50"
         >
-          {/* Line 1 */}
           <span
-            className={`h-0.5 w-6 bg-white rounded transition-transform duration-300 ease-in-out ${isOpen ? "rotate-45 translate-y-1.5" : ""
-              }`}
-          ></span>
-          {/* Line 2 */}
+            className={`h-0.5 w-6 bg-white rounded transition-transform duration-300 ease-in-out ${
+              isOpen ? "rotate-45 translate-y-1.5" : ""
+            }`}
+          />
           <span
-            className={`h-0.5 w-6 bg-white rounded transition-opacity duration-300 ease-in-out ${isOpen ? "opacity-0" : "opacity-100"
-              }`}
-          ></span>
-          {/* Line 3 */}
+            className={`h-0.5 w-6 bg-white rounded transition-opacity duration-300 ease-in-out ${
+              isOpen ? "opacity-0" : "opacity-100"
+            }`}
+          />
           <span
-            className={`h-0.5 w-6 bg-white rounded transition-transform duration-300 ease-in-out ${isOpen ? "-rotate-45 -translate-y-1.5" : ""
-              }`}
-          ></span>
+            className={`h-0.5 w-6 bg-white rounded transition-transform duration-300 ease-in-out ${
+              isOpen ? "-rotate-45 -translate-y-1.5" : ""
+            }`}
+          />
         </button>
       </div>
 
-      {/* Dropdown menu with fade/slide */}
-      {/* Dropdown menu with drop-down & pull-up animation */}
+      {/* Dropdown Menu */}
       <div
-        className={`absolute right-4 top-20 w-48 bg-black rounded-md shadow-lg px-6 py-4 overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-96 opacity-100 scale-100" : "max-h-0 opacity-0 scale-95 pointer-events-none"
-          }`}
+        className={`absolute right-4 top-20 w-48 bg-black rounded-md shadow-lg px-6 py-4 overflow-hidden transition-all duration-500 ease-in-out ${
+          isOpen
+            ? "max-h-96 opacity-100 scale-100"
+            : "max-h-0 opacity-0 scale-95 pointer-events-none"
+        }`}
       >
-        <div className="space-y-4 transition-opacity duration-300">
+        <div className="space-y-3 transition-opacity duration-300">
           {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              onClick={closeMenu}
-              className={`${item.isCTA
-                  ? "flex items-center justify-center bg-white text-black px-4 py-2 rounded-full hover:bg-[#7736F8] hover:text-white transition w-full"
-                  : "block text-center text-sm font-medium hover:text-[#7736F8] transition-colors duration-200"
+            <div key={item.label} className="flex justify-center">
+              <Link
+                href={item.href}
+                onClick={closeMenu}
+                className={`${
+                  item.isCTA
+                    ? "inline-block bg-white text-black text-sm px-3 py-1.5 rounded-full hover:bg-[#7736F8] hover:text-white transition text-center"
+                    : "block text-center text-sm font-medium hover:text-[#7736F8] transition-colors duration-200"
                 }`}
-            >
-              {item.label}
-            </Link>
+              >
+                {item.label}
+              </Link>
+            </div>
           ))}
         </div>
       </div>
