@@ -21,7 +21,6 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3 bg-black/80 text-white shadow-md">
       <div className="flex justify-between items-center">
-        <Link href="/">
           <Image
             src="/images/Logo.jpg"
             alt="Logo"
@@ -29,8 +28,6 @@ export default function Navbar() {
             height={50}
             className="h-12 w-auto object-contain"
           />
-        </Link>
-
         <button
           onClick={toggleMenu}
           className="relative w-8 h-8 flex flex-col justify-center items-center gap-1 z-50"
