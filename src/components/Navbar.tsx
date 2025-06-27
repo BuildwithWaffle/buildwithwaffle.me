@@ -21,10 +21,9 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3 bg-black/80 text-white shadow-md">
       <div className="flex justify-between items-center">
-        {/* Logo (top-left) */}
         <Link href="/">
           <Image
-            src="/images/Logo1.png"
+            src="/images/Logo.jpg"
             alt="Logo"
             width={50}
             height={50}
@@ -32,7 +31,6 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Animated Hamburger Icon (top-right) */}
         <button
           onClick={toggleMenu}
           className="relative w-8 h-8 flex flex-col justify-center items-center gap-1 z-50"
@@ -54,8 +52,6 @@ export default function Navbar() {
           />
         </button>
       </div>
-
-      {/* Dropdown Menu */}
       <div
         className={`absolute right-4 top-20 w-48 bg-black rounded-md shadow-lg px-6 py-4 overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen

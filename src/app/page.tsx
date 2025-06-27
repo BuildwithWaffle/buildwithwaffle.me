@@ -1,4 +1,5 @@
 "use client";
+
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,9 +15,7 @@ export default function Home() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-
   const aboutOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
   return (
     <main className="bg-black text-white">
       <Navbar />
@@ -69,7 +68,7 @@ export default function Home() {
             opacity: aboutOpacity,
           }}
         />
-        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="absolute inset-0 bg-black/20 z-10" />
         <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent pointer-events-none z-20" />
         <section className="relative z-30 px-6 py-24 min-h-screen flex items-center">
           <div className="max-w-3xl ml-auto text-right pr-10">
@@ -244,7 +243,7 @@ export default function Home() {
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover"
-                    />
+                      />
                   </div>
                   <p className="text-sm font-semibold mb-1 text-center">{project.title}</p>
                   <p className="text-xs text-gray-400">Made by - {project.maker}</p>
@@ -257,7 +256,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-orange-400 text-xs underline mb-2"
-                  >
+                    >
                     {project.github}
                   </a>
                   <p className="text-xs">Made by - {project.maker}</p>
