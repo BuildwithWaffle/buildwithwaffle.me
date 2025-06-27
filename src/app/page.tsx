@@ -15,7 +15,6 @@ export default function Home() {
     offset: ["start start", "end start"],
   });
 
-  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const aboutOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
@@ -25,8 +24,6 @@ export default function Home() {
         {/* HERO SECTION */}
         <div id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
           <section className="relative z-10 px-6 md:px-20 pt-32 pb-16 min-h-screen flex flex-col md:flex-row items-center justify-between gap-10">
-
-            {/* Left Content */}
             <div className="md:w-1/2">
               <p className="text-gray-400">by Students, for Everyone.</p>
               <h1 className="text-4xl md:text-6xl font-bold mt-4">Hi, Build</h1>
@@ -36,19 +33,23 @@ export default function Home() {
                 builders, the kids with half-finished dreams. Thanks for giving this a shot.
               </p>
               <div className="mt-6 flex gap-4 flex-wrap">
-                <Link href="/join" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">JOIN US</Link>
-                <Link href="/later" className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">Letter</Link>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">
+                  JOIN US
+                </a>
+                <Link
+                  href="/letter"
+                  className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200">
+                  Letter
+                </Link>
               </div>
               <p className="mt-4 text-sm text-gray-400">200+ Students</p>
             </div>
             <div className="w-full md:w-1/2 h-64 md:h-[480px] relative">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover rounded-lg"
-              >
+              <video autoPlay muted loop playsInline className="w-full h-full object-cover rounded-lg">
                 {/* <source src="/videos/bg_video.mp4" type="video/mp4" /> */}
                 Your browser does not support the video tag.
               </video>
@@ -72,7 +73,7 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent pointer-events-none z-20" />
         <section className="relative z-30 px-6 py-24 min-h-screen flex items-center">
           <div className="max-w-3xl ml-auto text-right pr-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">About Waffel</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white">About waffle</h2>
             <p className="italic text-sm mt-2 text-white">You're the main character</p>
             <div className="mt-4 max-w-md text-sm text-right ml-auto pr-2 leading-relaxed space-y-2 text-white">
               <p>Ever felt like you didn’t belong?</p>
@@ -88,85 +89,105 @@ export default function Home() {
         </section>
       </div>
 
-      {/* Events Section */}
-      <section className="bg-black text-white py-12 px-4">
+      {/* EVENTS SECTION */}
+      <section className="text-white py-14 px-4 relative z-0 overflow-hidden" id="events">
         <h2 className="text-3xl font-bold mb-6 text-center">Events</h2>
-
-        <Swiper
-          spaceBetween={20}
-          slidesPerView={1}
-          breakpoints={{
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          autoplay={{ delay: 2500, disableOnInteraction: false }}
-          loop={true}
-          modules={[Autoplay]}
-        >
-          {[
-            {
-              date: "Sunday, April 12, 2025",
-              location: "Amity Lucknow",
-              time: "12PM–5PM",
-              venue: "Auditorium",
-              action: "Register Now",
-            },
-            {
-              date: "Monday, May 5, 2025",
-              location: "IIT Kanpur",
-              time: "2PM–6PM",
-              venue: "Main Hall",
-              action: "View Gallery",
-            },
-            {
-              date: "Wednesday, June 18, 2025",
-              location: "BITS Pilani",
-              time: "11AM–4PM",
-              venue: "Innovation Lab",
-              action: "Register Now",
-            },
-            {
-              date: "Friday, July 7, 2025",
-              location: "NIT Trichy",
-              time: "1PM–6PM",
-              venue: "Auditorium",
-              action: "View Gallery",
-            },
-            {
-              date: "Saturday, August 15, 2025",
-              location: "IIT Delhi",
-              time: "10AM–3PM",
-              venue: "Startup Hall",
-              action: "Register Now",
-            },
-            {
-              date: "Sunday, September 10, 2025",
-              location: "Amity Noida",
-              time: "12PM–5PM",
-              venue: "Auditorium",
-              action: "View Gallery",
-            },
-          ].map((event, index) => (
-            <SwiperSlide key={index}>
-              <div className="bg-zinc-900 rounded-xl p-4 border border-zinc-700 h-full">
-                <div className="bg-orange-500 h-48 rounded-md mb-4"></div>
-                <p className="text-sm">{event.date}</p>
-                <p className="text-xs text-gray-400">
-                  Location: {event.location} | Time: {event.time}
-                </p>
-                <p className="text-xs text-gray-400">Venue: {event.venue}</p>
-                <button className="mt-2 bg-orange-500 text-black px-4 py-1 rounded-full text-sm">
-                  {event.action}
-                </button>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="relative w-full">
+          <Swiper
+            className="!overflow-visible"
+            spaceBetween={20}
+            slidesPerView={1}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            loop={true}
+            modules={[Autoplay]}
+          >
+            {[
+              {
+                date: "Sunday, April 12, 2025",
+                location: "Amity Lucknow",
+                image: "/events/EventPic-1.jpg",
+                time: "12PM–5PM",
+                venue: "Auditorium",
+                action: "Register Now",
+                link: "#",
+              },
+              {
+                date: "Monday, May 5, 2025",
+                location: "IIT Kanpur",
+                image: "/events/EventPic-2.jpg",
+                time: "2PM–6PM",
+                venue: "Main Hall",
+                action: "View Gallery",
+                link: "/waffleevents",
+              },
+              {
+                date: "Wednesday, June 18, 2025",
+                location: "BITS Pilani",
+                image: "/events/EventPic-3.jpg",
+                time: "11AM–4PM",
+                venue: "Innovation Lab",
+                action: "Register Now",
+                link: "#",
+              },
+              {
+                date: "Friday, July 7, 2025",
+                location: "NIT Trichy",
+                image: "/events/EventPic-4.jpg",
+                time: "1PM–6PM",
+                venue: "Auditorium",
+                action: "View Gallery",
+                link: "#",
+              },
+              {
+                date: "Saturday, August 15, 2025",
+                location: "IIT Delhi",
+                image: "/events/EventPic-5.jpg",
+                time: "10AM–3PM",
+                venue: "Startup Hall",
+                action: "Register Now",
+                link: "#",
+              },
+              {
+                date: "Sunday, September 10, 2025",
+                location: "Amity Noida",
+                image: "/events/EventPic-6.jpg",
+                time: "12PM–5PM",
+                venue: "Auditorium",
+                action: "View Gallery",
+                link: "#",
+              },
+            ].map((event, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-zinc-900 rounded-xl p-4 border border-zinc-700 h-full hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out relative z-10">
+                  <img
+                    src={event.image}
+                    alt={`Event at ${event.location}`}
+                    className="h-48 w-full object-contain rounded-md mb-4 bg-black"
+                  />
+                  <p className="text-sm">{event.date}</p>
+                  <p className="text-xs text-gray-400">
+                    Location: {event.location} | Time: {event.time}
+                  </p>
+                  <p className="text-xs text-gray-400">Venue: {event.venue}</p>
+                  <a href={event.link} target="_blank" rel="noopener noreferrer">
+                    <button className="cursor-pointer hover:scale-110 hover:shadow-xl transition duration-300 mt-2 bg-orange-500 text-black px-4 py-1 rounded-full text-sm">
+                      {event.action}
+                    </button>
+                  </a>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </section>
 
 
-      {/* Recent Projects Section */}
 
+      {/* Recent Projects Section */}
       <section className="bg-black text-white py-12 px-4">
         <h2 className="text-3xl font-bold mb-6 text-center">Recent Projects</h2>
         <div className="grid md:grid-cols-3 gap-6">
