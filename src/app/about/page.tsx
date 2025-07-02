@@ -16,7 +16,7 @@ export default function WaffleChapterIntro() {
           marketers, and dreamers build real things together.
         </p>
         <p className="text-gray-300 mb-2">
-          It's not a club. It's not a society. It's a movement.
+          It&apos;s not a club. It&apos;s not a society. It&apos;s a movement.
         </p>
         <p className="text-gray-300 mb-8">
           A movement you start — to give your college a real playground.
@@ -41,8 +41,8 @@ export default function WaffleChapterIntro() {
         <div className="absolute w-full h-full flex items-center justify-center">
           <div className="relative w-full h-full">
             {[
-              "You're in a college",
-              "You've built something (or want to)",
+              "You&apos;re in a college",
+              "You&apos;ve built something (or want to)",
               "You are ready to bring 10 misfits together",
               "No CGPA filters",
               "Just real energy",
@@ -77,7 +77,7 @@ export default function WaffleChapterIntro() {
         <ol className="space-y-6 text-left text-gray-300">
           <li>
             <strong className="text-white">01.</strong> Tell us who you are, what you care about,
-            why you're doing this.
+            why you&apos;re doing this.
           </li>
           <li>
             <strong className="text-white">02.</strong> Get a call from us. We’ll vibe-check, answer
@@ -92,7 +92,7 @@ export default function WaffleChapterIntro() {
 
       <section className="text-center text-gray-400">
         <p className="mb-2">Host your first event and start it off 🎉</p>
-        <p className="mb-8">Don't forget to share it with us!</p>
+        <p className="mb-8">Don&apos;t forget to share it with us!</p>
         <Link href="#start" className="text-blue-400 underline">
           Ready to start your chapter?
         </Link>
