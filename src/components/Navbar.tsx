@@ -22,7 +22,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3  text-white bg-transparent ">
       <div className="flex justify-between items-center">
           <Image
-            src="/images/Logo.jpg"
+            src="/images/logo.png"
             alt="Logo"
             width={50}
             height={50}
