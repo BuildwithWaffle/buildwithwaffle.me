@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Event from "@/components/Event";
 import RecentProjects from "@/components/RecentProjects";
+import page from "@/postyourproject/page";
 
 export default function Home() {
   const heroRef = useRef(null);

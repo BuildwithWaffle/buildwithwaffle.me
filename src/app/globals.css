@@ -60,3 +60,13 @@ body {
   border-bottom-color: rgb(255, 102, 0);;
   border-right-color: transparent;
 }
+
+/* Fix autofill background color for dark themes */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px #000 inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 9999s ease-in-out 0s;
+}

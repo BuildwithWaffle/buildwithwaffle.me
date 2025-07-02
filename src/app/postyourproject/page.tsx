@@ -1,9 +1,7 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 
-
 const App: React.FC = () => {
-  // State for form fields (though not used for submission in this example, good practice)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,8 +10,9 @@ const App: React.FC = () => {
     projectDetails: '',
   });
 
-  // Handle input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -21,17 +20,11 @@ const App: React.FC = () => {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Prepare the data to send to Web3Forms
     const submissionData = {
       access_key: "254485ab-0966-4ec0-bdf6-e79855bebfe4",
-      name: formData.name,
-      email: formData.email,
-      companyName: formData.companyName,
-      service: formData.service,
-      projectDetails: formData.projectDetails,
+      ...formData,
     };
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -61,17 +54,16 @@ const App: React.FC = () => {
   };
 
   return (
-    // Main container with neutral-900 background
-    <div className="min-h-screen bg-[#101010] text-white flex flex-col items-center justify-center p-4 font-sans text-sm md:text-base">
+    <div className="min-h-screen bg-[#101010] mt-20 text-white flex flex-col items-center justify-center p-4 font-sans text-sm md:text-base">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <span className="inline-block bg-neutral-700 text-gray-400 text-xs px-3 py-1 rounded-full mb-4">
-          Lets build
+        <span className="inline-block text-sm md:text-base font-medium px-5 py-2 md:px-6 md:py-2.5 text-white rounded-full bg-gradient-to-r from-white/10 via-white/5 to-white/10 border border-white/20 backdrop-blur-md hover:bg-white/10 transition duration-300 shadow-md">
+          Let's build
         </span>
-        <h1 className="text-2xl md:text-3xl font-bold mb-4">
-          We are Here To <span className="text-white">Help</span> {/* "Help" text is now white */}
+        <h1 className="text-4xl md:text-6xl font-semibold mt-8 leading-tight">
+          We're Here To <span className="inline-block px-2 bg-white/10 rounded-md">Help</span>
         </h1>
-        <p className="text-gray-400 text-sm md:text-base">
+        <p className="text-gray-400 text-sm md:text-base mt-4">
           Empower your team to complete projects with excellence.
         </p>
       </div>
@@ -79,7 +71,7 @@ const App: React.FC = () => {
       {/* Form Container */}
       <div className="bg-black p-4 sm:p-6 md:p-8 rounded-xl shadow-md w-full max-w-xl">
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Name Input */}
+          {/* Name */}
           <div>
             <label htmlFor="name" className="block text-gray-300 text-sm font-medium mb-2">
               Name <span className="text-red-500">*</span>
@@ -91,12 +83,12 @@ const App: React.FC = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="David Johnson"
-              className="w-full px-3 py-1.5 rounded-none bg-[#000000] border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
               required
             />
           </div>
 
-          {/* Email Input */}
+          {/* Email */}
           <div>
             <label htmlFor="email" className="block text-gray-300 text-sm font-medium mb-2">
               Email <span className="text-red-500">*</span>
@@ -108,12 +100,12 @@ const App: React.FC = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="example@email.com"
-              className="w-full px-3 py-1.5 rounded-none bg-[#000000] border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
               required
             />
           </div>
 
-          {/* Company Name Input */}
+          {/* Company Name */}
           <div className="md:col-span-2">
             <label htmlFor="companyName" className="block text-gray-300 text-sm font-medium mb-2">
               Company Name <span className="text-red-500">*</span>
@@ -125,12 +117,12 @@ const App: React.FC = () => {
               value={formData.companyName}
               onChange={handleChange}
               placeholder="Ex. StaticMania"
-              className="w-full px-3 py-1.5 rounded-none bg-[#000000] border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
               required
             />
           </div>
 
-          {/* Select Service Dropdown */}
+          {/* Service Select */}
           <div className="md:col-span-2">
             <label htmlFor="service" className="block text-gray-300 text-sm font-medium mb-2">
               Select Service <span className="text-red-500">*</span>
@@ -141,10 +133,10 @@ const App: React.FC = () => {
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full px-3 py-1.5 rounded-none bg-[#000000] border-b border-neutral-700 focus:outline-none focus:border-white text-white appearance-none pr-8"
+                className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white appearance-none pr-8"
                 required
               >
-                <option value="" disabled>Select Your Service</option>
+                <option value="" disabled hidden>Select Your Service</option>
                 <option value="web-development">Web Development</option>
                 <option value="mobile-app-development">Mobile App Development</option>
                 <option value="ui-ux-design">UI/UX Design</option>
@@ -152,14 +144,14 @@ const App: React.FC = () => {
                 <option value="other">Other</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <svg className="fill-current h-4 w-4" viewBox="0 0 20 20">
                   <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                 </svg>
               </div>
             </div>
           </div>
 
-          {/* Project Details Textarea */}
+          {/* Project Details */}
           <div className="md:col-span-2">
             <label htmlFor="projectDetails" className="block text-gray-300 text-sm font-medium mb-2">
               Project Details
@@ -171,11 +163,11 @@ const App: React.FC = () => {
               onChange={handleChange}
               placeholder="Tell us more about your project."
               rows={5}
-              className="w-full px-3 py-1.5 rounded-none bg-[#000000] border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400 resize-y"
-            ></textarea>
+              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400 resize-y"
+            />
           </div>
 
-          {/* Submit Button and Contact Info */}
+          {/* Submit Button & Message */}
           <div className="md:col-span-2 flex flex-col sm:flex-row items-center justify-between mt-4">
             <button
               type="submit"
