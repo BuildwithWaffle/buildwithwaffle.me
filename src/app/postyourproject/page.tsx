@@ -54,7 +54,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#101010] mt-20 text-white flex flex-col items-center justify-center p-4 font-sans text-sm md:text-base">
+    <div className="min-h-screen mt-20 text-white flex flex-col items-center justify-center p-4 font-sans text-sm md:text-base">
       {/* Header Section */}
       <div className="text-center mb-12">
         <span className="inline-block text-sm md:text-base font-medium px-5 py-2 md:px-6 md:py-2.5 text-white rounded-full bg-gradient-to-r from-white/10 via-white/5 to-white/10 border border-white/20 backdrop-blur-md hover:bg-white/10 transition duration-300 shadow-md">
@@ -69,7 +69,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Form Container */}
-      <div className="bg-black p-4 sm:p-6 md:p-8 rounded-xl shadow-md w-full max-w-xl">
+      <div className="bg-black p-4 sm:p-6 md:p-8 rounded-xl shadow-md w-full max-w-xl my-8 md:my-12">
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Name */}
           <div>
