@@ -4,15 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
-import { useScroll, useTransform } from "framer-motion";
 
 export default function Event() {
   const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const aboutOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <section

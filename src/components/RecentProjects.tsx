@@ -1,15 +1,9 @@
 "use client";
 import { useRef } from "react";
-import { useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 
 export default function Projects() {
   const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-    const aboutOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const projects = [
     {
       image: "/images/project1.jpg",

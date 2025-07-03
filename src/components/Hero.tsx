@@ -28,7 +28,7 @@ export default function Hero() {
         </p>
         <div className="mt-6 flex gap-4 flex-wrap justify-center xl:justify-start">
           <a
-            href="#"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200"
@@ -70,7 +70,7 @@ export default function Hero() {
             </p>
             <div className="mt-6  flex gap-4 flex-wrap justify-center xl:justify-start">
               <a
-                href="#"
+                href="https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white text-black hover:bg-[#7736F8] transition text-center font-semibold px-6 py-2 rounded-full hover:text-white transition duration-200"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -8,70 +8,140 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Builds", href: "/projects" },
   { label: "Events", href: "/waffleevents" },
-  { label: "Socials", href: "#socials" },
-  { label: "Join Us", href: "#join", isCTA: true },
+  { label: "Letter", href: "/letter" },
+  { label: "Join Us", href: "https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187", isCTA: true },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3  text-white bg-transparent ">
-      <div className="flex justify-between items-center">
-          <Image
-            src="/images/logo.png"
-            alt="Logo"
-            width={50}
-            height={50}
-            className="h-12 w-auto object-contain"
-          />
-        <button
-          onClick={toggleMenu}
-          className="relative w-8 h-8 flex flex-col justify-center items-center gap-1 z-50"
-        >
-          <span
-            className={`h-0.5 w-6 bg-white rounded transition-transform duration-300 ease-in-out ${
-              isOpen ? "rotate-45 translate-y-1.5" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-white rounded transition-opacity duration-300 ease-in-out ${
-              isOpen ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-white rounded transition-transform duration-300 ease-in-out ${
-              isOpen ? "-rotate-45 -translate-y-1.5" : ""
-            }`}
-          />
-        </button>
-      </div>
-      <div
-        className={`absolute right-4 top-20 w-48 bg-black rounded-md shadow-lg px-6 py-4 overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen
-            ? "max-h-96 opacity-100 scale-100"
-            : "max-h-0 opacity-0 scale-95 pointer-events-none"
-        }`}
-      >
-        <div className="space-y-3 transition-opacity duration-300">
-          {navItems.map((item) => (
-            <div key={item.label} className="flex justify-center">
-              <Link
-                href={item.href}
-                onClick={closeMenu}
-                className={`${
-                  item.isCTA
-                    ? "inline-block bg-white text-black text-sm px-3 py-1.5 rounded-full hover:bg-[#7736F8] hover:text-white transition text-center"
-                    : "block text-center text-sm font-medium hover:text-[#7736F8] transition-colors duration-200"
-                }`}
-              >
-                {item.label}
-              </Link>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+      isScrolled ? 'px-4 py-3' : 'px-0 py-0'
+    }`}>
+      <div className={`${isScrolled ? 'max-w-7xl mx-auto' : 'w-full'}`}>
+        <div className="relative">
+          {/* Dynamic Background */}
+          <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+            isScrolled 
+              ? 'bg-black/20 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl' 
+              : 'bg-black/80 backdrop-blur-md border-b border-gray-800'
+          }`}></div>
+          
+          {/* Content */}
+          <div className={`relative flex justify-between items-center transition-all duration-500 ease-in-out ${
+            isScrolled ? 'px-6 py-3' : 'px-6 py-2'
+          }`}>
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-2">
+              <Image
+                src="/images/logo.png"
+                alt="Waffle"
+                width={32}
+                height={32}
+                className="rounded-lg hover:scale-105 transition-transform duration-200"
+              />
+              <span className="text-white font-bold text-xl">Waffle</span>
+            </Link>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => {
+                const isExternal = item.href.startsWith('http');
+                const Component = isExternal ? 'a' : Link;
+                const linkProps = isExternal 
+                  ? { href: item.href, target: '_blank', rel: 'noopener noreferrer' }
+                  : { href: item.href };
+                
+                return (
+                  <Component
+                    key={item.label}
+                    {...linkProps}
+                    className={`${
+                      item.isCTA
+                        ? `px-4 py-2 backdrop-blur-sm border rounded-full transition-all duration-300 hover:scale-105 ${
+                            isScrolled 
+                              ? 'bg-white/10 border-white/20 text-white hover:bg-white hover:text-black' 
+                              : 'bg-white text-black border-white hover:bg-gray-200 hover:text-black'
+                          }`
+                        : "text-white/80 hover:text-white transition-colors duration-200 relative group"
+                    }`}
+                  >
+                    {item.label}
+                    {!item.isCTA && (
+                      <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                        isScrolled ? 'bg-white' : 'bg-[#7736F8]'
+                      }`}></span>
+                    )}
+                  </Component>
+                );
+              })}
             </div>
-          ))}
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`md:hidden p-2 rounded-lg backdrop-blur-sm transition-all duration-300 ${
+                isScrolled 
+                  ? 'bg-white/10 border border-white/20' 
+                  : 'bg-white/10'
+              }`}
+            >
+              <div className="w-6 h-6 flex flex-col justify-center items-center">
+                <span className={`h-0.5 w-6 bg-white rounded transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+                <span className={`h-0.5 w-6 bg-white rounded transition-all duration-300 ${isOpen ? 'opacity-0' : 'my-1'}`}></span>
+                <span className={`h-0.5 w-6 bg-white rounded transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+              </div>
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {isOpen && (
+            <div className={`md:hidden absolute top-full left-0 right-0 mt-2 backdrop-blur-md border overflow-hidden transition-all duration-300 ${
+              isScrolled 
+                ? 'bg-black/20 border-white/10 rounded-2xl' 
+                : 'bg-black/95 border-gray-800 rounded-lg'
+            }`}>
+              <div className="p-4 space-y-2">
+                {navItems.map((item) => {
+                  const isExternal = item.href.startsWith('http');
+                  const Component = isExternal ? 'a' : Link;
+                  const linkProps = isExternal 
+                    ? { href: item.href, target: '_blank', rel: 'noopener noreferrer' }
+                    : { href: item.href };
+                  
+                  return (
+                    <Component
+                      key={item.label}
+                      {...linkProps}
+                      onClick={() => setIsOpen(false)}
+                      className={`block py-2 text-center transition-all duration-300 ${
+                        item.isCTA
+                          ? `w-full py-3 backdrop-blur-sm border rounded-lg text-white ${
+                              isScrolled 
+                                ? 'bg-white/10 border-white/20 hover:bg-white hover:text-black' 
+                                : 'bg-white text-black hover:bg-gray-200'
+                            }`
+                          : "text-white/80 hover:text-white"
+                      }`}
+                    >
+                      {item.label}
+                    </Component>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </nav>
