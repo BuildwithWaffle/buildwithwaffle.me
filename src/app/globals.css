@@ -70,3 +70,18 @@ select:-webkit-autofill {
   -webkit-text-fill-color: #fff !important;
   transition: background-color 9999s ease-in-out 0s;
 }
+
+/* Custom utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}

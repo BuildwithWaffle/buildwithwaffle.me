@@ -8,21 +8,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 const Footer = () => {
   return (
     <footer className="bg-black text-white px-6 md:px-20 py-12">
-      <div className="max-w-7xl mx-auto mb-6">
-        <div className="flex items-center justify-between flex-wrap gap-4 text-sm font-medium">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/images/logo.png"
-              alt="Waffle Logo"
-              width={24}
-              height={24}
-              className="w-6 h-6 rounded"
-            />
-            <span className="text-gray-300">›</span>
-            <span className="text-white font-light">Quick Links</span>
-          </div>
-        </div>
-      </div>
+      
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
 
