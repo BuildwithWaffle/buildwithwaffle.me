@@ -6,9 +6,9 @@ import Image from "next/image";
 
 const navItems = [
   { label: "About", href: "#about", icon: "📖" },
-  { label: "Builds", href: "/projects", icon: "🚀" },
-  { label: "Events", href: "/waffleevents", icon: "🎉" },
-  { label: "Letter", href: "/letter", icon: "💌" },
+  { label: "Builds", href: "/Projects", icon: "🚀" },
+  { label: "Events", href: "/Events", icon: "🎉" },
+  { label: "Letter", href: "/Letter", icon: "💌" },
   { label: "Join Us", href: "#join", icon: "👥", isCTA: true },
 ];
 

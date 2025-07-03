@@ -264,7 +264,7 @@ export default function Projects() {
         {/* Check Out More */}
         <div className="text-center">
           <Link
-            href="/projects"
+            href="/Projects"
             className="inline-flex items-center gap-2 bg-gray-800/50 hover:bg-gray-700/60 backdrop-blur-sm px-6 py-3 rounded-xl font-semibold transition-colors duration-200 border border-gray-700/30 hover:border-gray-600/50"
           >
             Check Out More Projects

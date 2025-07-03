@@ -71,7 +71,7 @@ export default function AboutUs() {
               Join the Movement
             </a>
             <a
-              href="/letter"
+              href="/Letter"
               className="border border-white/20 hover:bg-white/5 text-white px-6 py-3 rounded-full font-semibold transition-all duration-200"
             >
               Read Our Letter

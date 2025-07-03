@@ -5,89 +5,179 @@ import { FaInstagram, FaLinkedin, FaYoutube, FaDiscord } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="text-white px-6 md:px-20 py-12">
-      
-      
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="bg-black/80 backdrop-blur-sm border-t border-gray-800/50 text-white px-6 md:px-20 py-12" role="contentinfo">
+      <div className="max-w-7xl mx-auto">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
 
-        {/* Community */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Community</h3>
-          <ul className="space-y-2 text-sm text-gray-400">
-            <li><a href="/about" className="hover:text-white transition">About Waffle</a></li>
-            <li><a href="/letter" className="hover:text-white transition">Our Letter</a></li>
-            <li><a href="/waffleevents" className="hover:text-white transition">Events</a></li>
-            <li><a href="/postyourproject" className="hover:text-white transition">Post Your Project</a></li>
-          </ul>
-        </div>
+          {/* Brand Section */}
+          <div className="md:col-span-1">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-2xl">🧇</span>
+              <h3 className="text-xl font-bold">Build with Waffle</h3>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              India's first student-led creator movement. For the misfits, the quiet builders, 
+              the kids with half-finished dreams.
+            </p>
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://discord.gg/buildwithwaffle" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#7736F8] transition-colors duration-200"
+                aria-label="Join our Discord"
+              >
+                <FaDiscord className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://twitter.com/buildwithwaffle" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#7736F8] transition-colors duration-200"
+                aria-label="Follow us on Twitter"
+              >
+                <FaXTwitter className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://instagram.com/buildwithwaffle" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#7736F8] transition-colors duration-200"
+                aria-label="Follow us on Instagram"
+              >
+                <FaInstagram className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://linkedin.com/company/buildwithwaffle" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#7736F8] transition-colors duration-200"
+                aria-label="Connect on LinkedIn"
+              >
+                <FaLinkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://youtube.com/@buildwithwaffle" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#7736F8] transition-colors duration-200"
+                aria-label="Subscribe to our YouTube"
+              >
+                <FaYoutube className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
 
-        {/* Team */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Team</h3>
-          <ul className="space-y-2 text-sm text-gray-400">
-            <li><a href="/founders" className="hover:text-white transition">Founders</a></li>
-            <li><a href="/mentors" className="hover:text-white transition">Mentors</a></li>
-            <li><a href="/contributors" className="hover:text-white transition">Contributors</a></li>
-            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Join Our Team</a></li>
-          </ul>
-        </div>
+          {/* Community */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white">Community</h3>
+            <nav>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link href="/AboutUs" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    About Waffle
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/Letter" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Our Letter
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/Events" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Events
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/PostYourProject" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Post Your Project
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
 
-        {/* Build */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Build</h3>
-          <ul className="space-y-2 text-sm text-gray-400">
-            <li><a href="/projects" className="hover:text-white transition">Student Projects</a></li>
-            <li><a href="/chapters" className="hover:text-white transition">Start a Chapter</a></li>
-            <li><a href="/resources" className="hover:text-white transition">Resources</a></li>
-            <li><Link href="/" className="hover:text-white transition">Home</Link></li>
-          </ul>
-        </div>
+          {/* Resources */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white">Resources</h3>
+            <nav>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link href="/Projects" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Projects
+                  </Link>
+                </li>
+                <li>
+                  <a 
+                    href="https://docs.buildwithwaffle.me" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                  >
+                    Documentation
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://blog.buildwithwaffle.me" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                  >
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="mailto:hello@buildwithwaffle.me"
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                  >
+                    Contact Us
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
 
-        {/* Get in Touch */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Get in Touch</h3>
-          <p className="text-sm text-gray-400">
-            Ready to build something amazing? Join our community of student creators and builders.{" "}
-            <a
-              href="mailto:buildwithwaffle@gmail.com"
-              className="text-[#7736F8] hover:underline"
-            >
-              buildwithwaffle@gmail.com
-            </a>
-          </p>
-          <div className="flex items-center gap-4 mt-4 text-white">
-            <a href="https://discord.gg/FryPg2xj3E" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-              <FaDiscord className="hover:text-[#7736F8] text-lg transition" />
-            </a>
-            <a href="https://www.instagram.com/buildwithwaffle/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <FaInstagram className="hover:text-[#7736F8] text-lg transition" />
-            </a>
-            <a href="https://x.com/buildwithwaffle" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <FaXTwitter className="hover:text-[#7736F8] text-lg transition" />
-            </a>
-            <a href="https://www.linkedin.com/company/buildwithwaffle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <FaLinkedin className="hover:text-[#7736F8] text-lg transition" />
-            </a>
-            <a href="https://www.youtube.com/@buildwithwaffle" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-              <FaYoutube className="hover:text-[#7736F8] text-lg transition" />
-            </a>
+          {/* Legal */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white">Legal</h3>
+            <nav>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link href="/Terms" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Terms & Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/Privacy" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/CodeOfConduct" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Code of Conduct
+                  </Link>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
 
-      </div>
-
-      {/* Bottom Copyright and Legal Links */}
-      <div className="mt-10 border-t border-gray-700/20 pt-6 text-center text-sm text-gray-400 space-y-2">
-        <div>
-          <a href="/terms" className="hover:text-white transition">Terms and Conditions</a>
-          <span className="mx-2 text-gray-600">•</span>
-          <a href="/privacy" className="hover:text-white transition">Privacy Policy</a>
-          <span className="mx-2 text-gray-600">•</span>
-          <a href="/code-of-conduct" className="hover:text-white transition">Code of Conduct</a>
-        </div>
-        <div className="text-gray-500">
-          © {new Date().getFullYear()} Build with Waffle. Made with 🧇 by students, for students.
+        {/* Footer Bottom */}
+        <div className="border-t border-gray-800/50 pt-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="text-sm text-gray-400">
+              © {currentYear} Build with Waffle. All rights reserved.
+            </div>
+            <div className="text-sm text-gray-400">
+              Made with ❤️ by the Waffle community
+            </div>
+          </div>
         </div>
       </div>
     </footer>

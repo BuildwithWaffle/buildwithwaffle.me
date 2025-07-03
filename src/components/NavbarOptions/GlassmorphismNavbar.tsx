@@ -6,9 +6,9 @@ import Image from "next/image";
 
 const navItems = [
   { label: "About", href: "#about" },
-  { label: "Builds", href: "/projects" },
-  { label: "Events", href: "/waffleevents" },
-  { label: "Letter", href: "/letter" },
+  { label: "Builds", href: "/Projects" },
+  { label: "Events", href: "/Events" },
+  { label: "Letter", href: "/Letter" },
   { label: "Join Us", href: "#join", isCTA: true },
 ];
 

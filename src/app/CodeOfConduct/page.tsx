@@ -157,7 +157,7 @@ export default function CodeOfConduct() {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-white">Contact Information</h2>
               <p className="text-gray-300 leading-relaxed">
-                For questions about this Code of Conduct, reporting violations, or appeals, please contact us through our Discord server or reach out to our leadership team. You can also review our <Link href="/terms" className="text-blue-400 hover:underline">Terms &amp; Conditions</Link> and <Link href="/privacy" className="text-blue-400 hover:underline">Privacy Policy</Link> for additional information.
+                For questions about this Code of Conduct, reporting violations, or appeals, please contact us through our Discord server or reach out to our leadership team. You can also review our <Link href="/Terms" className="text-blue-400 hover:underline">Terms &amp; Conditions</Link> and <Link href="/Privacy" className="text-blue-400 hover:underline">Privacy Policy</Link> for additional information.
               </p>
             </section>
           </div>

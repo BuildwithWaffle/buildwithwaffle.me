@@ -6,9 +6,9 @@ import Image from "next/image";
 
 const navItems = [
   { label: "About", href: "#about" },
-  { label: "Builds", href: "/projects" },
-  { label: "Events", href: "/waffleevents" },
-  { label: "Letter", href: "/letter" },
+  { label: "Builds", href: "/Projects" },
+  { label: "Events", href: "/Events" },
+  { label: "Letter", href: "/Letter" },
   { label: "Join Us", href: "https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187", isCTA: true },
 ];
 

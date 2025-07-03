@@ -7,87 +7,72 @@ export default function Hero() {
 
   return (
     <section id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
-      {/* VIDEO CONTAINER FOR SMALL SCREENS ONLY */}
-      <div className="block xl:hidden relative w-full h-[60vh] z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover object-center z-0"
-        >
-          <source src="/videos/bg_video.mp4" type="video/mp4" />
-        </video>
-        <div className="relative z-10 flex justify-center items-start pt-[50vh] h-full px-4 text-center">
-          <h1 className="text-white text-4xl sm:text-5xl font-bold">Hi, Build with Waffle</h1>
-
-        </div>
-        <p className="mt-4 max-w-xl text-sm md:text-base text-gray-300 mx-auto xl:mx-0 flex text-center">
-          We aren’t a club. We are a call to action. For the misfits, the quiet
-          builders, the kids with half-finished dreams. Thanks for giving this a shot.
-        </p>
-        <div className="mt-6 flex gap-4 flex-wrap justify-center xl:justify-start">
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200"
-          >
-            JOIN US
-          </a>
-          <Link
-            href="/letter"
-            className="bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition duration-200"
-          >
-            Letter
-          </Link>
-        </div>
-        <p className="mt-4 text-sm text-gray-400 text-center xl:text-left mx-auto xl:mx-0">
-          200+ Students
-        </p>
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/Group1.jpeg"
+          alt="Build with Waffle Community"
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-purple-900/30"></div>
       </div>
-      <section className="hidden xl:flex relative min-h-screen overflow-hidden">
-        <div className="absolute top-0 right-0 w-[50vw] h-full z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover object-center rounded-lg">
-            <source src="/videos/bg_video.mp4" type="video/mp4" />
-          </video>
-        </div>
 
-        <div className="relative z-10 flex flex-col xl:flex-row items-center min-h-screen w-full">
-          <div className="xl:w-1/2 w-full text-center xl:text-left px-6 md:px-20 pt-32 pb-16">
-            <div className="hidden xl:block">
-              <h1 className="text-4xl md:text-6xl font-bold mt-4 text-white">Hi, Build</h1>
-              <h1 className="text-4xl md:text-6xl font-bold mt-4 text-white">with Waffle</h1>
+      {/* Main Content */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center">
+        <div className="text-center px-6 md:px-12 max-w-6xl mx-auto">
+          
+          {/* Main Headline */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight mb-8">
+            Build with{" "}
+            <span className="relative">
+              <span className="text-[#7736F8] relative z-10">Waffle</span>
+              <div className="absolute inset-0 border-4 border-white rounded-lg transform rotate-1"></div>
+            </span>
+            <br />
+            Start movements.
+          </h1>
+          
+          {/* Subtitle */}
+          <p className="text-lg md:text-xl lg:text-2xl text-white leading-relaxed mb-12 max-w-4xl mx-auto font-medium">
+            Where students lead, create, and start movements.{" "}
+           
+          </p>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-16 w-full">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto bg-[#7736F8] hover:bg-[#6429d1] text-white font-bold px-8 sm:px-12 py-3 sm:py-4 rounded-full transition duration-300 text-base sm:text-lg hover:scale-105 transform shadow-lg hover:shadow-[#7736F8]/25 text-center"
+            >
+              Join the Movement
+            </a>
+            <a
+              href="https://discord.gg/mxgAD6sT4D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto border-2 sm:border-3 border-[#7736F8] text-[#7736F8] hover:bg-[#7736F8] hover:text-white font-bold px-8 sm:px-12 py-3 sm:py-4 rounded-full transition duration-300 text-base sm:text-lg hover:scale-105 transform shadow-lg backdrop-blur-sm bg-white/10 text-center"
+            >
+              Join Discord
+            </a>
+          </div>
+
+          {/* Stats Badge */}
+          <div className="flex justify-center">
+            <div className="bg-white/10 backdrop-blur-sm border border-[#7736F8]/30 rounded-full px-8 py-4 shadow-lg">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 bg-[#7736F8] rounded-full animate-pulse"></div>
+                <p className="text-white font-semibold text-lg">200+ Students Building Together</p>
+              </div>
             </div>
-            <p className="mt-4 max-w-xl text-sm md:text-base text-gray-300 mx-auto xl:mx-0">
-              We aren’t a club. We are a call to action. For the misfits, the quiet
-              builders, the kids with half-finished dreams. Thanks for giving this a shot.
-            </p>
-            <div className="mt-6  flex gap-4 flex-wrap justify-center xl:justify-start">
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-black hover:bg-[#7736F8] transition text-center font-semibold px-6 py-2 rounded-full hover:text-white transition duration-200"
-              >
-                JOIN US
-              </a>
-              <Link
-                href="/letter"
-                className="bg-white text-black hover:bg-[#7736F8] font-semibold px-6 py-2 rounded-full hover:text-white transition duration-200"
-              >
-                Letter
-              </Link>
-            </div>
-            <p className="mt-4 text-sm text-gray-400 ">200+ Students</p>
           </div>
         </div>
-      </section>
+      </div>
+
+     
+    
     </section>
   );
 }

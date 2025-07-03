@@ -274,7 +274,7 @@ export default function ProjectsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/postyourproject"
+              href="/PostYourProject"
               className="bg-[#7736F8] hover:bg-[#7736F8]/80 px-8 py-3 rounded-xl font-semibold text-lg transition-colors duration-200"
             >
               Submit Your Project
