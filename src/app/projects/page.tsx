@@ -7,7 +7,7 @@ export default function ProjectsPage() {
   const allProjects = projectsData.recentProjects;
 
   return (
-    <div className="bg-black text-white min-h-screen py-16 px-6">
+    <div className="text-white min-h-screen py-16 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <div className="text-center mb-16">
@@ -26,11 +26,11 @@ export default function ProjectsPage() {
             <span className="text-gray-400">Featured Build</span>
           </div>
           
-          <div className="bg-[#7736F8] rounded-3xl p-8 border border-gray-800">
+          <div className="bg-[#7736F8] rounded-3xl p-8 border border-black">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               {/* Project Image */}
               <div className="order-2 lg:order-1">
-                <div className="aspect-video rounded-2xl overflow-hidden bg-gray-800 mb-6">
+                <div className="aspect-video rounded-2xl overflow-hidden bg-black mb-6">
                   <Image
                     src={featuredProject.image}
                     alt={featuredProject.title}
@@ -42,7 +42,7 @@ export default function ProjectsPage() {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-3">
                   {featuredProject.tags.map((tag, index) => (
-                    <span key={index} className="bg-gray-800 px-3 py-2 rounded-full text-sm text-gray-300">
+                    <span key={index} className="bg-black px-3 py-2 rounded-full text-sm text-gray-300">
                       {tag}
                     </span>
                   ))}
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Builders */}
-                <div className="bg-gray-800/50 rounded-xl p-6">
+                <div className="bg-black rounded-xl p-6">
                   <p className="text-sm font-semibold text-white mb-4">Built by:</p>
                   <div className="space-y-3">
                     {featuredProject.builders.map((builder, index) => (
@@ -114,7 +114,7 @@ export default function ProjectsPage() {
                       href={featuredProject.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 text-sm flex-1 justify-center"
+                      className="bg-black hover:bg-gray-700 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 text-sm flex-1 justify-center"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -146,9 +146,9 @@ export default function ProjectsPage() {
           <h2 className="text-3xl font-bold mb-8 text-center">All Student Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {allProjects.map((project, index) => (
-              <div key={index} className="bg-gray-900/30 rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all duration-300 hover:transform hover:scale-105">
+              <div key={index} className="bg-gray-900/30 rounded-xl p-6 border border-black hover:border-gray-700 transition-all duration-300 hover:transform hover:scale-105">
                 {/* Project Image */}
-                <div className="aspect-video rounded-lg overflow-hidden bg-gray-800 mb-4">
+                <div className="aspect-video rounded-lg overflow-hidden bg-black mb-4">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -168,7 +168,7 @@ export default function ProjectsPage() {
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="bg-gray-800 px-2 py-1 rounded text-xs text-gray-300">
+                      <span key={tagIndex} className="bg-black px-2 py-1 rounded text-xs text-gray-300">
                         {tag}
                       </span>
                     ))}
@@ -181,7 +181,7 @@ export default function ProjectsPage() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 text-sm flex-1 justify-center"
+                        className="bg-black hover:bg-gray-700 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 text-sm flex-1 justify-center"
                       >
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -211,7 +211,7 @@ export default function ProjectsPage() {
                     </div>
                     
                     {/* All Builder Names and Links */}
-                    <div className="bg-gray-800/30 rounded-lg p-3">
+                    <div className="bg-black rounded-lg p-3">
                       <div className="space-y-2">
                         {project.builders.map((builder, builderIndex) => (
                           <div key={builderIndex} className="flex items-center justify-between">
@@ -267,7 +267,7 @@ export default function ProjectsPage() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center bg-gray-900/50 rounded-3xl p-12 border border-gray-800">
+        <div className="text-center bg-gray-900/50 rounded-3xl p-12 border border-black">
           <h2 className="text-3xl font-bold mb-4">Ready to Build Something Amazing?</h2>
           <p className="text-gray-400 mb-8 text-lg max-w-2xl mx-auto">
             Join our community of student builders and showcase your projects to the world.
@@ -281,7 +281,7 @@ export default function ProjectsPage() {
             </a>
             <a
               href="/about"
-              className="bg-gray-800 hover:bg-gray-700 px-8 py-3 rounded-xl font-semibold text-lg transition-colors duration-200"
+              className="bg-black hover:bg-gray-700 px-8 py-3 rounded-xl font-semibold text-lg transition-colors duration-200"
             >
               Learn More
             </a>

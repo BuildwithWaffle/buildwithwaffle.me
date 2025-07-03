@@ -58,7 +58,7 @@ export default function ChapterCard({
                             className="object-contain rounded-xl"
                         />
                     ) : (
-                        <div className="w-full h-full bg-gray-800 flex items-center justify-center text-gray-400 text-xs rounded-xl">
+                        <div className="w-full h-full bg-black flex items-center justify-center text-gray-400 text-xs rounded-xl">
                             College Logo
                         </div>
                     )}
@@ -70,7 +70,7 @@ export default function ChapterCard({
                 {eventImages.map((src, i) => (
                     <div
                         key={i}
-                        className="w-full h-32 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 text-sm relative overflow-hidden transition duration-300 ease-in-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-xl"
+                        className="w-full h-32 bg-black rounded-xl flex items-center justify-center text-gray-400 text-sm relative overflow-hidden transition duration-300 ease-in-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-xl"
                     >
                         {src.trim() ? (
                             <Image

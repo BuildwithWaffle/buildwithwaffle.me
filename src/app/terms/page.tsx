@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function TermsAndConditions() {
   return (
-    <main className="bg-black text-white min-h-screen py-20 px-6">
+    <main className="text-white min-h-screen py-20 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8">
           <Link href="/" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
@@ -109,7 +109,7 @@ export default function TermsAndConditions() {
             </section>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 mt-12">
+          <div className="border-t border-black-8 mt-12">
             <p className="text-gray-400 text-sm">
               These terms are effective as of {new Date().toLocaleDateString()} and govern your use of Build with Waffle.
             </p>

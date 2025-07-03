@@ -13,7 +13,7 @@ export default function About() {
     const aboutOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
     return (
-        <div id="about" className="relative min-h-screen overflow-hidden bg-black" ref={aboutRef}>
+        <div id="about" className="relative min-h-screen overflow-hidden" ref={aboutRef}>
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[radial-gradient(#ffffff0c_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none z-0" />
             
@@ -71,7 +71,7 @@ export default function About() {
 
                     {/* Right Side - Key Points */}
                     <div className="space-y-8">
-                        <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
+                        <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-black">
                             <h3 className="text-xl font-semibold text-white mb-6">What Makes Us Different</h3>
                             <div className="space-y-4">
                                 <p className="text-gray-300 leading-relaxed">
@@ -83,7 +83,7 @@ export default function About() {
                             </div>
                         </div>
 
-                        <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
+                        <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-black">
                             <h3 className="text-xl font-semibold text-white mb-6">What We Do</h3>
                             <div className="space-y-3 text-gray-300">
                                 <p>• We host build nights</p>

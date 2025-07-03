@@ -18,7 +18,7 @@ export default function AnimatedSidebarNavbar() {
   return (
     <>
       {/* Top Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-black">
         <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
@@ -67,7 +67,7 @@ export default function AnimatedSidebarNavbar() {
       </nav>
 
       {/* Mobile Sidebar */}
-      <div className={`md:hidden fixed top-0 right-0 h-full w-80 bg-black/95 backdrop-blur-lg border-l border-gray-800 transform transition-transform duration-300 z-40 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`md:hidden fixed top-0 right-0 h-full w-80 bg-black/95 backdrop-blur-lg border-l border-black transform transition-transform duration-300 z-40 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="p-6 pt-20">
           <div className="space-y-6">
             {navItems.map((item, index) => (
@@ -96,7 +96,7 @@ export default function AnimatedSidebarNavbar() {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-30"
+          className="md:hidden fixed inset-0 bg-black backdrop-blur-sm z-30"
           onClick={() => setIsOpen(false)}
         />
       )}

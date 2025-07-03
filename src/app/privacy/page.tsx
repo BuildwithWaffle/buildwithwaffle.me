@@ -160,7 +160,7 @@ export default function PrivacyPolicy() {
             </section>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 mt-12">
+          <div className="border-t border-black pt-8 mt-12">
             <p className="text-gray-400 text-sm">
               This Privacy Policy is effective as of {new Date().toLocaleDateString()} and applies to all users of Build with Waffle.
             </p>

@@ -29,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}>
-      <Navbar/>
+        <div className="fixed inset-0 bg-gradient-to-br from-[#7736F8]/12 via-black to-[#7736F8]/8 pointer-events-none z-[-1]"></div>
+        <div className="fixed inset-0 bg-gradient-to-tl from-[#7736F8]/6 via-transparent to-[#7736F8]/10 pointer-events-none z-[-1]"></div>
+        <Navbar/>
         <PageWrapper>
           {children}
         </PageWrapper>

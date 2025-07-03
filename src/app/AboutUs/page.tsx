@@ -4,7 +4,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 
 export default function AboutUs() {
   return (
-    <section className="relative bg-black text-white py-24 px-6 overflow-hidden">
+    <section className="relative text-white py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff0c_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none z-0" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-20 text-left space-y-8">
         <h2 className="text-3xl sm:text-4xl font-semibold">
@@ -98,7 +98,7 @@ export default function AboutUs() {
           </a>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gray-800" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-black" />
     </section>
   );
 }

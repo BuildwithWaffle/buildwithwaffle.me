@@ -11,7 +11,7 @@ export default function Projects() {
   const recentProjects = projectsData.recentProjects.slice(0, 2);
 
   return (
-    <section className="bg-black text-white py-12 px-6" ref={heroRef}>
+    <section className="text-white py-12 px-6" ref={heroRef}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10">
@@ -29,10 +29,10 @@ export default function Projects() {
             <span className="text-gray-400 text-sm">Featured Build</span>
           </div>
           
-          <div className="flex flex-col lg:flex-row gap-6 bg-gray-900/80 rounded-2xl p-6 border border-gray-800">
+          <div className="flex flex-col lg:flex-row gap-6 bg-gray-900/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/30">
             {/* Project Image - Landscape on Left */}
             <div className="lg:w-96 flex-shrink-0">
-              <div className="aspect-video rounded-xl overflow-hidden bg-gray-800">
+              <div className="aspect-video rounded-xl overflow-hidden bg-gray-800/50">
                 <Image
                   src={featuredProject.image}
                   alt={featuredProject.title}
@@ -44,7 +44,7 @@ export default function Projects() {
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-3">
                 {featuredProject.tags.map((tag, index) => (
-                  <span key={index} className="bg-gray-800 px-2 py-1 rounded-full text-xs text-gray-300">
+                  <span key={index} className="bg-gray-800/60 px-2 py-1 rounded-full text-xs text-gray-300">
                     {tag}
                   </span>
                 ))}
@@ -59,11 +59,11 @@ export default function Projects() {
               </div>
 
               {/* Builders Info */}
-              <div className="bg-gray-900/90 rounded-lg p-4">
+              <div className="bg-gray-900/30 backdrop-blur-sm rounded-lg p-4 border border-gray-700/20">
                 <p className="text-sm font-semibold text-white mb-4">Built by:</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {featuredProject.builders.map((builder, index) => (
-                    <div key={index} className="flex items-center justify-between bg-gray-800/50 rounded-lg p-3">
+                    <div key={index} className="flex items-center justify-between bg-gray-800/40 backdrop-blur-sm rounded-lg p-3 border border-gray-700/20">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 rounded-full bg-gray-700 overflow-hidden border-2 border-gray-900">
                           <Image
@@ -115,7 +115,7 @@ export default function Projects() {
                   href={featuredProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-800 hover:bg-gray-700 px-8 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 text-base flex-1 justify-center"
+                  className="bg-gray-800/50 hover:bg-gray-700/60 backdrop-blur-sm px-8 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 text-base flex-1 justify-center border border-gray-700/30"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -145,9 +145,9 @@ export default function Projects() {
           <h3 className="text-xl font-bold mb-6 text-center">More Recent Builds</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {recentProjects.map((project, index) => (
-              <div key={index} className="bg-gray-900/30 rounded-xl p-4 border border-gray-800 hover:border-gray-700 transition-colors duration-200 flex flex-col"> 
+              <div key={index} className="bg-gray-900/30 backdrop-blur-sm rounded-xl p-4 border border-gray-700/20 hover:border-gray-600/40 transition-colors duration-200 flex flex-col"> 
                 {/* Project Image */}
-                <div className="aspect-video rounded-lg overflow-hidden bg-gray-800 mb-3">
+                <div className="aspect-video rounded-lg overflow-hidden bg-gray-800/40 mb-3 border border-gray-700/20">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -167,7 +167,7 @@ export default function Projects() {
                   {/* Tags */}
                   <div className="flex flex-wrap gap-1.5">
                     {project.tags.slice(0, 3).map((tag, tagIndex) => (
-                      <span key={tagIndex} className="bg-gray-800 px-2 py-0.5 rounded text-xs text-gray-300">
+                      <span key={tagIndex} className="bg-gray-800/50 backdrop-blur-sm px-2 py-0.5 rounded text-xs text-gray-300 border border-gray-700/20">
                         {tag}
                       </span>
                     ))}
@@ -175,14 +175,14 @@ export default function Projects() {
                 </div>
 
                 {/* Project Links */}
-                <div className="mt-3 pt-3 border-t border-gray-800">
+                <div className="mt-3 pt-3 border-t border-gray-700/20">
                   <div className="flex flex-wrap gap-2 mb-3">
                     {project.github && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 text-base flex-1 justify-center"
+                        className="bg-gray-800/50 hover:bg-gray-700/60 backdrop-blur-sm px-6 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 text-base flex-1 justify-center border border-gray-700/30"
                       >
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -265,7 +265,7 @@ export default function Projects() {
         <div className="text-center">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 px-6 py-3 rounded-xl font-semibold transition-colors duration-200 border border-gray-800 hover:border-gray-700"
+            className="inline-flex items-center gap-2 bg-gray-800/50 hover:bg-gray-700/60 backdrop-blur-sm px-6 py-3 rounded-xl font-semibold transition-colors duration-200 border border-gray-700/30 hover:border-gray-600/50"
           >
             Check Out More Projects
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -1,13 +1,12 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { FaInstagram, FaLinkedin, FaYoutube, FaDiscord } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white px-6 md:px-20 py-12">
+    <footer className="text-white px-6 md:px-20 py-12">
       
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -79,12 +78,12 @@ const Footer = () => {
       </div>
 
       {/* Bottom Copyright and Legal Links */}
-      <div className="mt-10 border-t border-gray-800 pt-6 text-center text-sm text-gray-400 space-y-2">
+      <div className="mt-10 border-t border-gray-700/20 pt-6 text-center text-sm text-gray-400 space-y-2">
         <div>
           <a href="/terms" className="hover:text-white transition">Terms and Conditions</a>
-          <span className="mx-2">|</span>
+          <span className="mx-2 text-gray-600">•</span>
           <a href="/privacy" className="hover:text-white transition">Privacy Policy</a>
-          <span className="mx-2">|</span>
+          <span className="mx-2 text-gray-600">•</span>
           <a href="/code-of-conduct" className="hover:text-white transition">Code of Conduct</a>
         </div>
         <div className="text-gray-500">

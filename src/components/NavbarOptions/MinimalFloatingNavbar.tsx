@@ -17,7 +17,7 @@ export default function MinimalFloatingNavbar() {
 
   return (
     <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-      <div className="bg-black/90 backdrop-blur-lg border border-gray-800 rounded-full px-6 py-3 shadow-xl">
+      <div className="bg-black/90 backdrop-blur-lg border border-black rounded-full px-6 py-3 shadow-xl">
         <div className="flex items-center space-x-8">
           {/* Logo */}
           <Link href="/" className="flex items-center">
