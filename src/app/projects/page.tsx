@@ -69,6 +69,9 @@ export default function ProjectsSection() {
           Ready to start your chapter? We don’t care about perfect. We care about passionate.
         </p>
       </div>
+      <div>
+        
+      </div>
     </section>
   );
 }
