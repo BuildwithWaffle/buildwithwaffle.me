@@ -29,35 +29,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white overflow-x-hidden`}>
-        {/* Grainy Dark Background */}
+        {/* Grainy Image Background */}
         <div className="fixed inset-0 pointer-events-none z-[-1]">
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-black to-gray-950"></div>
+          {/* Background image with grain */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+            style={{
+              backgroundImage: `url('/images/.jpg')`
+            }}
+          ></div>
+          {/* Dark overlay to maintain readability */}
+          <div className="absolute inset-0 bg-black/70"></div>
+          {/* Purple accent */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#7736F8]/8 to-transparent"></div>
-          {/* Visible grain texture */}
-          <div 
-            className="absolute inset-0 opacity-30 mix-blend-multiply"
-            style={{
-              backgroundImage: `
-                radial-gradient(circle at 25% 25%, white 1px, transparent 1px),
-                radial-gradient(circle at 75% 75%, white 1px, transparent 1px),
-                radial-gradient(circle at 25% 75%, white 0.5px, transparent 0.5px),
-                radial-gradient(circle at 75% 25%, white 0.5px, transparent 0.5px)
-              `,
-              backgroundSize: '4px 4px, 6px 6px, 3px 3px, 5px 5px',
-              backgroundPosition: '0 0, 0 0, 2px 2px, 3px 3px'
-            }}
-          ></div>
-          <div 
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `
-                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 1px, transparent 1px),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 1px, transparent 1px),
-                radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 1px, transparent 1px)
-              `,
-              backgroundSize: '8px 8px, 10px 10px, 6px 6px'
-            }}
-          ></div>
         </div>
         
         <Navbar/>
