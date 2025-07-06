@@ -4,7 +4,7 @@ import "./globals.css";
 import PageWrapper from "@/components/PageWrapper";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { cssVariables } from "@/styles/colors";
+import { SITE_CONFIG, CSS_VARIABLES } from "@/config";
 
 // Optimized font loading with display swap
 const inter = Inter({
@@ -16,28 +16,16 @@ const inter = Inter({
 
 // Comprehensive SEO metadata
 export const metadata: Metadata = {
-  metadataBase: new URL("https://buildwithwaffle.me"),
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: "Build with Waffle | Student-Led Creator Movement",
-    template: "%s | Build with Waffle",
+    default: SITE_CONFIG.name,
+    template: `%s | ${SITE_CONFIG.name}`,
   },
-  description: "Join Build with Waffle - India's first student-led creator movement. A community for misfits, builders, hackers, designers, and dreamers who ship real products.",
-  keywords: [
-    "build with waffle",
-    "student community",
-    "creator movement",
-    "builders",
-    "hackers",
-    "designers",
-    "startup community",
-    "india student community",
-    "young entrepreneurs",
-    "college projects",
-    "student developers"
-  ],
-  authors: [{ name: "Build with Waffle Team", url: "https://buildwithwaffle.me" }],
-  creator: "Build with Waffle",
-  publisher: "Build with Waffle",
+  description: SITE_CONFIG.description,
+  keywords: SITE_CONFIG.keywords,
+  authors: [{ name: 'Build with Waffle Team' }],
+  creator: 'Build with Waffle',
+  publisher: 'Build with Waffle',
   robots: {
     index: true,
     follow: true,
@@ -144,8 +132,8 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} antialiased bg-white text-gray-900 overflow-x-hidden min-h-screen`}>
-        {/* CSS Custom Properties for Primary Accent Color */}
-        <style dangerouslySetInnerHTML={{ __html: cssVariables }} />
+        {/* CSS Custom Properties */}
+        <style dangerouslySetInnerHTML={{ __html: CSS_VARIABLES }} />
         
         {/* Skip to content for accessibility */}
         <a 

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Letter() {
   return (
     <main className="bg-black text-white pt-20 pb-8 flex flex-col items-center">
@@ -66,16 +68,16 @@ export default function Letter() {
       <div className="w-full px-0 py-6 ">
         <div className="grid grid-cols-3 grid-rows-2 gap-4">
           <div className="col-span-1 row-span-1 filter grayscale hover:grayscale-0 transition duration-300 mt-12">
-            <img src="/images/topleft1.jpeg" alt="Image" className="w-full h-full object-cover" />
+            <Image src="/images/topleft1.jpeg" alt="Image" width={400} height={300} className="w-full h-full object-cover" />
           </div>
           <div className="col-span-1 row-span-1 filter grayscale hover:grayscale-0 transition duration-300 mt-12">
-            <img src="/images/topleft2.jpeg" alt="Image" className="w-full h-full object-cover" />
+            <Image src="/images/topleft2.jpeg" alt="Image" width={400} height={300} className="w-full h-full object-cover" />
           </div>
           <div className="col-span-1 row-span-2 filter grayscale hover:grayscale-0 transition duration-300 mt-12">
-            <img src="/images/topright.jpeg" alt="Image" className="w-full h-full object-cover" />
+            <Image src="/images/topright.jpeg" alt="Image" width={400} height={600} className="w-full h-full object-cover" />
           </div>
           <div className="col-span-2 row-span-1 filter grayscale hover:grayscale-0 transition duration-300 mt-12">
-            <img src="/images/Group2.jpeg" alt="Image" className="w-full h-full object-cover" />
+            <Image src="/images/Group2.jpeg" alt="Image" width={800} height={300} className="w-full h-full object-cover" />
           </div>
         </div>
       </div>
