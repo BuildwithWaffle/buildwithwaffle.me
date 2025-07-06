@@ -136,7 +136,7 @@ export default function RootLayout({
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                email: "hello@buildwithwaffle.me",
+                email: "buildwithwaffle@gmail.com",
                 contactType: "Customer Service"
               }
             }),

@@ -27,8 +27,8 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl font-black mb-3 text-white">
-            🚀 Student Builds
+          <h2 className="text-4xl md:text-5xl font-bold mb-3 text-white">
+            Project of the Week
           </h2>
           <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed text-white/90">
             Raw, real projects built by students who stopped waiting for permission.
@@ -37,17 +37,6 @@ export default function Projects() {
 
         {/* Featured Project */}
         <div className="mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-white px-3 py-1 rounded-full text-sm font-bold"
-                  style={{ 
-                    backgroundColor: `var(--primary-accent)`,
-                    boxShadow: `0 4px 12px var(--primary-accent-shadow)` 
-                  }}>
-              Project of the Week
-            </span>
-            <span className="text-sm font-medium text-white/70">Featured Build</span>
-          </div>
-          
           <div className="bg-white rounded-2xl p-4 sm:p-6 border-2 shadow-lg hover:shadow-xl transition-shadow duration-300" 
                style={{ borderColor: 'var(--border)' }}>
             <div className="flex flex-col lg:flex-row gap-6">
@@ -235,19 +224,7 @@ export default function Projects() {
         <div className="text-center">
           <Link
             href="/Projects"
-            className="inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300 hover:scale-105"
-            style={{ 
-              backgroundColor: `var(--primary-accent)`,
-              boxShadow: `0 6px 16px var(--primary-accent-shadow)` 
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = `var(--primary-accent-hover)`;
-              e.currentTarget.style.boxShadow = `0 8px 24px var(--primary-accent-shadow-hover)`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = `var(--primary-accent)`;
-              e.currentTarget.style.boxShadow = `0 6px 16px var(--primary-accent-shadow)`;
-            }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300 hover:scale-105 border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900"
           >
             Check Out More Projects
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

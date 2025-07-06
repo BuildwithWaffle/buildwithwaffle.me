@@ -360,7 +360,7 @@ export default function AboutUs() {
                 </span>
               </a>
               <a 
-                href="https://x.com/buildwithwaffle" 
+                href="https://x.com/Buildwithwaffle" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="group flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-300 hover:scale-110"

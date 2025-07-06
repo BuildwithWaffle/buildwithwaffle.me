@@ -31,7 +31,7 @@ const ChapterSection = () => {
         {/* CTA Button */}
         <div className="text-center">
           <a
-            href="mailto:buildwithwaffle@gmail.com?subject=I%20want%20to%20start%20the%20first%20chapter%20in%20my%20city"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfCH69gkopLdBQB7OQFPpU3bJ90-dM4IsHB281SIAs9VYdgjg/viewform"
             className="inline-flex items-center gap-3 text-white font-bold px-24 py-4 text-xl rounded-lg transition-all duration-200 transform hover:scale-105"
             style={{ 
               backgroundColor: 'var(--primary-accent)',

@@ -1,6 +1,5 @@
 "use client";
 import { useRef } from "react";
-import Link from "next/link";
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -23,7 +22,7 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center">
+      <div className="relative z-10 min-h-screen flex items-center justify-center pt-20 sm:pt-16 md:pt-0">
         <div className="text-center px-6 md:px-12 max-w-6xl mx-auto">
           
           {/* Main Headline */}
@@ -54,7 +53,7 @@ export default function Hero() {
               Join the Movement
             </a>
             <a
-              href="https://discord.gg/mxgAD6sT4D"
+              href="https://discord.gg/FryPg2xj3E"
               target="_blank"
               rel="noopener noreferrer"
               className="font-black px-6 py-3 sm:px-8 sm:py-3 md:px-10 md:py-4 lg:px-12 lg:py-4 rounded-full transition-all duration-300 text-sm sm:text-base md:text-lg lg:text-xl hover:scale-105 transform border-2 border-white text-white hover:bg-white hover:text-orange-600 shadow-xl hover:shadow-2xl"

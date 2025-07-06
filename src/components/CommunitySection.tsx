@@ -118,7 +118,9 @@ const CommunitySection = () => {
               </p>
               
               <a
-                href="mailto:hello@buildwithwaffle.me?subject=Start%20a%20Chapter"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfCH69gkopLdBQB7OQFPpU3bJ90-dM4IsHB281SIAs9VYdgjg/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm px-6 py-3 rounded-lg font-semibold transition-all duration-200 justify-center"
               >
                 Get Started

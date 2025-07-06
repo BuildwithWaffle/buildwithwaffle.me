@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Hero from "@/components/Hero";
-
+import Banner from "@/components/Banner";
 import Events from "@/components/Events";
 import RecentProjects from "@/components/RecentProjects";
 import CommunitySection from "@/components/CommunitySection";
@@ -80,6 +80,7 @@ export default function HomePage() {
       <Hero />
       <Events />
       <RecentProjects />
+      <Banner />
       <ChapterSection />
       <CommunitySection />
       {/* <Newsletter /> */}

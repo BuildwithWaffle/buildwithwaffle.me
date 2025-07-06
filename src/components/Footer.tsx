@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className="bg-black text-white px-6 md:px-20 py-16" role="contentinfo">
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
 
           {/* Build with Waffle Section */}
           <div className="lg:col-span-1">
@@ -19,13 +19,8 @@ const Footer = () => {
             <nav>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <Link href="/AboutUs" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/Letter" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Our Letter
+                  <Link href="/Philosophy" className="text-gray-300 hover:text-white transition-colors duration-200">
+                    Philosophy
                   </Link>
                 </li>
                 <li>
@@ -34,46 +29,27 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <a 
-                    href="mailto:hello@buildwithwaffle.me"
-                    className="text-gray-300 hover:text-white transition-colors duration-200"
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          {/* Resources Section */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Resources</h3>
-            <nav>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <Link href="/Projects" className="text-gray-300 hover:text-white transition-colors duration-200">
+                  <Link href="/projects" className="text-gray-300 hover:text-white transition-colors duration-200">
                     Projects
                   </Link>
                 </li>
                 <li>
-                  <Link href="/PostYourProject" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Submit Project
-                  </Link>
-                </li>
-                <li>
                   <a 
-                    href="https://docs.buildwithwaffle.me" 
-                    target="_blank" 
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfCH69gkopLdBQB7OQFPpU3bJ90-dM4IsHB281SIAs9VYdgjg/viewform"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-white transition-colors duration-200"
                   >
-                    Documentation
+                    Start a Chapter
                   </a>
                 </li>
                 <li>
-                  <Link href="/CodeOfConduct" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Code of Conduct
-                  </Link>
+                  <a 
+                    href="mailto:buildwithwaffle@gmail.com"
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                  >
+                    Contact
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -94,6 +70,11 @@ const Footer = () => {
                     Privacy Policy
                   </Link>
                 </li>
+                <li>
+                  <Link href="/CodeOfConduct" className="text-gray-300 hover:text-white transition-colors duration-200">
+                    Code of Conduct
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>
@@ -105,8 +86,8 @@ const Footer = () => {
               <h3 className="text-lg font-semibold text-white">Build with Waffle</h3>
             </div>
             
-            {/* Social Media Icons Grid */}
-            <div className="grid grid-cols-3 gap-3 mb-6">
+            {/* Essential Social Media Icons */}
+            <div className="flex gap-3 mb-6">
               <a 
                 href="https://discord.gg/FryPg2xj3E" 
                 target="_blank" 
@@ -127,7 +108,7 @@ const Footer = () => {
                 <FaDiscord className="w-5 h-5 text-white" />
               </a>
               <a 
-                href="https://x.com/buildwithwaffle" 
+                href="https://x.com/Buildwithwaffle" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
@@ -203,7 +184,7 @@ const Footer = () => {
                 <FaYoutube className="w-5 h-5 text-white" />
               </a>
               <a 
-                href="mailto:hello@buildwithwaffle.me"
+                href="mailto:buildwithwaffle@gmail.com"
                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
                 style={{ 
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -225,8 +206,7 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="text-sm text-gray-300">
-              <p className="mb-1">buildwithwaffle@gmail.com</p>
-              <p className="text-xs">(our email)</p>
+              <p>buildwithwaffle@gmail.com</p>
             </div>
           </div>
         </div>
@@ -235,10 +215,10 @@ const Footer = () => {
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="text-sm text-gray-400">
-              © {currentYear} Build with Waffle. Student-led nonprofit (pending).
+              © {currentYear} Build with Waffle. Student-led movement.
             </div>
             <div className="text-sm text-gray-400">
-              Made with ❤️ by the Waffle community
+              Made with  Love by the Waffle community
             </div>
           </div>
         </div>

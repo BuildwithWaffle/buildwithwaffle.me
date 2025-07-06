@@ -347,10 +347,10 @@ export default function PrivacyPolicy() {
                 <p className="text-gray-300 leading-relaxed text-lg">
                   If you have questions about this Privacy Policy or how we handle your information, please contact us through our community Discord or reach out to our team directly at{" "}
                   <a 
-                    href="mailto:hello@buildwithwaffle.me" 
+                    href="mailto:buildwithwaffle@gmail.com" 
                     className="text-[#7736F8] hover:text-[#7736F8]/80 underline underline-offset-4 transition-colors"
                   >
-                    hello@buildwithwaffle.me
+                    buildwithwaffle@gmail.com
                   </a>
                 </p>
               </div>
