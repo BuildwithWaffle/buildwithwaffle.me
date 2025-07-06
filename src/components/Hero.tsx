@@ -22,7 +22,7 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center pt-20 sm:pt-16 md:pt-0">
+      <div className="relative z-10 min-h-screen flex items-center justify-center mt-16 pt-20 sm:pt-16 md:pt-0">
         <div className="text-center px-6 md:px-12 max-w-6xl mx-auto">
           
           {/* Main Headline */}

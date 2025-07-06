@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Event() {
   const heroRef = useRef(null);
@@ -49,9 +50,11 @@ export default function Event() {
                 <div className="order-2 lg:order-1">
                   <div className="aspect-video rounded-xl overflow-hidden bg-gray-100 border-2"
                        style={{ borderColor: `var(--border)` }}>
-                    <img
+                    <Image
                       src={event.image}
                       alt={event.title}
+                      width={600}
+                      height={338}
                       className="w-full h-full object-cover"
                     />
                   </div>
