@@ -7,6 +7,17 @@ html {
 :root {
   --background: #ffffff;
   --foreground: ##101010;
+  
+  /* Build with Waffle color system */
+  --primary-accent: #f97316;
+  --primary-accent-hover: #ea580c;
+  --primary-accent-shadow: rgba(249, 115, 22, 0.4);
+  --primary-accent-shadow-hover: rgba(249, 115, 22, 0.6);
+  --background-secondary: #f9fafb;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #6b7280;
+  --border: #e5e7eb;
 }
 
 @media (prefers-color-scheme: dark) {

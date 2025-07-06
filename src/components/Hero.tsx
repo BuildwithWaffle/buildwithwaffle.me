@@ -6,16 +6,20 @@ export default function Hero() {
   const heroRef = useRef(null);
 
   return (
-    <section id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/images/Group1.jpeg"
-          alt="Build with Waffle Community"
-          className="w-full h-full object-cover"
-        />
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-purple-900/30"></div>
+    <section id="home" ref={heroRef} className="relative min-h-screen overflow-hidden"
+             style={{ 
+               background: 'linear-gradient(135deg, #fb923c, #f97316, #ea580c)',
+               backgroundSize: '100% 100%'
+             }}>
+      
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-20 w-32 h-32 rounded-full bg-white/20"></div>
+        <div className="absolute top-40 right-32 w-48 h-48 rounded-full bg-white/10"></div>
+        <div className="absolute bottom-32 left-1/3 w-24 h-24 rounded-full bg-white/15"></div>
+        <div className="absolute bottom-48 right-20 w-40 h-40 rounded-full bg-white/20"></div>
+        <div className="absolute top-1/2 left-10 w-16 h-16 rounded-full bg-white/25"></div>
+        <div className="absolute top-2/3 right-1/4 w-28 h-28 rounded-full bg-white/15"></div>
       </div>
 
       {/* Main Content */}
@@ -23,29 +27,29 @@ export default function Hero() {
         <div className="text-center px-6 md:px-12 max-w-6xl mx-auto">
           
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-tight mb-8">
             Build with{" "}
             <span className="relative">
-              <span className="text-[#7736F8] relative z-10">Waffle</span>
-              <div className="absolute inset-0 border-4 border-white rounded-lg transform rotate-1"></div>
+              <span className="relative z-10 bg-white text-orange-600 px-4 py-2 rounded-2xl font-black shadow-2xl">
+                Waffle
+              </span>
             </span>
             <br />
             Start movements.
           </h1>
           
           {/* Subtitle */}
-          <p className="text-lg md:text-xl lg:text-2xl text-white leading-relaxed mb-12 max-w-4xl mx-auto font-medium">
-            Where students lead, create, and start movements.{" "}
-           
+          <p className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed mb-12 max-w-4xl mx-auto font-medium">
+            Where students lead, create, and start movements.
           </p>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-16 w-full">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-[#7736F8] hover:bg-[#6429d1] text-white font-bold px-8 sm:px-12 py-3 sm:py-4 rounded-full transition duration-300 text-base sm:text-lg hover:scale-105 transform shadow-lg hover:shadow-[#7736F8]/25 text-center"
+              className="bg-white text-orange-600 font-black px-6 py-3 sm:px-8 sm:py-3 md:px-10 md:py-4 lg:px-12 lg:py-4 rounded-full transition-all duration-300 text-sm sm:text-base md:text-lg lg:text-xl hover:scale-105 transform shadow-2xl hover:shadow-3xl border-2 border-white/20"
             >
               Join the Movement
             </a>
@@ -53,26 +57,13 @@ export default function Hero() {
               href="https://discord.gg/mxgAD6sT4D"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto border-2 sm:border-3 border-[#7736F8] text-[#7736F8] hover:bg-[#7736F8] hover:text-white font-bold px-8 sm:px-12 py-3 sm:py-4 rounded-full transition duration-300 text-base sm:text-lg hover:scale-105 transform shadow-lg backdrop-blur-sm bg-white/10 text-center"
+              className="font-black px-6 py-3 sm:px-8 sm:py-3 md:px-10 md:py-4 lg:px-12 lg:py-4 rounded-full transition-all duration-300 text-sm sm:text-base md:text-lg lg:text-xl hover:scale-105 transform border-2 border-white text-white hover:bg-white hover:text-orange-600 shadow-xl hover:shadow-2xl"
             >
               Join Discord
             </a>
           </div>
-
-          {/* Stats Badge */}
-          <div className="flex justify-center">
-            <div className="bg-white/10 backdrop-blur-sm border border-[#7736F8]/30 rounded-full px-8 py-4 shadow-lg">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 bg-[#7736F8] rounded-full animate-pulse"></div>
-                <p className="text-white font-semibold text-lg">200+ Students Building Together</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-
-     
-    
     </section>
   );
 }

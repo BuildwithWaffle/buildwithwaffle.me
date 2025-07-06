@@ -1,8 +1,11 @@
 import { Metadata } from "next";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
+
 import Events from "@/components/Events";
 import RecentProjects from "@/components/RecentProjects";
+import CommunitySection from "@/components/CommunitySection";
+import ChapterSection from "@/components/ChapterSection";
+import Newsletter from "@/components/Newsletter";
 import FinalSection from "@/components/FinalSection";
 
 // SEO Metadata for home page
@@ -75,9 +78,11 @@ export default function HomePage() {
 
       {/* Main page sections */}
       <Hero />
-      <About />
       <Events />
       <RecentProjects />
+      <ChapterSection />
+      <CommunitySection />
+      {/* <Newsletter /> */}
       <FinalSection />
     </>
   );

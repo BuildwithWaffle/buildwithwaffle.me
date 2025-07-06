@@ -4,6 +4,7 @@ import "./globals.css";
 import PageWrapper from "@/components/PageWrapper";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { cssVariables } from "@/styles/colors";
 
 // Optimized font loading with display swap
 const inter = Inter({
@@ -89,8 +90,8 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#7736F8" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    { media: "(prefers-color-scheme: light)", color: "#f97316" },
+    { media: "(prefers-color-scheme: dark)", color: "#f97316" },
   ],
 };
 
@@ -109,12 +110,6 @@ export default function RootLayout({
         {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//docs.google.com" />
-        
-        {/* Favicon and app icons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
         
         {/* JSON-LD Structured Data */}
         <script
@@ -148,23 +143,31 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} antialiased bg-black text-white overflow-x-hidden min-h-screen`}>
+      <body className={`${inter.variable} antialiased bg-white text-gray-900 overflow-x-hidden min-h-screen`}>
+        {/* CSS Custom Properties for Primary Accent Color */}
+        <style dangerouslySetInnerHTML={{ __html: cssVariables }} />
+        
         {/* Skip to content for accessibility */}
         <a 
           href="#main-content" 
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-[#7736F8] text-white px-4 py-2 rounded-md z-50 transition-all"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 text-white px-4 py-2 rounded-md z-50 transition-all"
+          style={{ backgroundColor: 'var(--primary-accent)' }}
         >
           Skip to main content
         </a>
         
         {/* Optimized Background Layers */}
         <div className="fixed inset-0 pointer-events-none z-[-1]" aria-hidden="true">
-          {/* Subtle gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+          {/* Light gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>
           {/* Grid pattern for texture */}
-          <div className="absolute inset-0 bg-[radial-gradient(#ffffff02_1px,transparent_1px)] [background-size:50px_50px]"></div>
-          {/* Purple accent */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#7736F8]/5 to-transparent"></div>
+          <div className="absolute inset-0 opacity-10"
+               style={{
+                 backgroundImage: `radial-gradient(var(--primary-accent) 1px, transparent 1px)`,
+                 backgroundSize: '50px 50px'
+               }}></div>
+          {/* Accent overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/5 to-transparent"></div>
         </div>
         
         {/* Navigation */}

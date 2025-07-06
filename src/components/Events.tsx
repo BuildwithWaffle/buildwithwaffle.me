@@ -22,70 +22,107 @@ export default function Event() {
 
   return (
     <section
-      className="text-white py-14 px-4 relative z-0 overflow-hidden"
+      className="text-gray-900 py-16 px-6 bg-white"
       id="events"
       ref={heroRef}
     >
-      <h2 className="text-3xl font-bold mb-6 text-center">🔥 Next Event</h2>
-      <div className="relative w-full max-w-4xl mx-auto">
-        {upcomingEvents.map((event, index) => (
-          <div key={index} className="bg-gray-900/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/30 hover:border-gray-600/40 transition-all duration-300 ease-in-out relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Event Image */}
-              <div className="aspect-video rounded-xl overflow-hidden bg-gray-800/50">
-                <img
-                  src={event.image}
-                  alt={event.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              {/* Event Details */}
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-2xl font-bold mb-3">{event.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{event.description}</p>
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">🔥 Next Event</h2>
+          <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+            Join us for hands-on workshops, networking, and collaborative building. 
+            These aren't just talks — they're real opportunities to build, learn, and connect.
+          </p>
+        </div>
+
+        {/* Featured Event */}
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-white px-4 py-2 rounded-full text-lg font-semibold"
+                  style={{ 
+                    backgroundColor: `var(--primary-accent)`,
+                    boxShadow: `0 10px 25px -5px var(--primary-accent-shadow), 0 4px 6px -2px var(--primary-accent-shadow)` 
+                  }}>
+              🎯 Upcoming Event
+            </span>
+            <span className="text-gray-500">Don't miss out</span>
+          </div>
+
+          {upcomingEvents.map((event, index) => (
+            <div key={index} className="rounded-3xl p-8 border border-gray-200 shadow-lg bg-white"
+                 style={{ 
+                   backgroundColor: `var(--primary-accent-light)`,
+                   borderColor: `var(--primary-accent)`,
+                   borderWidth: '2px'
+                 }}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                {/* Event Image */}
+                <div className="order-2 lg:order-1">
+                  <div className="aspect-video rounded-2xl overflow-hidden bg-gray-100 mb-6">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
                 
-                {/* Event Info */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-sm">
-                    <span className="text-[#7736F8]">📅</span>
-                    <span>{event.date}</span>
+                {/* Event Details */}
+                <div className="order-1 lg:order-2 space-y-6">
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">{event.title}</h3>
+                    <p className="text-gray-600 leading-relaxed text-lg">{event.description}</p>
                   </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <span className="text-[#7736F8]">📍</span>
-                    <span>{event.location}</span>
+                  
+                  {/* Event Info */}
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-gray-700">
+                      <span className="text-2xl">📅</span>
+                      <span className="font-medium">{event.date}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-gray-700">
+                      <span className="text-2xl">📍</span>
+                      <span className="font-medium">{event.location}</span>
+                    </div>
                   </div>
-                </div>
-                
-                {/* Register Button */}
-                <div className="pt-4">
-                  <a
-                    href={event.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#7736F8] hover:bg-[#7736F8]/80 px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
-                  >
-                    {event.action}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
+                  
+                  {/* Register Button */}
+                  <div className="pt-4">
+                    <a
+                      href={event.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                      style={{ 
+                        backgroundColor: `var(--primary-accent)`,
+                        boxShadow: `0 10px 25px -5px var(--primary-accent-shadow), 0 4px 6px -2px var(--primary-accent-shadow)` 
+                      }}
+                    >
+                      {event.action}
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-      
-      {/* Check out more events button */}
-      <div className="text-center mt-8">
-        <Link href="/Events">
-          <button className="bg-gradient-to-r from-[#7736F8] to-[#9333EA] hover:from-[#9333EA] hover:to-[#7736F8] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            Check out more events →
-          </button>
-        </Link>
+          ))}
+        </div>
+        
+        {/* Check out more events button */}
+        <div className="text-center">
+          <Link href="/Events">
+            <button className="text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    style={{ 
+                      background: `linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%)`,
+                      boxShadow: `0 10px 25px -5px var(--primary-accent-shadow), 0 4px 6px -2px var(--primary-accent-shadow)` 
+                    }}>
+              Check out more events →
+            </button>
+          </Link>
+        </div>
       </div>
     </section>
   );

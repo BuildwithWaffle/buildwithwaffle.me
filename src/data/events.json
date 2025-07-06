@@ -1,15 +1,16 @@
 {
   "upcomingEvent": {
     "id": "upcoming-1",
-    "title": "Build with Waffle: Student Innovation Workshop",
-    "description": "Join us for an exciting workshop focused on student innovation and project building. Learn from industry experts, connect with fellow builders, and bring your ideas to life.",
-    "date": "TBD",
-    "time": "TBD",
-    "location": "Amity University Lucknow, Uttar Pradesh",
-    "image": "/images/events/EventPic-1.jpg",
+    "title": "Discover Yourself & Product Building Boot Camp",
+    "description": "A transformational boot camp designed to help you find clarity, confidence, and the courage to build what matters. You'll explore your identity, team up with fellow creators, and bring real product ideas to life — from zero to demo.",
+    "date": "2025-07-22",
+    "time": "To be announced",
+    "location": "Open to all students",
+    "image": "/events/EventPic-1.jpg",
     "isVirtual": false,
-    "registrationLink": "https://example.com/register-amity-workshop",
-    "tags": ["Innovation", "Workshop", "Student Projects", "Networking"],
+    "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187",
+    "tags": ["Self-Discovery", "Product Building", "Identity", "Collaboration"],
+    "emoji": "🧭",
     "speakers": [
       {
         "name": "Build with Waffle Team",
@@ -18,81 +19,152 @@
       }
     ],
     "agenda": [
-      { "time": "TBD", "activity": "Registration & Welcome" },
-      { "time": "TBD", "activity": "Opening Session" },
-      { "time": "TBD", "activity": "Workshop Activities" },
-      { "time": "TBD", "activity": "Networking & Closing" }
+      { "time": "TBD", "activity": "Self-Discovery Session" },
+      { "time": "TBD", "activity": "Team Formation" },
+      { "time": "TBD", "activity": "Product Ideation" },
+      { "time": "TBD", "activity": "Build & Demo" }
     ]
   },
   "pastEvents": [
     {
       "id": "event-1",
-      "title": "Git & GitHub Workshop",
-      "description": "A comprehensive workshop covering version control fundamentals, Git workflows, and collaborative development using GitHub.",
-      "date": "2025-06-20",
-      "time": "2:00 PM",
-      "location": "Virtual Event",
-      "image": "/images/events/EventPic-2.jpg",
-      "isVirtual": true,
-      "tags": ["Git", "GitHub", "Version Control", "Development"],
-      "attendees": 60,
-      "recordings": "https://example.com/git-workshop-recordings"
+      "title": "Git & GitHub: The Workshop",
+      "description": "A hands-on version control workshop for student developers to master Git basics, branching strategies, and open-source collaboration — Waffle-style.",
+      "date": "2025-02-23",
+      "time": "Workshop Format",
+      "location": "Hands-on Workshop",
+      "image": "/events/EventPic-2.jpg",
+      "isVirtual": false,
+      "tags": ["Git", "GitHub", "Version Control", "Open Source"],
+      "attendees": 15,
+      "emoji": "🧩",
+      "galleryLink": "https://drive.google.com/drive/folders/1uU92RKe_vUO79EvvJFpeGDB7BmRHX6m2?usp=drive_link",
+      "highlights": [
+        "Hands-on Git mastery",
+        "Branching strategies",
+        "Open-source collaboration"
+      ]
     },
     {
       "id": "event-2",
-      "title": "JavaScript Juggernaut",
-      "description": "Deep dive into JavaScript fundamentals, modern ES6+ features, and practical application development techniques.",
-      "date": "2025-06-10",
-      "time": "3:00 PM",
-      "location": "Virtual Event",
-      "image": "/images/events/EventPic-3.jpg",
-      "isVirtual": true,
-      "tags": ["JavaScript", "Web Development", "Programming", "ES6"],
-      "attendees": 75,
+      "title": "CodeIT",
+      "description": "A high-energy coding sprint focused on beginner-friendly challenges and real-world project mentorship. From HTML to Python, attendees shipped fast and learned faster.",
+      "date": "2024-10-01",
+      "time": "All Day",
+      "location": "Coding Sprint",
+      "image": "/events/EventPic-3.jpg",
+      "isVirtual": false,
+      "tags": ["Coding", "Mentorship", "HTML", "Python"],
+      "attendees": 60,
+      "emoji": "💻",
+      "galleryLink": "https://drive.google.com/drive/folders/1GJL-BXXeyQopa8ZNGWrSbhlpJXoR7n6D?usp=drive_link",
       "highlights": [
-        "50+ students learned modern JavaScript",
-        "Interactive coding challenges",
-        "Real-world project examples"
+        "Beginner-friendly challenges",
+        "Real-world project mentorship",
+        "Fast shipping and learning"
       ]
     },
     {
       "id": "event-3",
-      "title": "Python Speedrun",
-      "description": "Fast-paced introduction to Python programming, covering syntax, data structures, and popular libraries for beginners.",
-      "date": "2025-05-25",
-      "time": "4:00 PM",
-      "location": "Virtual Event",
-      "image": "/images/events/EventPic-4.jpg",
-      "isVirtual": true,
-      "tags": ["Python", "Programming", "Data Structures", "Beginners"],
-      "attendees": 45,
-      "outcomes": [
-        "40 students completed their first Python program",
-        "Introduction to popular Python libraries",
-        "Hands-on coding exercises"
+      "title": "Machina Speculatrix",
+      "description": "A niche robotics + AI discussion meetup inspired by Grey Walter's cybernetic tortoises. Intimate, mind-bending, and surprisingly philosophical.",
+      "date": "2024-10-11",
+      "time": "Evening",
+      "location": "Discussion Meetup",
+      "image": "/events/EventPic-4.jpg",
+      "isVirtual": false,
+      "tags": ["Robotics", "AI", "Philosophy", "Discussion"],
+      "attendees": 10,
+      "emoji": "🤖",
+      "galleryLink": "https://drive.google.com/drive/folders/1DvIPzvu-8ykrBjTcLKhctFbg8QVl1L7W?usp=drive_link",
+      "highlights": [
+        "Robotics + AI discussions",
+        "Cybernetic philosophy",
+        "Intimate setting"
       ]
     },
     {
       "id": "event-4",
-      "title": "Build Fast Workshop",
-      "description": "Learn rapid prototyping techniques and agile development methods to build projects quickly and efficiently.",
-      "date": "2025-05-15",
-      "time": "1:00 PM",
-      "location": "Virtual Event",
-      "image": "/images/events/EventPic-5.jpg",
-      "isVirtual": true,
-      "tags": ["Rapid Prototyping", "Agile", "Project Management", "Development"],
-      "attendees": 35,
-      "deliverables": [
-        "20 project prototypes created",
-        "Agile methodology training",
-        "Team collaboration techniques"
+      "title": "Spontaneous Meetup",
+      "description": "No stage. No slides. Just raw conversation. A casual builder meet where ideas were born over chai and chaos — the real soul of Waffle.",
+      "date": "2024-09-27",
+      "time": "Casual",
+      "location": "Casual Setting",
+      "image": "/events/EventPic-5.jpg",
+      "isVirtual": false,
+      "tags": ["Casual", "Conversation", "Ideas", "Community"],
+      "attendees": 20,
+      "emoji": "☕",
+      "highlights": [
+        "Raw conversation",
+        "Ideas over chai",
+        "Authentic connections"
+      ]
+    },
+    {
+      "id": "event-5",
+      "title": "Converge",
+      "description": "Our biggest event yet — a full-day student-led tech summit featuring lightning talks, mini hackathons, and panels with real founders. Builders from across colleges connected, collaborated, and co-created.",
+      "date": "2024-09-24",
+      "time": "Full Day",
+      "location": "Tech Summit",
+      "image": "/events/EventPic-6.jpg",
+      "isVirtual": false,
+      "tags": ["Summit", "Lightning Talks", "Hackathons", "Founders"],
+      "attendees": 200,
+      "emoji": "🌐",
+      "galleryLink": "https://drive.google.com/drive/folders/1qOQq75Gi7Dp1bZpfZEeBONYXg5tBUW99?usp=drive_link",
+      "highlights": [
+        "Lightning talks",
+        "Mini hackathons",
+        "Founder panels",
+        "Cross-college collaboration"
+      ]
+    },
+    {
+      "id": "event-6",
+      "title": "Techwiz",
+      "description": "A one-day showdown of tech trivia, fast-paced challenges, and real-time problem-solving. Techwiz tested not just knowledge, but reflexes and wit.",
+      "date": "2024-09-14",
+      "time": "Full Day",
+      "location": "Challenge Arena",
+      "image": "/events/EventPic-2.jpg",
+      "isVirtual": false,
+      "tags": ["Trivia", "Challenges", "Problem-solving", "Competition"],
+      "attendees": 75,
+      "emoji": "🧪",
+      "galleryLink": "https://drive.google.com/drive/folders/1_2RJe8jI1ekdNlLXkElZqp4OyBzoWA6P?usp=drive_link",
+      "highlights": [
+        "Tech trivia showdown",
+        "Fast-paced challenges",
+        "Real-time problem-solving"
+      ]
+    },
+    {
+      "id": "event-7",
+      "title": "JS Juggernauts",
+      "description": "A two-day JavaScript bootcamp where students dove into the world of frontend frameworks, DOM magic, and async power. From vanilla JS to React basics — pure coding chaos, the Waffle way.",
+      "date": "2024-02-13",
+      "time": "Two Days",
+      "location": "Bootcamp",
+      "image": "/events/EventPic-5.jpg",
+      "isVirtual": false,
+      "tags": ["JavaScript", "Frontend", "React", "Bootcamp"],
+      "attendees": 50,
+      "emoji": "🧠",
+      "galleryLink": "https://drive.google.com/drive/folders/1LtDFU061ZeyQITx814LRH7IzWjpth5dw?usp=drive_link",
+      "highlights": [
+        "Frontend frameworks",
+        "DOM manipulation",
+        "Async JavaScript",
+        "React basics"
       ]
     }
   ],
   "eventStats": {
-    "totalEvents": 4,
-    "totalAttendees": 215,
+    "totalEvents": 7,
+    "totalAttendees": 400,
+    "averageAttendance": 50,
     "upcomingEvents": 1
   }
 }

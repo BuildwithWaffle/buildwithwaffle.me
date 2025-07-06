@@ -34,8 +34,8 @@ export default function Navbar() {
           {/* Dynamic Background */}
           <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${
             isScrolled 
-              ? 'bg-black/20 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl' 
-              : 'bg-black/80 backdrop-blur-md border-b border-black'
+              ? 'bg-white/80 backdrop-blur-md border border-gray-200 rounded-2xl shadow-xl' 
+              : 'bg-transparent'
           }`}></div>
           
           {/* Content */}
@@ -51,7 +51,9 @@ export default function Navbar() {
                 height={32}
                 className="rounded-lg hover:scale-105 transition-transform duration-200"
               />
-              <span className="text-white font-bold text-xl">Waffle</span>
+              <span className={`font-bold text-xl transition-colors duration-300 ${
+                isScrolled ? 'text-gray-900' : 'text-gray-900'
+              }`}>Waffle</span>
             </Link>
 
             {/* Desktop Menu */}
@@ -69,19 +71,29 @@ export default function Navbar() {
                     {...linkProps}
                     className={`${
                       item.isCTA
-                        ? `px-4 py-2 backdrop-blur-sm border rounded-full transition-all duration-300 hover:scale-105 ${
-                            isScrolled 
-                              ? 'bg-white/10 border-white/20 text-white hover:bg-white hover:text-black' 
-                              : 'bg-white text-black border-white hover:bg-gray-200 hover:text-black'
+                        ? `px-4 py-2 backdrop-blur-sm border rounded-full transition-all duration-300 hover:scale-105 text-white`
+                        : `transition-colors duration-200 relative group ${
+                            isScrolled ? 'text-gray-600 hover:text-gray-900' : 'text-gray-600 hover:text-gray-900'
                           }`
-                        : "text-white/80 hover:text-white transition-colors duration-200 relative group"
                     }`}
+                    style={item.isCTA ? {
+                      backgroundColor: 'var(--primary-accent)',
+                      borderColor: 'var(--primary-accent)',
+                      boxShadow: '0 4px 6px -1px var(--primary-accent-shadow)'
+                    } : {}}
+                    onMouseEnter={item.isCTA ? (e) => {
+                      e.currentTarget.style.backgroundColor = 'var(--primary-accent-hover)';
+                      e.currentTarget.style.boxShadow = '0 10px 25px -5px var(--primary-accent-shadow-hover), 0 4px 6px -2px var(--primary-accent-shadow-hover)';
+                    } : undefined}
+                    onMouseLeave={item.isCTA ? (e) => {
+                      e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
+                      e.currentTarget.style.boxShadow = '0 4px 6px -1px var(--primary-accent-shadow)';
+                    } : undefined}
                   >
                     {item.label}
                     {!item.isCTA && (
-                      <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                        isScrolled ? 'bg-white' : 'bg-[#7736F8]'
-                      }`}></span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                            style={{ backgroundColor: 'var(--primary-accent)' }}></span>
                     )}
                   </Component>
                 );
@@ -93,14 +105,14 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className={`md:hidden p-2 rounded-lg backdrop-blur-sm transition-all duration-300 ${
                 isScrolled 
-                  ? 'bg-white/10 border border-white/20' 
-                  : 'bg-white/10'
+                  ? 'bg-gray-100 border border-gray-200' 
+                  : 'bg-gray-100'
               }`}
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
-                <span className={`h-0.5 w-6 bg-white rounded transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
-                <span className={`h-0.5 w-6 bg-white rounded transition-all duration-300 ${isOpen ? 'opacity-0' : 'my-1'}`}></span>
-                <span className={`h-0.5 w-6 bg-white rounded transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+                <span className={`h-0.5 w-6 bg-gray-900 rounded transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+                <span className={`h-0.5 w-6 bg-gray-900 rounded transition-all duration-300 ${isOpen ? 'opacity-0' : 'my-1'}`}></span>
+                <span className={`h-0.5 w-6 bg-gray-900 rounded transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
               </div>
             </button>
           </div>
@@ -109,8 +121,8 @@ export default function Navbar() {
           {isOpen && (
             <div className={`md:hidden absolute top-full left-0 right-0 mt-2 backdrop-blur-md border overflow-hidden transition-all duration-300 ${
               isScrolled 
-                ? 'bg-black/20 border-white/10 rounded-2xl' 
-                : 'bg-black/95 border-black rounded-lg'
+                ? 'bg-white/90 border-gray-200 rounded-2xl' 
+                : 'bg-white/95 border-gray-200 rounded-lg'
             }`}>
               <div className="p-4 space-y-2">
                 {navItems.map((item) => {
@@ -127,13 +139,20 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className={`block py-2 text-center transition-all duration-300 ${
                         item.isCTA
-                          ? `w-full py-3 backdrop-blur-sm border rounded-lg text-white ${
-                              isScrolled 
-                                ? 'bg-white/10 border-white/20 hover:bg-white hover:text-black' 
-                                : 'bg-white text-black hover:bg-gray-200'
-                            }`
-                          : "text-white/80 hover:text-white"
+                          ? 'w-full py-3 backdrop-blur-sm border rounded-lg text-white'
+                          : "text-gray-600 hover:text-gray-900"
                       }`}
+                      style={item.isCTA ? {
+                        backgroundColor: 'var(--primary-accent)',
+                        borderColor: 'var(--primary-accent)',
+                        boxShadow: '0 4px 6px -1px var(--primary-accent-shadow)'
+                      } : {}}
+                      onMouseEnter={item.isCTA ? (e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--primary-accent-hover)';
+                      } : undefined}
+                      onMouseLeave={item.isCTA ? (e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
+                      } : undefined}
                     >
                       {item.label}
                     </Component>
