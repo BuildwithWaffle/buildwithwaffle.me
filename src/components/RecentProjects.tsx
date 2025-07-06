@@ -1,12 +1,9 @@
 "use client";
-import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import projectsData from "../data/projects.json";
 
 export default function Projects() {
-  const heroRef = useRef(null);
-  
   const featuredProject = projectsData.projectOfTheWeek;
 
   return (

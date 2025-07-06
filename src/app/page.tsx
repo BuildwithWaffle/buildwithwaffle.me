@@ -5,7 +5,6 @@ import Events from "@/components/Events";
 import RecentProjects from "@/components/RecentProjects";
 import CommunitySection from "@/components/CommunitySection";
 import ChapterSection from "@/components/ChapterSection";
-import Newsletter from "@/components/Newsletter";
 import FinalSection from "@/components/FinalSection";
 
 // SEO Metadata for home page
