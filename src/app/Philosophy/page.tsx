@@ -291,25 +291,7 @@ export default function AboutUs() {
                 >
                   Join the Crew
                 </a>
-                <a
-                  href="/Letter"
-                  className="px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 border-2"
-                  style={{ 
-                    color: 'var(--text-primary)',
-                    borderColor: 'var(--primary-accent)',
-                    backgroundColor: 'transparent'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
-                    e.currentTarget.style.color = 'white';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = 'var(--text-primary)';
-                  }}
-                >
-                  Read Our Letter
-                </a>
+                
               </div>
             </div>
           </div>

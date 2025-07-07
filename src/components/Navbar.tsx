@@ -7,7 +7,7 @@ const navItems = [
   { label: "Philosophy", href: "/Philosophy" },
   { label: "Projects", href: "/projects" },
   { label: "Events", href: "/Events" },
-  { label: "Start a Chapter", href: "https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187" },
+  { label: "Start a Chapter", href: "https://docs.google.com/forms/d/e/1FAIpQLSfCH69gkopLdBQB7OQFPpU3bJ90-dM4IsHB281SIAs9VYdgjg/viewform?usp=header" },
   { label: "Join Waffle", href: "https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187", isCTA: true },
 ];
 
