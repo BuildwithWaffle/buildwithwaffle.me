@@ -61,7 +61,7 @@ export default function CodeOfConduct() {
       <div className="absolute inset-0 bg-[radial-gradient(theme(colors.orange.400)_1px,transparent_1px)] [background-size:40px_40px] opacity-5 pointer-events-none" />
       
       <div className="relative z-10 py-20 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto mt-10">
           {/* Navigation */}
           <nav className="mb-8" aria-label="Breadcrumb">
             <Link 
