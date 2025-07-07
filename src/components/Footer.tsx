@@ -61,12 +61,12 @@ const Footer = () => {
             <nav>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <Link href="/Terms" className="text-gray-300 hover:text-white transition-colors duration-200">
+                  <Link href="/terms" className="text-gray-300 hover:text-white transition-colors duration-200">
                     Terms & Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link href="/Privacy" className="text-gray-300 hover:text-white transition-colors duration-200">
+                  <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors duration-200">
                     Privacy Policy
                   </Link>
                 </li>

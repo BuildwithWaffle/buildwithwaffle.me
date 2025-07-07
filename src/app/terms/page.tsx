@@ -35,7 +35,7 @@ const EFFECTIVE_DATE = "July 3, 2025";
 
 export default function TermsAndConditions() {
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
       {/* JSON-LD Structured Data for SEO */}
       <script
         type="application/ld+json"
@@ -59,7 +59,7 @@ export default function TermsAndConditions() {
       />
 
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#ffffff03_1px,transparent_1px)] [background-size:40px_40px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(var(--primary-accent)_1px,transparent_1px)] [background-size:40px_40px] opacity-5 pointer-events-none" />
       
       <div className="relative z-10 py-20 px-6">
         <div className="max-w-4xl mx-auto">
@@ -67,7 +67,7 @@ export default function TermsAndConditions() {
           <nav className="mb-8" aria-label="Breadcrumb">
             <Link 
               href="/" 
-              className="inline-flex items-center text-gray-400 hover:text-white transition-colors duration-200 text-sm group"
+              className="inline-flex items-center text-gray-600 hover:text-orange-600 transition-colors duration-200 text-sm group"
               aria-label="Back to Home"
             >
               <svg 
@@ -86,10 +86,10 @@ export default function TermsAndConditions() {
           {/* Header */}
           <header className="space-y-8 mb-12">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
                 Terms & Conditions
               </h1>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-gray-400">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-gray-600">
                 <time dateTime={LAST_UPDATED}>Last updated: {LAST_UPDATED}</time>
                 <span className="hidden sm:inline">•</span>
                 <time dateTime={EFFECTIVE_DATE}>Effective: {EFFECTIVE_DATE}</time>
@@ -97,8 +97,8 @@ export default function TermsAndConditions() {
             </div>
             
             {/* Introduction */}
-            <div className="bg-gradient-to-r from-[#7736F8]/10 to-transparent border-l-4 border-[#7736F8] p-6 rounded-r-lg">
-              <p className="text-gray-300 leading-relaxed text-lg">
+            <div className="bg-gradient-to-r from-orange-500/10 to-red-500/10 border-l-4 border-orange-500 p-6 rounded-r-lg">
+              <p className="text-gray-700 leading-relaxed text-lg">
                 Welcome to Build with Waffle! These terms govern your use of our platform and participation in our community. 
                 By joining us, you&apos;re agreeing to be part of a movement that celebrates builders, creators, and innovators.
               </p>
@@ -106,8 +106,8 @@ export default function TermsAndConditions() {
           </header>
 
           {/* Table of Contents */}
-          <aside className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-6 mb-12">
-            <h2 className="text-lg font-semibold mb-4 text-white">Table of Contents</h2>
+          <aside className="bg-white/50 backdrop-blur-sm border border-orange-200 rounded-lg p-6 mb-12">
+            <h2 className="text-lg font-semibold mb-4 text-gray-800">Table of Contents</h2>
             <nav>
               <ol className="space-y-2 text-sm">
                 {[
@@ -126,7 +126,7 @@ export default function TermsAndConditions() {
                   <li key={index}>
                     <a 
                       href={`#section-${index + 1}`}
-                      className="text-gray-400 hover:text-[#7736F8] transition-colors duration-200"
+                      className="text-gray-600 hover:text-orange-600 transition-colors duration-200"
                     >
                       {index + 1}. {item}
                     </a>
@@ -137,41 +137,41 @@ export default function TermsAndConditions() {
           </aside>
 
           {/* Main Content */}
-          <article className="prose prose-invert max-w-none space-y-12">
+          <article className="prose prose-gray max-w-none space-y-12">
             <section id="section-1" className="scroll-mt-20">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white flex items-center">
-                <span className="bg-[#7736F8] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">1</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+                <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">1</span>
                 Acceptance of Terms
               </h2>
               <div className="pl-12 space-y-4">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   By accessing and using Build with Waffle (&quot;Waffle,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
                 </p>
               </div>
             </section>
 
             <section id="section-2" className="scroll-mt-20">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white flex items-center">
-                <span className="bg-[#7736F8] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">2</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+                <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">2</span>
                 About Waffle
               </h2>
               <div className="pl-12 space-y-4">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   Waffle is a student-led creator movement that provides a platform for students to build, ship, and showcase their projects. We are not a traditional club or institution but a community of builders and creators who believe in the power of shipping real products.
                 </p>
               </div>
             </section>
 
             <section id="section-3" className="scroll-mt-20">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white flex items-center">
-                <span className="bg-[#7736F8] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">3</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+                <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">3</span>
                 User Conduct
               </h2>
               <div className="pl-12 space-y-6">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   As a member of the Waffle community, you agree to:
                 </p>
-                <ul className="text-gray-300 space-y-3 text-lg">
+                <ul className="text-gray-700 space-y-3 text-lg">
                   {[
                     "Respect all community members regardless of their background, skill level, or experience",
                     "Share your work authentically and give proper credit to collaborators",
@@ -181,7 +181,7 @@ export default function TermsAndConditions() {
                     "Follow the specific guidelines of each platform we operate on (Discord, social media, etc.)"
                   ].map((item, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="text-[#7736F8] mr-3 mt-1.5">•</span>
+                      <span className="text-orange-500 mr-3 mt-1.5">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -190,15 +190,15 @@ export default function TermsAndConditions() {
             </section>
 
             <section id="section-4" className="scroll-mt-20">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white flex items-center">
-                <span className="bg-[#7736F8] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">4</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+                <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">4</span>
                 Content and Projects
               </h2>
               <div className="pl-12 space-y-6">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   When you share projects or content through Waffle:
                 </p>
-                <ul className="text-gray-300 space-y-3 text-lg">
+                <ul className="text-gray-700 space-y-3 text-lg">
                   {[
                     "You retain ownership of your intellectual property",
                     "You grant Waffle permission to showcase your work on our platforms",
@@ -206,7 +206,7 @@ export default function TermsAndConditions() {
                     "We reserve the right to remove content that violates our community guidelines"
                   ].map((item, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="text-[#7736F8] mr-3 mt-1.5">•</span>
+                      <span className="text-orange-500 mr-3 mt-1.5">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -215,40 +215,40 @@ export default function TermsAndConditions() {
             </section>
 
             <section id="section-5" className="scroll-mt-20">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white flex items-center">
-                <span className="bg-[#7736F8] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">5</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+                <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">5</span>
                 Events and Activities
               </h2>
               <div className="pl-12 space-y-4">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   Participation in Waffle events, hackathons, and activities is voluntary. We strive to create safe and inclusive environments, but participants engage at their own risk. We are not liable for any injuries, damages, or losses during events.
                 </p>
               </div>
             </section>
 
             <section id="section-6" className="scroll-mt-20">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white flex items-center">
-                <span className="bg-[#7736F8] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">6</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+                <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">6</span>
                 Chapter Leadership
               </h2>
               <div className="pl-12 space-y-4">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   College chapter leaders agree to uphold Waffle&apos;s values and maintain active, supportive communities. Leadership positions may be revoked if responsibilities are not met or community guidelines are violated.
                 </p>
               </div>
             </section>
 
             <section id="section-7" className="scroll-mt-20">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white flex items-center">
-                <span className="bg-[#7736F8] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">7</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+                <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">7</span>
                 Privacy and Data
               </h2>
               <div className="pl-12 space-y-4">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   Your privacy is important to us. Please refer to our{" "}
                   <Link 
                     href="/Privacy" 
-                    className="text-[#7736F8] hover:text-[#7736F8]/80 underline underline-offset-4 transition-colors"
+                    className="text-orange-500 hover:text-orange-500/80 underline underline-offset-4 transition-colors"
                   >
                     Privacy Policy
                   </Link>{" "}
@@ -258,52 +258,52 @@ export default function TermsAndConditions() {
             </section>
 
             <section id="section-8" className="scroll-mt-20">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white flex items-center">
-                <span className="bg-[#7736F8] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">8</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+                <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">8</span>
                 Disclaimers
               </h2>
               <div className="pl-12 space-y-4">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   Waffle is provided &quot;as is&quot; without warranties of any kind. We do not guarantee continuous availability of our services or platforms. We are not responsible for external links or third-party content shared within our community.
                 </p>
               </div>
             </section>
 
             <section id="section-9" className="scroll-mt-20">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white flex items-center">
-                <span className="bg-[#7736F8] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">9</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+                <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">9</span>
                 Limitation of Liability
               </h2>
               <div className="pl-12 space-y-4">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   Waffle shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our platform or participation in our community.
                 </p>
               </div>
             </section>
 
             <section id="section-10" className="scroll-mt-20">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white flex items-center">
-                <span className="bg-[#7736F8] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">10</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+                <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">10</span>
                 Changes to Terms
               </h2>
               <div className="pl-12 space-y-4">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   We reserve the right to modify these terms at any time. Changes will be posted on this page, and your continued use of Waffle constitutes acceptance of any modifications.
                 </p>
               </div>
             </section>
 
             <section id="section-11" className="scroll-mt-20">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white flex items-center">
-                <span className="bg-[#7736F8] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">11</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+                <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">11</span>
                 Contact Information
               </h2>
               <div className="pl-12 space-y-4">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   If you have questions about these Terms & Conditions, please contact us through our community Discord or reach out to our team directly at{" "}
                   <a 
                     href="mailto:buildwithwaffle@gmail.com" 
-                    className="text-[#7736F8] hover:text-[#7736F8]/80 underline underline-offset-4 transition-colors"
+                    className="text-orange-500 hover:text-orange-500/80 underline underline-offset-4 transition-colors"
                   >
                     buildwithwaffle@gmail.com
                   </a>
@@ -313,22 +313,22 @@ export default function TermsAndConditions() {
           </article>
 
           {/* Footer */}
-          <footer className="border-t border-gray-800 pt-8 mt-16">
-            <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-6">
+          <footer className="border-t border-orange-200 pt-8 mt-16">
+            <div className="bg-white/50 backdrop-blur-sm border border-orange-200 rounded-lg p-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-600 text-sm">
                   These terms are effective as of <time dateTime={EFFECTIVE_DATE}>{EFFECTIVE_DATE}</time> and govern your use of Build with Waffle.
                 </p>
                 <div className="flex gap-4">
                   <Link 
                     href="/Privacy" 
-                    className="text-[#7736F8] hover:text-[#7736F8]/80 text-sm transition-colors"
+                    className="text-orange-500 hover:text-orange-500/80 text-sm transition-colors"
                   >
                     Privacy Policy
                   </Link>
                   <Link 
                     href="/CodeOfConduct" 
-                    className="text-[#7736F8] hover:text-[#7736F8]/80 text-sm transition-colors"
+                    className="text-orange-500 hover:text-orange-500/80 text-sm transition-colors"
                   >
                     Code of Conduct
                   </Link>
