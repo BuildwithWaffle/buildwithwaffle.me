@@ -220,7 +220,7 @@ export default function Projects() {
         {/* Check Out More */}
         <div className="text-center">
           <Link
-            href="/Projects"
+            href="/projects"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300 hover:scale-105 border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900"
           >
             Check Out More Projects

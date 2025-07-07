@@ -472,7 +472,7 @@ export default function EventsPage() {
                   e.currentTarget.style.backgroundColor = `var(--primary-accent)`;
                   e.currentTarget.style.boxShadow = `0 10px 25px -5px var(--primary-accent-shadow), 0 4px 6px -2px var(--primary-accent-shadow)`;
                 }}>
-               Become a Waffle Builde
+               Become a Waffle Builder
               </a>
               <a
                 href="#"

@@ -1,14 +1,20 @@
 'use client';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const PostYourProject: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    companyName: '',
-    service: '',
+    projectTitle: '',
+    projectType: '',
     projectDetails: '',
+    githubUrl: '',
+    liveUrl: '',
+    tags: '',
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -22,10 +28,15 @@ const App: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    
     const submissionData = {
       access_key: "254485ab-0966-4ec0-bdf6-e79855bebfe4",
+      subject: `New Project Submission: ${formData.projectTitle}`,
       ...formData,
     };
+    
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -36,20 +47,25 @@ const App: React.FC = () => {
       });
       const data = await response.json();
       if (data.success) {
-        alert("Form submitted successfully! We will contact you within 24 business hours.");
+        setSubmitStatus('success');
         setFormData({
           name: '',
           email: '',
-          companyName: '',
-          service: '',
+          projectTitle: '',
+          projectType: '',
           projectDetails: '',
+          githubUrl: '',
+          liveUrl: '',
+          tags: '',
         });
       } else {
-        alert("There was an error submitting the form. Please try again later.");
+        setSubmitStatus('error');
       }
     } catch (error) {
       console.error(error);
-      alert("An unexpected error occurred. Please try again later.");
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -57,14 +73,14 @@ const App: React.FC = () => {
     <div className="min-h-screen mt-20 text-white flex flex-col items-center justify-center p-4 font-sans text-sm md:text-base">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <span className="inline-block text-sm md:text-base font-medium px-5 py-2 md:px-6 md:py-2.5 text-white rounded-full bg-gradient-to-r from-white/10 via-white/5 to-white/10 border border-white/20 backdrop-blur-md hover:bg-white/10 transition duration-300 shadow-md">
-          Let's build
+        <span className="inline-block text-sm md:text-base font-medium px-5 py-2 md:px-6 md:py-2.5 text-white rounded-full bg-gradient-to-r from-orange-500/20 via-red-500/10 to-orange-500/20 border border-orange-500/30 backdrop-blur-md hover:bg-orange-500/20 transition duration-300 shadow-md">
+          Share Your Build
         </span>
         <h1 className="text-4xl md:text-6xl font-semibold mt-8 leading-tight">
-          We're Here To <span className="inline-block px-2 bg-white/10 rounded-md">Help</span>
+          Post Your <span className="inline-block px-2 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Project</span>
         </h1>
         <p className="text-gray-400 text-sm md:text-base mt-4">
-          Empower your team to complete projects with excellence.
+          Showcase your amazing project to the Build with Waffle community.
         </p>
       </div>
 
@@ -105,42 +121,46 @@ const App: React.FC = () => {
             />
           </div>
 
-          {/* Company Name */}
+          {/* Project Title */}
           <div className="md:col-span-2">
-            <label htmlFor="companyName" className="block text-gray-300 text-sm font-medium mb-2">
-              Company Name <span className="text-red-500">*</span>
+            <label htmlFor="projectTitle" className="block text-gray-300 text-sm font-medium mb-2">
+              Project Title <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
-              id="companyName"
-              name="companyName"
-              value={formData.companyName}
+              id="projectTitle"
+              name="projectTitle"
+              value={formData.projectTitle}
               onChange={handleChange}
-              placeholder="Ex. StaticMania"
+              placeholder="My Awesome Project"
               className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
               required
             />
           </div>
 
-          {/* Service Select */}
+          {/* Project Type Select */}
           <div className="md:col-span-2">
-            <label htmlFor="service" className="block text-gray-300 text-sm font-medium mb-2">
-              Select Service <span className="text-red-500">*</span>
+            <label htmlFor="projectType" className="block text-gray-300 text-sm font-medium mb-2">
+              Project Type <span className="text-red-500">*</span>
             </label>
             <div className="relative">
               <select
-                id="service"
-                name="service"
-                value={formData.service}
+                id="projectType"
+                name="projectType"
+                value={formData.projectType}
                 onChange={handleChange}
                 className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white appearance-none pr-8"
                 required
               >
-                <option value="" disabled hidden>Select Your Service</option>
+                <option value="" disabled hidden>Select Project Type</option>
                 <option value="web-development">Web Development</option>
-                <option value="mobile-app-development">Mobile App Development</option>
-                <option value="ui-ux-design">UI/UX Design</option>
-                <option value="digital-marketing">Digital Marketing</option>
+                <option value="mobile-app">Mobile App</option>
+                <option value="desktop-app">Desktop Application</option>
+                <option value="ai-ml">AI/ML Project</option>
+                <option value="blockchain">Blockchain/Web3</option>
+                <option value="iot">IoT Project</option>
+                <option value="game-development">Game Development</option>
+                <option value="api-backend">API/Backend</option>
                 <option value="other">Other</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
@@ -167,17 +187,85 @@ const App: React.FC = () => {
             />
           </div>
 
+          {/* GitHub URL */}
+          <div>
+            <label htmlFor="githubUrl" className="block text-gray-300 text-sm font-medium mb-2">
+              GitHub URL
+            </label>
+            <input
+              type="url"
+              id="githubUrl"
+              name="githubUrl"
+              value={formData.githubUrl}
+              onChange={handleChange}
+              placeholder="https://github.com/username/project"
+              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+            />
+          </div>
+
+          {/* Live URL */}
+          <div>
+            <label htmlFor="liveUrl" className="block text-gray-300 text-sm font-medium mb-2">
+              Live URL
+            </label>
+            <input
+              type="url"
+              id="liveUrl"
+              name="liveUrl"
+              value={formData.liveUrl}
+              onChange={handleChange}
+              placeholder="https://yourproject.com"
+              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+            />
+          </div>
+
+          {/* Tags */}
+          <div className="md:col-span-2">
+            <label htmlFor="tags" className="block text-gray-300 text-sm font-medium mb-2">
+              Tags
+            </label>
+            <input
+              type="text"
+              id="tags"
+              name="tags"
+              value={formData.tags}
+              onChange={handleChange}
+              placeholder="React, TypeScript, Node.js (separate with commas)"
+              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+            />
+          </div>
+
           {/* Submit Button & Message */}
           <div className="md:col-span-2 flex flex-col sm:flex-row items-center justify-between mt-4">
             <button
               type="submit"
-              className="bg-white hover:bg-gray-200 text-black font-bold py-1.5 px-4 text-sm rounded-lg transition duration-300 ease-in-out w-full sm:w-auto mb-4 sm:mb-0"
+              disabled={isSubmitting}
+              className={`${
+                isSubmitting 
+                  ? 'bg-gray-400 cursor-not-allowed' 
+                  : 'bg-white hover:bg-gray-200'
+              } text-black font-bold py-1.5 px-4 text-sm rounded-lg transition duration-300 ease-in-out w-full sm:w-auto mb-4 sm:mb-0`}
             >
-              Submit
+              {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
-            <p className="text-gray-400 text-sm text-center sm:text-right">
-              We will contact you within 24 business hours.
-            </p>
+            
+            {submitStatus === 'success' && (
+              <p className="text-green-500 text-sm text-center sm:text-right">
+                Project submitted successfully! We'll contact you within 24 business hours.
+              </p>
+            )}
+            
+            {submitStatus === 'error' && (
+              <p className="text-red-500 text-sm text-center sm:text-right">
+                Something went wrong. Please try again.
+              </p>
+            )}
+            
+            {submitStatus === 'idle' && (
+              <p className="text-gray-400 text-sm text-center sm:text-right">
+                We will contact you within 24 business hours.
+              </p>
+            )}
           </div>
         </form>
       </div>
@@ -185,4 +273,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default PostYourProject;
