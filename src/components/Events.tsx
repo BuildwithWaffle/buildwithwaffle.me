@@ -2,22 +2,35 @@
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import eventsData from "../data/events.json";
 
 export default function Event() {
   const heroRef = useRef(null);
 
-  // Only the single upcoming event from events.json
+  // Get the upcoming event from events.json
+  const { upcomingEvent } = eventsData;
+  
+  const formatDate = (dateString: string) => {
+    if (dateString === 'TBD') return 'Date to be announced';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+  };
+
   const upcomingEvents = [
     {
-      date: "Date to be announced",
-      location: "Amity University Lucknow, Uttar Pradesh",
-      image: "/events/EventPic-1.jpg",
-      time: "TBD",
+      date: formatDate(upcomingEvent.date),
+      location: upcomingEvent.location,
+      image: upcomingEvent.image,
+      time: upcomingEvent.time,
       venue: "Campus",
       action: "Register Now",
-      link: "#",
-      title: "Build with Waffle: Student Innovation Workshop",
-      description: "Join us for an exciting workshop focused on student innovation and project building. Learn from industry experts, connect with fellow builders, and bring your ideas to life.",
+      link: upcomingEvent.registrationLink,
+      title: upcomingEvent.title,
+      description: upcomingEvent.description,
     },
   ];
 

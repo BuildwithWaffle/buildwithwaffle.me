@@ -1,114 +1,39 @@
 {
   "projectOfTheWeek": {
-    "id": "iot-ml-diagnosis",
-    "image": "/images/LandingBackground.png",
-    "title": "IoT & ML Diagnosis System",
-    "description": "Smart health system using IoT & ML for diagnosis and urgency-based classification. This project combines hardware sensors with machine learning algorithms to provide real-time health monitoring and emergency response classification.",
+    "id": "hand-gesture-volume-control",
+    "image": "/images/AboutWaffel.png",
+    "title": "Hand Gesture-Based Volume Control System",
+    "description": "This project enables users to control their system volume using just hand gestures detected through a webcam. By measuring the distance between the thumb and index finger using MediaPipe's hand landmarks, the system adjusts the volume in real-time. It's an intuitive and touch-free way to manage audio levels using computer vision and hand tracking.",
     "builders": [
       {
-        "name": "Soumesh Nanda",
+        "name": "Prakhar Verma",
         "image": "/images/topleft1.jpeg",
-        "github": "https://github.com/soumesh",
-        "linkedin": "https://linkedin.com/in/soumesh-nanda"
-      },
-      {
-        "name": "Priya Sharma",
-        "image": "/images/topleft1.jpeg",
-        "github": "https://github.com/priyasharma",
-        "linkedin": "https://linkedin.com/in/priya-sharma-ml"
+        "github": "https://github.com/Prakharakshat",
+        "linkedin": "https://www.linkedin.com/in/prakhar-verma-ab1406292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
       }
     ],
-    "github": "https://github.com/soumesh/IOT",
-    "liveLink": "https://iot-diagnosis.vercel.app",
-    "tags": ["IoT", "Machine Learning", "Healthcare", "Python"],
+    "github": "",
+    "liveLink": "",
+    "tags": ["Python", "OpenCV", "MediaPipe", "NumPy", "Pycaw"],
     "featured": true
   },
   "recentProjects": [
     {
-      "id": "ai-code-generator",
-      "image": "/images/AboutWaffel.png",
-      "title": "AI Code Generator",
-      "description": "A tool to convert prompts into frontend code using AI models. Built with React and GPT-4 API integration.",
-      "builders": [
-        {
-          "name": "Animesh Pandey",
-          "image": "/images/topleft1.jpeg",
-          "github": "https://github.com/animesh",
-          "linkedin": "https://linkedin.com/in/animesh-pandey"
-        }
-      ],
-      "github": "https://github.com/animesh/codegen",
-      "liveLink": "https://ai-codegen.vercel.app",
-      "tags": ["AI", "Frontend", "React", "GPT-4"]
-    },
-    {
-      "id": "crypto-tracker",
+      "id": "waffle-website",
       "image": "/images/logo.png",
-      "title": "Crypto Tracker",
-      "description": "Track live crypto prices and market trends in real-time. Features portfolio management and price alerts.",
+      "title": "Waffle Website",
+      "description": "The official website for the Waffle Community - a platform for student builders to showcase their projects, connect with other developers, and participate in community events.",
       "builders": [
         {
-          "name": "Aarambh Vaish",
-          "image": "/images/topleft1.jpeg",
-          "github": "https://github.com/aarambh",
-          "linkedin": "https://linkedin.com/in/aarambh-vaish"
-        },
-        {
-          "name": "Rohan Kumar",
-          "image": "/images/topleft1.jpeg",
-          "github": "https://github.com/rohankumar",
-          "linkedin": "https://linkedin.com/in/rohan-kumar-dev"
+          "name": "Waffle Community",
+          "image": "/images/Logo.jpg",
+          "github": "https://github.com/BuildwithWaffle",
+          "linkedin": "https://www.linkedin.com/company/buildwithwaffle/"
         }
       ],
-      "github": "https://github.com/aarambh/crypto-tracker",
-      "liveLink": "https://crypto-tracker-pro.vercel.app",
-      "tags": ["Crypto", "API", "Real-time", "React"]
-    },
-    {
-      "id": "student-portal",
-      "image": "/images/Startchapter.png",
-      "title": "Student Chapter Portal",
-      "description": "Comprehensive platform for managing student chapters, events, and member activities across universities.",
-      "builders": [
-        {
-          "name": "Madhav Mishra",
-          "image": "/images/topleft1.jpeg",
-          "github": "https://github.com/madhav",
-          "linkedin": "https://linkedin.com/in/madhav-mishra"
-        },
-        {
-          "name": "Sneha Patel",
-          "image": "/images/topleft1.jpeg",
-          "github": "https://github.com/sneha",
-          "linkedin": "https://linkedin.com/in/sneha-patel-dev"
-        },
-        {
-          "name": "Arjun Singh",
-          "image": "/images/topleft1.jpeg",
-          "github": "https://github.com/arjun",
-          "linkedin": "https://linkedin.com/in/arjun-singh-fullstack"
-        }
-      ],
-      "github": "https://github.com/waffle/student-portal",
-      "liveLink": "https://student-portal.waffle.build",
-      "tags": ["Full-stack", "Management", "Universities", "Next.js"]
-    },
-    {
-      "id": "climate-visualizer",
-      "image": "/images/AboutWaffel.png",
-      "title": "Climate Data Visualizer",
-      "description": "Interactive globe-based visualizer for global temperature changes and climate data patterns.",
-      "builders": [
-        {
-          "name": "Amritansh Mishra",
-          "image": "/images/topleft1.jpeg",
-          "github": "https://github.com/amritansh",
-          "linkedin": "https://linkedin.com/in/amritansh-mishra"
-        }
-      ],
-      "github": "https://github.com/amritansh/climate-viz",
-      "liveLink": "https://climate-viz.vercel.app",
-      "tags": ["Data Visualization", "Climate", "Three.js", "WebGL"]
+      "github": "https://github.com/BuildwithWaffle/buildwithwaffle.me",
+      "liveLink": "https://buildwithwaffle.me",
+      "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS"]
     }
   ]
 }
