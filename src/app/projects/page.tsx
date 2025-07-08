@@ -7,7 +7,7 @@ export default function ProjectsPage() {
   const allProjects = projectsData.recentProjects;
 
   return (
-    <div className="min-h-screen bg-white py-12 px-6">
+    <div className="min-h-screen bg-white py-12 px-6 mt-16">
       <div className="max-w-6xl mx-auto">
         {/* Page Header */}
         <div className="text-center mb-12">
