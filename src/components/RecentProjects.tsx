@@ -87,16 +87,6 @@ export default function Projects() {
                       <div key={index} className="flex items-center justify-between bg-white rounded-lg p-3 border"
                            style={{ borderColor: 'var(--border)' }}>
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden border"
-                               style={{ borderColor: 'var(--border)' }}>
-                            <Image
-                              src={builder.image}
-                              alt={builder.name}
-                              width={32}
-                              height={32}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
                           <span className="font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>
                             {builder.name}
                           </span>

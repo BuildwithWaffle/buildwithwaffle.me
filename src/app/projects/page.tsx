@@ -64,15 +64,6 @@ export default function ProjectsPage() {
                     {featuredProject.builders.map((builder, index) => (
                       <div key={index} className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200">
-                            <Image
-                              src={builder.image}
-                              alt={builder.name}
-                              width={40}
-                              height={40}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
                           <span className="font-medium text-gray-900">{builder.name}</span>
                         </div>
                         <div className="flex gap-2">
@@ -186,28 +177,10 @@ export default function ProjectsPage() {
                               rel="noopener noreferrer"
                               className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group"
                             >
-                              <div className="w-6 h-6 rounded-full overflow-hidden bg-gray-200 group-hover:ring-2 group-hover:ring-blue-300 transition-all">
-                                <Image
-                                  src={builder.image}
-                                  alt={builder.name}
-                                  width={24}
-                                  height={24}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
                               <span className="text-xs text-gray-700 group-hover:text-blue-600 transition-colors">{builder.name}</span>
                             </a>
                           ) : (
                             <div className="flex items-center gap-2">
-                              <div className="w-6 h-6 rounded-full overflow-hidden bg-gray-200">
-                                <Image
-                                  src={builder.image}
-                                  alt={builder.name}
-                                  width={24}
-                                  height={24}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
                               <span className="text-xs text-gray-700">{builder.name}</span>
                             </div>
                           )}
