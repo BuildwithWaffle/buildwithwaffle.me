@@ -92,7 +92,6 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         {/* Preload critical resources */}
-        <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/videos/bg_video.mp4" as="video" type="video/mp4" />
         
         {/* DNS prefetch for external resources */}

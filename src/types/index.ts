@@ -1,7 +1,6 @@
 // Core types for the application
 export interface Builder {
   name: string;
-  image: string;
   github?: string;
   linkedin?: string;
 }
