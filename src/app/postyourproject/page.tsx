@@ -70,12 +70,12 @@ const PostYourProject: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen mt-20 text-white flex flex-col items-center justify-center p-4 font-sans text-sm md:text-base">
+    <div className="min-h-screen mt-20 text-gray flex flex-col items-center justify-center p-4 font-sans text-sm md:text-base">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <span className="inline-block text-sm md:text-base font-medium px-5 py-2 md:px-6 md:py-2.5 text-white rounded-full bg-gradient-to-r from-orange-500/20 via-red-500/10 to-orange-500/20 border border-orange-500/30 backdrop-blur-md hover:bg-orange-500/20 transition duration-300 shadow-md">
+        <h4 className="inline-block text-sm md:text-base font-medium px-5 py-2 md:px-6 md:py-2.5 text-[#000] rounded-lg bg-gradient-to-r from-orange-500/80 via-red-500/10 to-orange-500/60 border border-orange-500/90 backdrop-blur-md hover:bg-orange-500/20 transition duration-300 shadow-md ">
           Share Your Build
-        </span>
+        </h4>
         <h1 className="text-4xl md:text-6xl font-semibold mt-8 leading-tight">
           Post Your <span className="inline-block px-2 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Project</span>
         </h1>
@@ -85,11 +85,11 @@ const PostYourProject: React.FC = () => {
       </div>
 
       {/* Form Container */}
-      <div className="bg-black p-4 sm:p-6 md:p-8 rounded-xl shadow-md w-full max-w-xl my-8 md:my-12">
+      <div className="bg-orange-500/80 border-1 border-orange-400/30  p-4 sm:p-6 md:p-8 rounded-xl shadow-md w-full max-w-xl my-8 md:my-12">
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-gray-300 text-sm font-medium mb-2">
+            <label htmlFor="name" className="block text-white text-sm font-medium mb-2">
               Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -99,14 +99,14 @@ const PostYourProject: React.FC = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="David Johnson"
-              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
               required
             />
           </div>
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-gray-300 text-sm font-medium mb-2">
+            <label htmlFor="email" className="block text-white text-sm font-medium mb-2">
               Email <span className="text-red-500">*</span>
             </label>
             <input
@@ -116,14 +116,14 @@ const PostYourProject: React.FC = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="example@email.com"
-              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
               required
             />
           </div>
 
           {/* Project Title */}
           <div className="md:col-span-2">
-            <label htmlFor="projectTitle" className="block text-gray-300 text-sm font-medium mb-2">
+            <label htmlFor="projectTitle" className="block text-white text-sm font-medium mb-2">
               Project Title <span className="text-red-500">*</span>
             </label>
             <input
@@ -133,14 +133,14 @@ const PostYourProject: React.FC = () => {
               value={formData.projectTitle}
               onChange={handleChange}
               placeholder="My Awesome Project"
-              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
               required
             />
           </div>
 
           {/* Project Type Select */}
           <div className="md:col-span-2">
-            <label htmlFor="projectType" className="block text-gray-300 text-sm font-medium mb-2">
+            <label htmlFor="projectType" className="block text-white text-sm font-medium mb-2">
               Project Type <span className="text-red-500">*</span>
             </label>
             <div className="relative">
@@ -149,7 +149,7 @@ const PostYourProject: React.FC = () => {
                 name="projectType"
                 value={formData.projectType}
                 onChange={handleChange}
-                className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white appearance-none pr-8"
+                className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white appearance-none pr-8"
                 required
               >
                 <option value="" disabled hidden>Select Project Type</option>
@@ -173,7 +173,7 @@ const PostYourProject: React.FC = () => {
 
           {/* Project Details */}
           <div className="md:col-span-2">
-            <label htmlFor="projectDetails" className="block text-gray-300 text-sm font-medium mb-2">
+            <label htmlFor="projectDetails" className="block text-white text-sm font-medium mb-2">
               Project Details
             </label>
             <textarea
@@ -183,13 +183,13 @@ const PostYourProject: React.FC = () => {
               onChange={handleChange}
               placeholder="Tell us more about your project."
               rows={5}
-              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400 resize-y"
+              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400 resize-y"
             />
           </div>
 
           {/* GitHub URL */}
           <div>
-            <label htmlFor="githubUrl" className="block text-gray-300 text-sm font-medium mb-2">
+            <label htmlFor="githubUrl" className="block text-white text-sm font-medium mb-2">
               GitHub URL
             </label>
             <input
@@ -199,13 +199,13 @@ const PostYourProject: React.FC = () => {
               value={formData.githubUrl}
               onChange={handleChange}
               placeholder="https://github.com/username/project"
-              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
             />
           </div>
 
           {/* Live URL */}
           <div>
-            <label htmlFor="liveUrl" className="block text-gray-300 text-sm font-medium mb-2">
+            <label htmlFor="liveUrl" className="block text-white text-sm font-medium mb-2">
               Live URL
             </label>
             <input
@@ -215,13 +215,13 @@ const PostYourProject: React.FC = () => {
               value={formData.liveUrl}
               onChange={handleChange}
               placeholder="https://yourproject.com"
-              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
             />
           </div>
 
           {/* Tags */}
           <div className="md:col-span-2">
-            <label htmlFor="tags" className="block text-gray-300 text-sm font-medium mb-2">
+            <label htmlFor="tags" className="block text-white text-sm font-medium mb-2">
               Tags
             </label>
             <input
@@ -231,7 +231,7 @@ const PostYourProject: React.FC = () => {
               value={formData.tags}
               onChange={handleChange}
               placeholder="React, TypeScript, Node.js (separate with commas)"
-              className="w-full px-3 py-1.5 rounded-none bg-black border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
             />
           </div>
 
@@ -244,7 +244,7 @@ const PostYourProject: React.FC = () => {
                 isSubmitting 
                   ? 'bg-gray-400 cursor-not-allowed' 
                   : 'bg-white hover:bg-gray-200'
-              } text-black font-bold py-1.5 px-4 text-sm rounded-lg transition duration-300 ease-in-out w-full sm:w-auto mb-4 sm:mb-0`}
+              } text-orange-500 font-bold py-3 px-6 text-sm rounded-lg transition duration-300 ease-in-out w-full sm:w-auto mb-4 sm:mb-0`}
             >
               {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
@@ -262,7 +262,7 @@ const PostYourProject: React.FC = () => {
             )}
             
             {submitStatus === 'idle' && (
-              <p className="text-gray-400 text-sm text-center sm:text-right">
+              <p className="text-white text-sm text-center sm:text-right">
                 We will contact you within 24 business hours.
               </p>
             )}
