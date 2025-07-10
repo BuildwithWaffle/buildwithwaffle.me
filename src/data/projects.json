@@ -19,7 +19,7 @@
   "recentProjects": [
     {
       "id": "bytecode-compiler",
-      "image": "/images/projects/Byte Code.png",
+      "image": "/images/projects/ByteCode.png",
       "title": "ByteCode - Online Code Compiler",
       "description": "A full-stack online code compiler that supports Python, C++, and Java, enabling users to write, compile, and execute code directly from their browsers. Features a VS Code-like Monaco Editor experience with sandboxed Docker execution for secure code running.",
       "builders": [
