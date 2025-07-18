@@ -4,6 +4,7 @@
     "image": "/images/projects/Hand Gesture-Based Volume Control System.png",
     "title": "Hand Gesture-Based Volume Control System",
     "description": "This project enables users to control their system volume using just hand gestures detected through a webcam. By measuring the distance between the thumb and index finger using MediaPipe's hand landmarks, the system adjusts the volume in real-time. It's an intuitive and touch-free way to manage audio levels using computer vision and hand tracking.",
+    "category": "Software",
     "builders": [
       {
         "name": "Prakhar Verma",
@@ -18,10 +19,28 @@
   },
   "recentProjects": [
     {
+      "id": "hand-gesture-volume-control",
+    "image": "/images/projects/Hand Gesture-Based Volume Control System.png",
+    "title": "Hand Gesture-Based Volume Control System",
+    "description": "This project enables users to control their system volume using just hand gestures detected through a webcam. By measuring the distance between the thumb and index finger using MediaPipe's hand landmarks, the system adjusts the volume in real-time. It's an intuitive and touch-free way to manage audio levels using computer vision and hand tracking.",
+    "category": "Software",
+    "builders": [
+      {
+        "name": "Prakhar Verma",
+        "github": "https://github.com/Prakharakshat",
+        "linkedin": "https://www.linkedin.com/in/prakhar-verma-ab1406292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      }
+    ],
+    "github": "https://github.com/Prakharakshat/hand-gesture-volume-control/tree/main",
+    "liveLink": "https://www.linkedin.com/posts/prakhar-verma-ab1406292_opencv-mediapipe-numpy-activity-7347552880804904960-uWcL?utm_source=share&utm_medium=member_android&rcm=ACoAAEblPqUBord4lWdrcrKjXDFuULDuWPZnZD4",
+    "tags": ["Python", "OpenCV", "MediaPipe", "NumPy", "Pycaw"]
+    },
+    {
       "id": "bytecode-compiler",
       "image": "/images/projects/ByteCode.png",
       "title": "ByteCode - Online Code Compiler",
-      "description": "A full-stack online code compiler that supports Python, C++, and Java, enabling users to write, compile, and execute code directly from their browsers. Features a VS Code-like Monaco Editor experience with sandboxed Docker execution for secure code running.",
+      "description": "A full-stack online code compiler that supports Python, C++, and Java...",
+      "category": "Software",
       "builders": [
         {
           "name": "Kalash Sharma",
@@ -36,13 +55,14 @@
       ],
       "github": "https://github.com/CoderKundu/byteCode-v1.0.0",
       "liveLink": "",
-      "tags": ["Next.js", "Tailwind CSS", "Monaco Editor", "Node.js", "Express", "Docker", "Python", "C++", "Java"]
+      "tags": ["Next.js", "Tailwind CSS"]
     },
     {
       "id": "waffle-website",
       "image": "/images/projects/Waffle Website.png",
       "title": "Waffle Website",
-      "description": "The official website for the Waffle Community - a platform for student builders to showcase their projects, connect with other developers, and participate in community events.",
+      "description": "The official website for the Waffle Community...",
+      "category": "Design",
       "builders": [
         {
           "name": "Waffle Community",
@@ -52,7 +72,42 @@
       ],
       "github": "https://github.com/BuildwithWaffle/buildwithwaffle.me",
       "liveLink": "https://buildwithwaffle.me",
-      "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS"]
+      "tags": ["Next.js", "React"]
+    },
+    {
+      "id": "hardware-led-project",
+      "image": "/images/projects/Hand Gesture-Based Volume Control System.png",
+      "title": "Arduino LED Controller",
+      "description": "A simple hardware project using Arduino UNO and Python GUI.",
+      "category": "Hardware",
+      "builders": [
+        {
+          "name": "Ananya Nair",
+          "github": "https://github.com/anannyanair",
+          "linkedin": "https://www.linkedin.com/in/anannyanair"
+        }
+      ],
+      "github": "https://github.com/anannyanair/arduino-led-controller",
+      "liveLink": "https://github.com/anannyanair/arduino-led-controller",
+      "tags": ["Arduino", "Python"]
+    },
+    {
+      "id": "design-folio-dashboard",
+      "image": "/images/projects/Hand Gesture-Based Volume Control System.png",
+      "title": "DesignFolio UI Dashboard",
+      "description": "A beautifully designed admin dashboard built with React and Tailwind.",
+      "category": "Design",
+      "builders": [
+        {
+          "name": "Amrita Banerjee",
+          "github": "https://github.com/amritaban",
+          "linkedin": "https://www.linkedin.com/in/amritaban/"
+        }
+      ],
+      "github": "https://github.com/amritaban/designfolio-dashboard",
+      "liveLink": "https://designfolio-dash.vercel.app",
+      "tags": ["Tailwind", "React"]
     }
   ]
 }
+
