@@ -1,49 +1,7 @@
 'use client'
-
 import React from 'react';
 import Image from 'next/image';
 import eventsData from '../../data/events.json';
-
-// SEO Metadata
-// export const metadata: Metadata = {
-//   title: "Events & Workshops | Build with Waffle",
-//   description: "Join Build with Waffle events, workshops, and hackathons. Connect with 500+ student builders, learn from industry experts, and turn your ideas into reality.",
-//   keywords: [
-//     "build with waffle events",
-//     "student workshops",
-//     "hackathons",
-//     "tech events",
-//     "student community events",
-//     "coding workshops",
-//     "startup events",
-//     "student meetups"
-//   ],
-//   authors: [{ name: "Build with Waffle Team" }],
-//   openGraph: {
-//     title: "Events & Workshops | Build with Waffle",
-//     description: "Join Build with Waffle events, workshops, and hackathons. Connect with 500+ student builders, learn from industry experts, and turn your ideas into reality.",
-//     url: "https://buildwithwaffle.me/Events",
-//     siteName: "Build with Waffle",
-//     images: [
-//       {
-//         url: "/images/og-events.jpg",
-//         width: 1200,
-//         height: 630,
-//         alt: "Build with Waffle Events",
-//       },
-//     ],
-//     type: "website",
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "Events & Workshops | Build with Waffle",
-//     description: "Join Build with Waffle events, workshops, and hackathons. Connect with 500+ student builders, learn from industry experts, and turn your ideas into reality.",
-//     images: ["/images/og-events.jpg"],
-//   },
-//   alternates: {
-//     canonical: "https://buildwithwaffle.me/Events",
-//   },
-// };
 
 export default function EventsPage() {
   const { upcomingEvent, pastEvents, eventStats } = eventsData;
