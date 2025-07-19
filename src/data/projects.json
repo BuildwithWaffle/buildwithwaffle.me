@@ -22,7 +22,7 @@
       "id": "hand-gesture-volume-control",
     "image": "/images/projects/Hand Gesture-Based Volume Control System.png",
     "title": "Hand Gesture-Based Volume Control System",
-    "description": "This project enables users to control their system volume using just hand gestures detected through a webcam. By measuring the distance between the thumb and index finger using MediaPipe's hand landmarks, the system adjusts the volume in real-time. It's an intuitive and touch-free way to manage audio levels using computer vision and hand tracking.",
+    "description": "This project enables users to control their system volume using just hand gestures detected through a webcam. By measuring the distance between the thumb and index finger using MediaPipe's hand landmarks, the system adjusts the volume in real-time.",
     "category": "Software",
     "builders": [
       {
@@ -39,7 +39,7 @@
       "id": "bytecode-compiler",
       "image": "/images/projects/ByteCode.png",
       "title": "ByteCode - Online Code Compiler",
-      "description": "A full-stack online code compiler that supports Python, C++, and Java...",
+      "description": "A  full-stack online code compiler that supports Python, C++, and Java, enabling users to write, compile, and execute code directly from their browsers.",
       "category": "Software",
       "builders": [
         {
@@ -55,13 +55,13 @@
       ],
       "github": "https://github.com/CoderKundu/byteCode-v1.0.0",
       "liveLink": "",
-      "tags": ["Next.js", "Tailwind CSS"]
+      "tags": ["Next.js", "Tailwind CSS", "Express.js"]
     },
     {
       "id": "waffle-website",
       "image": "/images/projects/Waffle Website.png",
       "title": "Waffle Website",
-      "description": "The official website for the Waffle Community...",
+      "description": "The Waffle Website Project is the official platform for Build With Waffle — a student-led community for creators, coders, and builders.It enables users to start chapters, join events, and showcase projects ",
       "category": "Design",
       "builders": [
         {
@@ -73,41 +73,7 @@
       "github": "https://github.com/BuildwithWaffle/buildwithwaffle.me",
       "liveLink": "https://buildwithwaffle.me",
       "tags": ["Next.js", "React"]
-    },
-    {
-      "id": "hardware-led-project",
-      "image": "/images/projects/Hand Gesture-Based Volume Control System.png",
-      "title": "Arduino LED Controller",
-      "description": "A simple hardware project using Arduino UNO and Python GUI.",
-      "category": "Hardware",
-      "builders": [
-        {
-          "name": "Ananya Nair",
-          "github": "https://github.com/anannyanair",
-          "linkedin": "https://www.linkedin.com/in/anannyanair"
-        }
-      ],
-      "github": "https://github.com/anannyanair/arduino-led-controller",
-      "liveLink": "https://github.com/anannyanair/arduino-led-controller",
-      "tags": ["Arduino", "Python"]
-    },
-    {
-      "id": "design-folio-dashboard",
-      "image": "/images/projects/Hand Gesture-Based Volume Control System.png",
-      "title": "DesignFolio UI Dashboard",
-      "description": "A beautifully designed admin dashboard built with React and Tailwind.",
-      "category": "Design",
-      "builders": [
-        {
-          "name": "Amrita Banerjee",
-          "github": "https://github.com/amritaban",
-          "linkedin": "https://www.linkedin.com/in/amritaban/"
-        }
-      ],
-      "github": "https://github.com/amritaban/designfolio-dashboard",
-      "liveLink": "https://designfolio-dash.vercel.app",
-      "tags": ["Tailwind", "React"]
-    }
-  ]
+    } 
+   ]
 }
 

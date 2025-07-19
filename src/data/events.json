@@ -1,15 +1,15 @@
 {
   "upcomingEvent": {
     "id": "upcoming-1",
-    "title": "Discover Yourself & Product Building Boot Camp",
+    "title": "Building BootCamp",
     "description": "A transformational boot camp designed to help you find clarity, confidence, and the courage to build what matters. You'll explore your identity, team up with fellow creators, and bring real product ideas to life — from zero to demo.",
     "date": "2025-07-22",
     "time": "2:00 PM - 5:00 PM",
-    "location": "MPH , Amity University Lucknow",
+    "location": "LT-206 AB3, Amity University Lucknow",
     "image": "/images/events/Bootcamp.png",
     "isVirtual": false,
     "registrationLink": "https://forms.gle/QQhCDXTRT2ndUsrbA",
-    "tags": ["Self-Discovery", "Product Building", "Identity", "Collaboration"],
+    "tags": ["Product Building", "Identity", "Collaboration","Roadmap"],
     "emoji": "🧭",
     "speakers": [
       {
