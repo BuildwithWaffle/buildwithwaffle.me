@@ -2,17 +2,51 @@
 import Link from "next/link";
 import Image from "next/image";
 import projectsData from "../data/projects.json";
+import { useEffect, useState, useRef } from "react";
 
 export default function Projects() {
-  const featuredProject = projectsData.projectOfTheWeek;
+  const carouselProjects = projectsData.projectOfTheMonth;
+  const [current, setCurrent] = useState(0);
+  const [fade, setFade] = useState(true);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setCurrent((prev) => (prev + 1) % carouselProjects.length);
+        setFade(true);
+      }, 300); // fade out duration
+    }, 5000);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [carouselProjects.length]);
+  const goTo = (idx: number) => {
+    setFade(false);
+    setTimeout(() => {
+      setCurrent(idx);
+      setFade(true);
+    }, 300); // fade out duration
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = setInterval(() => {
+        setFade(false);
+        setTimeout(() => {
+          setCurrent((prev) => (prev + 1) % carouselProjects.length);
+          setFade(true);
+        }, 300);
+      }, 5000);
+    }
+  };
 
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden" 
-             style={{ 
-               background: 'linear-gradient(135deg, #fb923c, #f97316, #ea580c)',
-               backgroundSize: '100% 100%'
-             }}>
-      
+    <section className="py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, #fb923c, #f97316, #ea580c)',
+        backgroundSize: '100% 100%'
+      }}>
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-20 h-20 rounded-full bg-white/20"></div>
@@ -20,30 +54,30 @@ export default function Projects() {
         <div className="absolute bottom-20 left-1/4 w-16 h-16 rounded-full bg-white/15"></div>
         <div className="absolute bottom-32 right-10 w-24 h-24 rounded-full bg-white/20"></div>
       </div>
-      
+
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-8">
           <h2 className="text-4xl md:text-5xl font-bold mb-3 text-white">
-            Project of the Week
+            Builds of the Month
           </h2>
           <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed text-white/90">
             Raw, real projects built by students who stopped waiting for permission.
           </p>
         </div>
 
-        {/* Featured Project */}
+        {/* Carousel*/}
         <div className="mb-8">
-          <div className="bg-white rounded-2xl p-4 sm:p-6 border-2 shadow-lg hover:shadow-xl transition-shadow duration-300" 
-               style={{ borderColor: 'var(--border)' }}>
-            <div className="flex flex-col lg:flex-row gap-6">
+          <div className="bg-white rounded-2xl p-4 sm:p-6 border-2 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            style={{ borderColor: 'var(--border)' }}>
+            <div className={`flex flex-col lg:flex-row gap-6 transition-opacity duration-500 ${fade ? 'opacity-100' : 'opacity-0'}`}> 
               {/* Project Image */}
               <div className="lg:w-1/2 flex-shrink-0">
-                <div className="aspect-video rounded-xl overflow-hidden bg-gray-100 border-2" 
-                     style={{ borderColor: 'var(--border)' }}>
+                <div className="aspect-video rounded-xl overflow-hidden bg-gray-100 border-2"
+                  style={{ borderColor: 'var(--border)' }}>
                   <Image
-                    src={featuredProject.image}
-                    alt={featuredProject.title}
+                    src={carouselProjects[current].image}
+                    alt={carouselProjects[current].title}
                     width={600}
                     height={338}
                     className="w-full h-full object-cover"
@@ -51,13 +85,13 @@ export default function Projects() {
                 </div>
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mt-3">
-                  {featuredProject.tags.map((tag, index) => (
+                  {carouselProjects[current].tags.map((tag, index) => (
                     <span key={index} className="px-2 py-1 rounded-full text-xs font-medium border"
-                          style={{ 
-                            backgroundColor: 'var(--background-secondary)',
-                            color: 'var(--text-secondary)',
-                            borderColor: 'var(--border)'
-                          }}>
+                      style={{
+                        backgroundColor: 'var(--background-secondary)',
+                        color: 'var(--text-secondary)',
+                        borderColor: 'var(--border)'
+                      }}>
                       {tag}
                     </span>
                   ))}
@@ -68,24 +102,24 @@ export default function Projects() {
               <div className="lg:w-1/2 space-y-4">
                 <div>
                   <h3 className="text-xl sm:text-2xl font-black mb-2" style={{ color: 'var(--text-primary)' }}>
-                    {featuredProject.title}
+                    {carouselProjects[current].title}
                   </h3>
                   <p className="text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                    {featuredProject.description}
+                    {carouselProjects[current].description}
                   </p>
                 </div>
 
                 {/* Builders Info */}
-                <div className="rounded-xl p-4 border-2" 
-                     style={{ 
-                       backgroundColor: 'var(--background-secondary)',
-                       borderColor: 'var(--border)'
-                     }}>
+                <div className="rounded-xl p-4 border-2"
+                  style={{
+                    backgroundColor: 'var(--background-secondary)',
+                    borderColor: 'var(--border)'
+                  }}>
                   <p className="text-sm font-bold mb-3" style={{ color: 'var(--text-primary)' }}>Built by:</p>
                   <div className="space-y-2">
-                    {featuredProject.builders.map((builder, index) => (
+                    {carouselProjects[current].builders.map((builder, index) => (
                       <div key={index} className="flex items-center justify-between bg-white rounded-lg p-3 border"
-                           style={{ borderColor: 'var(--border)' }}>
+                        style={{ borderColor: 'var(--border)' }}>
                         <div className="flex items-center gap-3">
                           <span className="font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>
                             {builder.name}
@@ -98,9 +132,9 @@ export default function Projects() {
                               target="_blank"
                               rel="noopener noreferrer"
                               className="p-1 rounded transition-colors duration-200"
-                              style={{ 
+                              style={{
                                 backgroundColor: 'var(--background-secondary)',
-                                color: 'var(--primary-accent)' 
+                                color: 'var(--primary-accent)'
                               }}
                               onMouseEnter={(e) => {
                                 e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
@@ -123,9 +157,9 @@ export default function Projects() {
                               target="_blank"
                               rel="noopener noreferrer"
                               className="p-1 rounded transition-colors duration-200"
-                              style={{ 
+                              style={{
                                 backgroundColor: 'var(--background-secondary)',
-                                color: '#0077B5' 
+                                color: '#0077B5'
                               }}
                               onMouseEnter={(e) => {
                                 e.currentTarget.style.backgroundColor = '#0077B5';
@@ -151,11 +185,11 @@ export default function Projects() {
                 {/* Project Links */}
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href={featuredProject.github}
+                    href={carouselProjects[current].github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105 border-2 flex-1"
-                    style={{ 
+                    style={{
                       backgroundColor: 'var(--background-secondary)',
                       color: 'var(--text-primary)',
                       borderColor: 'var(--border)'
@@ -176,15 +210,15 @@ export default function Projects() {
                     </svg>
                     View Code
                   </a>
-                  {featuredProject.liveLink && (
+                  {carouselProjects[current].liveLink && (
                     <a
-                      href={featuredProject.liveLink}
+                      href={carouselProjects[current].liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105 flex-1"
-                      style={{ 
-                        backgroundColor: `var(--primary-accent)`,
-                        boxShadow: `0 6px 16px var(--primary-accent-shadow)` 
+                      style={{
+                        backgroundColor: `var(--primary-accent)` ,
+                        boxShadow: `0 6px 16px var(--primary-accent-shadow)`
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor = `var(--primary-accent-hover)`;
@@ -203,6 +237,17 @@ export default function Projects() {
                   )}
                 </div>
               </div>
+            </div>
+            {/* Carousel Controls */}
+            <div className="flex justify-center gap-2 mt-6">
+              {carouselProjects.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goTo(idx)}
+                  className={`w-3 h-3 rounded-full border-2 ${current === idx ? 'bg-orange-500 border-orange-600' : 'bg-gray-200 border-gray-400'} transition-all`}
+                  aria-label={`Go to project ${idx + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
