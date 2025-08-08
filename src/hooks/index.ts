@@ -21,7 +21,14 @@ export function useProjects(): ProjectData & LoadingState {
         const projectsData = await import('@/data/projects.json');
         
         const transformedData: ProjectData = {
-          projectOfTheWeek: projectsData.projectOfTheWeek,
+          projectOfTheWeek: projectsData.projectOfTheMonth[0] || {
+            id: '',
+            image: '',
+            title: '',
+            description: '',
+            builders: [],
+            tags: [],
+          },
           recentProjects: projectsData.recentProjects,
           allProjects: projectsData.recentProjects, // Use recentProjects as allProjects for now
         };
