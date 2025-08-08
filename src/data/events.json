@@ -1,28 +1,28 @@
 {
   "upcomingEvent": {
     "id": "upcoming-1",
-    "title": "Building BootCamp",
-    "description": "A transformational boot camp designed to help you find clarity, confidence, and the courage to build what matters. You'll explore your identity, team up with fellow creators, and bring real product ideas to life — from zero to demo.",
-    "date": "2025-07-22",
-    "time": "2:00 PM - 5:00 PM",
-    "location": "LT-206 AB3, Amity University Lucknow",
-    "image": "/images/events/Bootcamp.png",
+    "title": "UItopia: UI/UX Design Workshop",
+    "description": "Learn UI/UX. Build Better Designs. 2 day workshop. Discover the art of creating beautiful & user-friendly digital experiences in this hands-on UI/UX workshop.Learn UI & UX fundamentals. Explore design thinking & prototyping. No prior experience needed. Bring your laptop for practical sessions! Don’t miss your chance to level up your design skills!",
+    "date": "2025-08-13",
+    "time": "2:00 PM - 4:00 PM",
+    "location": "LT-003 AB3, Amity University Lucknow",
+    "image": "/images/events/UItopia.png",
     "isVirtual": false,
-    "registrationLink": "https://forms.gle/QQhCDXTRT2ndUsrbA",
-    "tags": ["Product Building", "Identity", "Collaboration","Roadmap"],
-    "emoji": "🧭",
+    "registrationLink": "https://forms.gle/vJqrqDzxwmfzxabs7",
+    "tags": ["Frontend", "UI/UX", "Design","Figma"],
+    "emoji": "🎨",
     "speakers": [
       {
-        "name": "Build with Waffle Team",
-        "role": "Community Organizers",
-        "image": "/images/builders/speaker1.jpg"
+        "name": "Ziana Saif",
+        "role": "UI/UX Designer",
+        "image": "/images/Ziana Saif.png"
       }
     ],
     "agenda": [
-      { "time": "TBD", "activity": "Self-Discovery Session" },
-      { "time": "TBD", "activity": "Team Formation" },
-      { "time": "TBD", "activity": "Product Ideation" },
-      { "time": "TBD", "activity": "Build & Demo" }
+      { "time": "TBD", "activity": "Learn UI and UX fundamentals" },
+      { "time": "TBD", "activity": "Exploring design thinking & prototyping" },
+      { "time": "TBD", "activity": "Figma Fundamentals " },
+      { "time": "TBD", "activity": "Forntend Designing " }
     ]
   },
   "pastEvents": [
@@ -159,11 +159,31 @@
         "Async JavaScript",
         "React basics"
       ]
+    },
+    {
+      "id": "event-8",
+      "title": "Building BootCamp",
+      "description": "A transformational boot camp designed to help you find clarity, confidence, and the courage to build what matters. You'll explore your identity, team up with fellow creators, and bring real product ideas to life — from zero to demo",
+      "date": "2025-07-22",
+      "time": "T2:00 PM - 5:00 PM",
+      "location": "LT-206 AB3, Amity University Lucknow",
+      "image": "/images/events/Bootcamp.png",
+      "isVirtual": false,
+      "tags": ["Product Building", "Identity", "Collaboration","Roadmap"],
+      "attendees": 60,
+      "emoji": "🧭",
+      "galleryLink": "https://drive.google.com/drive/folders/12n4FgZfjCwYS60udSkrMQmk_WDKJjb4r?usp=sharing",
+      "highlights": [
+        "Product Building",
+        "Ideas",
+        "Collab",
+        "Roadmap"
+      ]
     }
   ],
   "eventStats": {
-    "totalEvents": 7,
-    "totalAttendees": 400,
+    "totalEvents": 8,
+    "totalAttendees": 460,
     "averageAttendance": 50,
     "upcomingEvents": 1
   }
