@@ -1,21 +1,21 @@
 {
   "upcomingEvent": {
     "id": "upcoming-1",
-    "title": "UItopia: UI/UX Design Workshop",
-    "description": "Learn UI/UX. Build Better Designs. 2 day workshop. Discover the art of creating beautiful & user-friendly digital experiences in this hands-on UI/UX workshop.Learn UI & UX fundamentals. Explore design thinking & prototyping. No prior experience needed. Bring your laptop for practical sessions! Don’t miss your chance to level up your design skills!",
-    "date": "2025-08-21",
-    "time": "2:00 PM - 4:00 PM",
+    "title": "Git-Init",
+    "description": "A hands-on workshop on Git and GitHub -> from zero to confidently using Git for tracking your code and GitHub for collaborating with others.",
+    "date": "2025-09-25",
+    "time": "2:00 PM - 5:00 PM",
     "location": "LT-003 AB3, Amity University Lucknow",
-    "image": "/images/events/UItopia.png",
+    "image": "/images/events/github.png",
     "isVirtual": false,
-    "registrationLink": "https://forms.gle/vJqrqDzxwmfzxabs7",
-    "tags": ["Frontend", "UI/UX", "Design","Figma"],
+    "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSdhe-vpMnSyvYmZBVY1r91EOSrCaXzGf5tiVkf9HwAzcn9iiQ/viewform",
+    "tags": ["GitHub", "Git", "Workshop"],
     "emoji": "🎨",
     "speakers": [
       {
-        "name": "Ziana Saif",
-        "role": "UI/UX Designer",
-        "image": "/images/Ziana Saif.png"
+        "name": "Zeeshan Alavi",
+        "role": "coder",
+        "image": "/images/people/zeeshun.png"
       }
     ],
     "agenda": [
@@ -169,16 +169,26 @@
       "location": "LT-206 AB3, Amity University Lucknow",
       "image": "/images/events/Bootcamp.png",
       "isVirtual": false,
-      "tags": ["Product Building", "Identity", "Collaboration","Roadmap"],
+      "tags": ["Product Building", "Identity", "Collaboration", "Roadmap"],
       "attendees": 60,
       "emoji": "🧭",
       "galleryLink": "https://drive.google.com/drive/folders/12n4FgZfjCwYS60udSkrMQmk_WDKJjb4r?usp=sharing",
-      "highlights": [
-        "Product Building",
-        "Ideas",
-        "Collab",
-        "Roadmap"
-      ]
+      "highlights": ["Product Building", "Ideas", "Collab", "Roadmap"]
+    },
+    {
+      "id": "event-9",
+      "title": "UItopia: UI/UX Design Workshop",
+      "description": "Learn UI/UX. Build Better Designs. 2 day workshop. Discover the art of creating beautiful & user-friendly digital experiences in this hands-on UI/UX workshop.Learn UI & UX fundamentals. Explore design thinking & prototyping. No prior experience needed. Bring your laptop for practical sessions! Don’t miss your chance to level up your design skills!",
+      "date": "2025-08-21",
+      "time": "2:00 PM - 4:00 PM",
+      "location": "LT-003 AB3, Amity University Lucknow",
+      "image": "/images/events/UItopia.png",
+      "isVirtual": false,
+      "attendees": 30,
+      "tags": ["Frontend", "UI/UX", "Design", "Figma"],
+      "emoji": "🎨",
+      "galleryLink": "https://drive.google.com/drive/folders/1QBJp4ATZq_lldxmr8zPKD-wkLS4FA1-L?usp=sharing",
+      "highlights": ["UI/UX", "Ideas", "Figma", "Design", "Creative-Thinking"]
     }
   ],
   "eventStats": {

@@ -1,12 +1,12 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-import { FaInstagram, FaLinkedin, FaYoutube, FaDiscord } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaYoutube, FaDiscord, FaWhatsapp } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className="bg-black text-white px-6 md:px-20 py-16" role="contentinfo">
       <div className="max-w-7xl mx-auto">
@@ -34,7 +34,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <a 
+                  <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSfCH69gkopLdBQB7OQFPpU3bJ90-dM4IsHB281SIAs9VYdgjg/viewform"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -44,7 +44,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a 
+                  <a
                     href="mailto:buildwithwaffle@gmail.com"
                     className="text-gray-300 hover:text-white transition-colors duration-200"
                   >
@@ -85,15 +85,15 @@ const Footer = () => {
               <span className="text-2xl">🧇</span>
               <h3 className="text-lg font-semibold text-white">Build with Waffle</h3>
             </div>
-            
+
             {/* Essential Social Media Icons */}
             <div className="flex gap-3 mb-6">
-              <a 
-                href="https://discord.gg/FryPg2xj3E" 
-                target="_blank" 
+              <a
+                href="https://discord.gg/FryPg2xj3E"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{ 
+                style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   backdropFilter: 'blur(10px)'
                 }}
@@ -107,12 +107,12 @@ const Footer = () => {
               >
                 <FaDiscord className="w-5 h-5 text-white" />
               </a>
-              <a 
-                href="https://x.com/Buildwithwaffle" 
-                target="_blank" 
+              <a
+                href="https://x.com/Buildwithwaffle"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{ 
+                style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   backdropFilter: 'blur(10px)'
                 }}
@@ -126,12 +126,12 @@ const Footer = () => {
               >
                 <FaXTwitter className="w-5 h-5 text-white" />
               </a>
-              <a 
-                href="https://www.instagram.com/buildwithwaffle/" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/buildwithwaffle/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{ 
+                style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   backdropFilter: 'blur(10px)'
                 }}
@@ -145,12 +145,12 @@ const Footer = () => {
               >
                 <FaInstagram className="w-5 h-5 text-white" />
               </a>
-              <a 
-                href="https://www.linkedin.com/company/buildwithwaffle" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/company/buildwithwaffle"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{ 
+                style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   backdropFilter: 'blur(10px)'
                 }}
@@ -164,12 +164,12 @@ const Footer = () => {
               >
                 <FaLinkedin className="w-5 h-5 text-white" />
               </a>
-              <a 
-                href="https://www.youtube.com/@buildwithwaffle" 
-                target="_blank" 
+              <a
+                href="https://www.youtube.com/@buildwithwaffle"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{ 
+                style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   backdropFilter: 'blur(10px)'
                 }}
@@ -183,10 +183,10 @@ const Footer = () => {
               >
                 <FaYoutube className="w-5 h-5 text-white" />
               </a>
-              <a 
+              <a
                 href="mailto:buildwithwaffle@gmail.com"
                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{ 
+                style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   backdropFilter: 'blur(10px)'
                 }}
@@ -201,6 +201,25 @@ const Footer = () => {
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
+              </a>
+              <a
+                href="https://chat.whatsapp.com/I8jl9x6qNvI242YuDlPEGw"
+                target="_blan"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(10px)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                }}
+                aria-label="Whatsapp"
+              >
+                <FaWhatsapp className="w-5 h-5 text-white" />
               </a>
             </div>
 
