@@ -1,28 +1,34 @@
 {
   "upcomingEvent": {
     "id": "upcoming-1",
-    "title": "Git-Init",
-    "description": "A hands-on workshop on Git and GitHub -> from zero to confidently using Git for tracking your code and GitHub for collaborating with others.",
-    "date": "2025-09-25",
-    "time": "2:00 PM - 5:00 PM",
-    "location": "LT-003 AB3, Amity University Lucknow",
-    "image": "/images/events/github.png",
+    "title": "AlgoArena",
+    "description": "AlgoArena is an ICPC-inspired competitive coding event that simulates the pressure and strategy of global programming contests. Spanning 5 hours, it follows a multi-round elimination format with progressively challenging algorithmic problems.",
+    "date": "2026-02-18",
+    "time": "TBD",
+    "location": "Amity University Lucknow Campus",
+    "image": "/images/events/AlgoAhcrena.png",
     "isVirtual": false,
-    "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSdhe-vpMnSyvYmZBVY1r91EOSrCaXzGf5tiVkf9HwAzcn9iiQ/viewform",
-    "tags": ["GitHub", "Git", "Workshop"],
-    "emoji": "🎨",
+    "registrationLink": "https://docs.google.com/forms/d/1Haes_K1VtmcNDxkDIe__O3HCXsgspuMaO8olDqlZYMA/viewform",
+    "tags": ["Competitive Programming", "Algorithms", "Coding Contest"],
+    "emoji": "⚔️",
     "speakers": [
       {
-        "name": "Zeeshan Alavi",
-        "role": "coder",
-        "image": "/images/people/zeeshun.png"
+        "name": "Soumesh Nanda",
+        "role": "Event Lead",
+        "image": "/images/people/Soumesh.png"
+      },
+      {
+        "name": "Aarambh Vaish",
+        "role": "Event Lead",
+        "image": "/images/people/Aarambh.png"
       }
     ],
-    "agenda": [
-      { "time": "TBD", "activity": "Learn UI and UX fundamentals" },
-      { "time": "TBD", "activity": "Exploring design thinking & prototyping" },
-      { "time": "TBD", "activity": "Figma Fundamentals " },
-      { "time": "TBD", "activity": "Forntend Designing " }
+   "agenda": [
+      { "time": "TBD", "activity": "Opening briefing and contest rules explanation" },
+      { "time": "TBD", "activity": "Round 1: Qualifier coding challenges" },
+      { "time": "TBD", "activity": "Round 2: Intermediate elimination round" },
+      { "time": "TBD", "activity": "Final round: Advanced algorithmic problems" },
+      { "time": "TBD", "activity": "Result announcement and closing" }
     ]
   },
   "pastEvents": [
