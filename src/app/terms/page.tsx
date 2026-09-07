@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Build with Waffle",
+  title: "Terms & Conditions",
   description: "Terms and conditions for Build with Waffle - A student-led creator movement for builders, hackers, designers, and innovators.",
   keywords: ["terms and conditions", "build with waffle", "student community", "creator movement", "legal terms"],
   authors: [{ name: "Build with Waffle Team" }],

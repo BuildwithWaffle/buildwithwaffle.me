@@ -62,12 +62,10 @@ export default function EventsPage() {
       />
 
       {/* Background Pattern */}
-      <div className="fixed inset-0 bg-[#FAFAFA] pointer-events-none z-0"
-        style={{
-          backgroundImage: `radial-gradient(var(--brand) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
-          opacity: 0.1
-        }} />
+      <div
+        className="dot-grid fixed inset-0 z-0 text-accent opacity-[0.07]"
+        aria-hidden="true"
+      />
 
       <main className="relative z-10 min-h-screen py-20 px-6 text-ink bg-card">
         <div className="max-w-7xl mx-auto">
@@ -87,10 +85,7 @@ export default function EventsPage() {
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-ink">
               Build Together,{' '}
-              <span className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: `linear-gradient(to right, var(--brand), var(--brand-hover))`
-                }}>
+              <span className="text-gradient-brand">
                 Learn Together
               </span>
             </h1>
@@ -111,10 +106,7 @@ export default function EventsPage() {
                 onMouseLeave={(e) => {
                   e.currentTarget.style.boxShadow = `0 10px 25px -5px var(--brand-glow), 0 4px 6px -2px var(--brand-glow)`;
                 }}>
-                <div className="text-3xl font-bold bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage: `linear-gradient(to right, var(--brand), var(--brand-hover))`
-                  }}>
+                <div className="text-3xl font-bold text-gradient-brand">
                   {eventStats.totalEvents}
                 </div>
                 <div className="text-sm text-ink-2 font-medium">Events Hosted</div>
@@ -129,10 +121,7 @@ export default function EventsPage() {
                 onMouseLeave={(e) => {
                   e.currentTarget.style.boxShadow = `0 10px 25px -5px var(--brand-glow), 0 4px 6px -2px var(--brand-glow)`;
                 }}>
-                <div className="text-3xl font-bold bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage: `linear-gradient(to right, var(--brand), var(--brand-hover))`
-                  }}>
+                <div className="text-3xl font-bold text-gradient-brand">
                   {eventStats.totalAttendees}+
                 </div>
                 <div className="text-sm text-ink-2 font-medium">Attendees</div>
@@ -147,10 +136,7 @@ export default function EventsPage() {
                 onMouseLeave={(e) => {
                   e.currentTarget.style.boxShadow = `0 10px 25px -5px var(--brand-glow), 0 4px 6px -2px var(--brand-glow)`;
                 }}>
-                <div className="text-3xl font-bold bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage: `linear-gradient(to right, var(--brand), var(--brand-hover))`
-                  }}>
+                <div className="text-3xl font-bold text-gradient-brand">
                   {eventStats.upcomingEvents}
                 </div>
                 <div className="text-sm text-ink-2 font-medium">Upcoming</div>

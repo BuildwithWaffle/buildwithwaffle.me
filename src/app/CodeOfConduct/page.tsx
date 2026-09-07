@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Code of Conduct | Build with Waffle",
+  title: "Code of Conduct",
   description: "Code of conduct for Build with Waffle community - Learn about our standards, expectations, and guidelines for creating a welcoming environment for all student builders.",
   keywords: ["code of conduct", "community guidelines", "build with waffle", "student community", "inclusive environment"],
   authors: [{ name: "Build with Waffle Team" }],

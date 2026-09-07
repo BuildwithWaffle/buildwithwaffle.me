@@ -41,6 +41,8 @@
   --panel-ink: #f7f3ee;
   --panel-ink-2: #b8ada0;
   --panel-line: #322820;
+  /* Accent for use on --panel, which is dark in both themes. */
+  --panel-accent: #fb923c;
 
   --shadow-color: 24 12 4;
 }
@@ -74,6 +76,7 @@
   --panel-ink: #f7f3ee;
   --panel-ink-2: #b8ada0;
   --panel-line: #262019;
+  --panel-accent: #fb923c;
 
   --shadow-color: 0 0 0;
 }
@@ -107,6 +110,7 @@
   --color-panel-ink: var(--panel-ink);
   --color-panel-ink-2: var(--panel-ink-2);
   --color-panel-line: var(--panel-line);
+  --color-panel-accent: var(--panel-accent);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: var(--font-bricolage), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -295,6 +299,14 @@
   /* Gradient wordmark used in section headings. */
   .text-gradient-brand {
     background-image: linear-gradient(100deg, var(--accent), var(--brand-hover));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* Same idea for the dark panel, where --accent is too dark in light mode. */
+  .text-gradient-on-panel {
+    background-image: linear-gradient(100deg, var(--panel-accent), #f97316);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;

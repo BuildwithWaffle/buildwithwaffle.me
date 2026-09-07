@@ -70,7 +70,7 @@ export default function ProjectsPage() {
               type="button"
               onClick={() => setSelectedCategory(category)}
               className={`px-5 py-2 rounded-full font-medium text-sm transition-colors ${selectedCategory === category
-                ? "bg-gray-800 text-white"
+                ? "bg-panel text-panel-ink"
                 : "bg-surface-2 text-ink hover:bg-surface-3"
                 }`}
             >
@@ -103,12 +103,7 @@ export default function ProjectsPage() {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mt-3">
                   {carouselProjects[carouselCurrent].tags.map((tag, index) => (
-                    <span key={index} className="px-2 py-1 rounded-full text-xs font-medium border"
-                      style={{
-                        backgroundColor: '#fff7ed',
-                        color: '#ea580c',
-                        borderColor: '#f97316'
-                      }}>
+                    <span key={index} className="chip">
                       {tag}
                     </span>
                   ))}
@@ -132,7 +127,7 @@ export default function ProjectsPage() {
                       <div key={index} className="flex items-center gap-3">
                         <span className="font-medium text-ink">{builder.name}</span>
                         {builder.github && (
-                          <a href={builder.github} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-gray-700 transition-colors">
+                          <a href={builder.github} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-panel text-panel-ink flex items-center justify-center hover:bg-panel-2 transition-colors">
                             {/* GitHub Icon */}
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M12 0C5.37 0 0 5.37 0 12
@@ -173,7 +168,7 @@ export default function ProjectsPage() {
                       href={carouselProjects[carouselCurrent].github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                      className="flex-1 bg-panel hover:bg-panel-2 text-panel-ink border border-panel-line px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
                     >
                       Code
                     </a>
@@ -281,7 +276,7 @@ export default function ProjectsPage() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 bg-gray-800 hover:bg-gray-700 text-white px-3 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 text-sm"
+                          className="flex-1 bg-panel hover:bg-panel-2 text-panel-ink border border-panel-line px-3 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 text-sm"
                         >
                           Code
                         </a>

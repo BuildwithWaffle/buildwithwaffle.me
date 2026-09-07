@@ -25,10 +25,10 @@ export default function AboutUs() {
             </h1>
 
             {/* Subtitle */}
-            <div className="bg-card/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/30 max-w-4xl mx-auto">
+            <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/30 max-w-4xl mx-auto">
               <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-relaxed">
                 If you build with your{" "}
-                <span className="bg-card text-black px-3 py-1 rounded-lg">
+                <span className="rounded-lg bg-white px-3 py-1 text-[#9a3412]">
                   whole soul
                 </span>
                 , you belong.
@@ -263,10 +263,7 @@ export default function AboutUs() {
                 style={{ color: 'var(--ink-2)' }}>
                 Join our crew of builders, makers, and dreamers.
                 <br />
-                <span className="bg-clip-text text-transparent font-bold"
-                  style={{
-                    backgroundImage: `linear-gradient(135deg, var(--brand), var(--brand-hover))`
-                  }}>
+                <span className="text-gradient-brand font-bold">
                   No applications. Just passion.
                 </span>
               </p>

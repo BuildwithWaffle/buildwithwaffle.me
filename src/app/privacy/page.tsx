@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Privacy Policy | Build with Waffle",
+  title: "Privacy Policy",
   description: "Privacy policy for Build with Waffle - Learn how we collect, use, and protect your personal information in our student creator community.",
   keywords: ["privacy policy", "data protection", "build with waffle", "student privacy", "community guidelines"],
   authors: [{ name: "Build with Waffle Team" }],
