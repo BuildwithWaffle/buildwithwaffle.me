@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Letter() {
   return (
-    <main className="bg-black text-white pt-20 pb-8 flex flex-col items-center">
+    <main className="bg-panel text-panel-ink pt-28 pb-16 flex flex-col items-center">
       {/* Audio + Intro Text */}
       <div className="w-full max-w-3xl px-4">
         <div className="flex flex-col items-center">
@@ -10,7 +10,7 @@ export default function Letter() {
             <source src="/waffle-intro.mp3" type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
-          <p className="text-sm text-center mt-2 text-gray-300">
+          <p className="text-sm text-center mt-2 text-panel-ink-2">
             [hi play above track as you read this]
           </p>
         </div>

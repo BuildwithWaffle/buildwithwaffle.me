@@ -1,20 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import PageWrapper from "@/components/PageWrapper";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { SITE_CONFIG, CSS_VARIABLES } from "@/config";
+import { SITE_CONFIG } from "@/config";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
 
-// Optimized font loading with display swap
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
-  preload: true,
 });
 
-// Comprehensive SEO metadata
+// Display face for headings; body copy stays on Inter.
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
@@ -23,9 +28,9 @@ export const metadata: Metadata = {
   },
   description: SITE_CONFIG.description,
   keywords: SITE_CONFIG.keywords,
-  authors: [{ name: 'Build with Waffle Team' }],
-  creator: 'Build with Waffle',
-  publisher: 'Build with Waffle',
+  authors: [{ name: "Build with Waffle Team" }],
+  creator: "Build with Waffle",
+  publisher: "Build with Waffle",
   robots: {
     index: true,
     follow: true,
@@ -40,46 +45,31 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://buildwithwaffle.me",
-    siteName: "Build with Waffle",
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
     title: "Build with Waffle | Student-Led Creator Movement",
-    description: "Join Build with Waffle - India's first student-led creator movement. A community for misfits, builders, hackers, designers, and dreamers who ship real products.",
-    images: [
-      {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Build with Waffle - Student Creator Movement",
-      },
-    ],
+    description: SITE_CONFIG.description,
   },
   twitter: {
     card: "summary_large_image",
     title: "Build with Waffle | Student-Led Creator Movement",
-    description: "Join Build with Waffle - India's first student-led creator movement. A community for misfits, builders, hackers, designers, and dreamers who ship real products.",
-    images: ["/images/og-image.jpg"],
+    description: SITE_CONFIG.description,
     creator: "@buildwithwaffle",
     site: "@buildwithwaffle",
   },
   alternates: {
-    canonical: "https://buildwithwaffle.me",
-  },
-  verification: {
-    google: "your-google-verification-code",
-    // Add other verification codes as needed
+    canonical: "/",
   },
   category: "Education",
 };
 
-// Viewport configuration for performance
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
-  userScalable: true,
+  // Zoom must not be capped; capping it fails WCAG 1.4.4.
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f97316" },
-    { media: "(prefers-color-scheme: dark)", color: "#f97316" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f0e0d" },
   ],
 };
 
@@ -89,94 +79,70 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    // suppressHydrationWarning: the inline theme script sets data-theme on this
+    // element before React hydrates, so the server and client markup differ here
+    // by design.
+    <html
+      lang="en"
+      className={`${inter.variable} ${bricolage.variable}`}
+      suppressHydrationWarning
+    >
       <head>
-        {/* Preload critical resources */}
-        <link rel="preload" href="/videos/bg_video.mp4" as="video" type="video/mp4" />
-        
-        {/* DNS prefetch for external resources */}
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <script
+          // Runs before first paint to avoid a light-theme flash for dark users.
+          dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
+        />
         <link rel="dns-prefetch" href="//docs.google.com" />
-        
-        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Build with Waffle",
+              name: SITE_CONFIG.name,
               description: "India's first student-led creator movement",
-              url: "https://buildwithwaffle.me",
-              logo: "https://buildwithwaffle.me/images/logo.png",
+              url: SITE_CONFIG.url,
               foundingDate: "2024",
-              founders: [
-                {
-                  "@type": "Person",
-                  name: "Build with Waffle Team",
-                }
-              ],
               sameAs: [
-                "https://twitter.com/buildwithwaffle",
+                "https://x.com/Buildwithwaffle",
                 "https://linkedin.com/company/buildwithwaffle",
-                "https://github.com/buildwithwaffle"
+                "https://github.com/buildwithwaffle",
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                email: "buildwithwaffle@gmail.com",
-                contactType: "Customer Service"
-              }
+                email: SITE_CONFIG.email,
+                contactType: "Customer Service",
+              },
             }),
           }}
         />
       </head>
-      <body className={`${inter.variable} antialiased bg-white text-gray-900 overflow-x-hidden min-h-screen`}>
-        {/* CSS Custom Properties */}
-        <style dangerouslySetInnerHTML={{ __html: CSS_VARIABLES }} />
-        
-        {/* Skip to content for accessibility */}
-        <a 
-          href="#main-content" 
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 text-white px-4 py-2 rounded-md z-50 transition-all"
-          style={{ backgroundColor: 'var(--primary-accent)' }}
+      <body
+        className="min-h-screen overflow-x-hidden bg-surface text-ink antialiased"
+      >
+        <a
+          href="#main-content"
+          className="sr-only rounded-full bg-brand px-4 py-2 text-brand-ink focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100]"
         >
           Skip to main content
         </a>
-        
-        {/* Optimized Background Layers */}
-        <div className="fixed inset-0 pointer-events-none z-[-1]" aria-hidden="true">
-          {/* Light gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>
-          {/* Grid pattern for texture */}
-          <div className="absolute inset-0 opacity-10"
-               style={{
-                 backgroundImage: `radial-gradient(var(--primary-accent) 1px, transparent 1px)`,
-                 backgroundSize: '50px 50px'
-               }}></div>
-          {/* Accent overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/5 to-transparent"></div>
+
+        {/* Page-wide backdrop. Theme-aware, and hidden from assistive tech. */}
+        <div
+          className="pointer-events-none fixed inset-0 z-[-1] bg-surface"
+          aria-hidden="true"
+        >
+          <div className="dot-grid absolute inset-0 text-accent opacity-[0.07]" />
+          <div className="absolute inset-x-0 top-0 h-[45rem] bg-[radial-gradient(60rem_28rem_at_50%_-8rem,var(--brand-glow),transparent_70%)]" />
         </div>
-        
-        {/* Navigation */}
+
         <Navbar />
-        
-        {/* Main Content */}
+
         <PageWrapper>
-          <main id="main-content">
-            {children}
-          </main>
+          <main id="main-content">{children}</main>
         </PageWrapper>
-        
-        {/* Footer */}
+
         <Footer />
-        
-        {/* Performance monitoring (add your analytics script here) */}
-        {process.env.NODE_ENV === 'production' && (
-          <>
-            {/* Google Analytics or other analytics */}
-            {/* <Script src="..." strategy="afterInteractive" /> */}
-          </>
-        )}
       </body>
     </html>
   );

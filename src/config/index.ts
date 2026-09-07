@@ -92,7 +92,7 @@ export const FOOTER_LINKS = {
 
 export const THEME: ThemeConfig = {
   colors: {
-    primary: "#ff6b35",
+    primary: "#cf4a0d",
     secondary: "#4a90e2",
     accent: "#f59e0b",
     background: "#ffffff",
@@ -154,23 +154,6 @@ export const EXTERNAL_LINKS = {
     instagram: "https://www.instagram.com/buildwithwaffle/",
   },
 };
-
-export const CSS_VARIABLES = `
-  :root {
-    --primary-accent: #ff6b35;
-    --primary-accent-hover: #e55a2b;
-    --primary-accent-light: #fff2ef;
-    --primary-accent-shadow: rgba(255, 107, 53, 0.3);
-    --primary-accent-shadow-hover: rgba(255, 107, 53, 0.5);
-    --background: #ffffff;
-    --foreground: #111827;
-    --text-secondary: #6b7280;
-    --text-tertiary: #9ca3af;
-    --border: #e5e7eb;
-    --card-background: #ffffff;
-    --card-border: #f3f4f6;
-  }
-`;
 
 export const METADATA_DEFAULTS = {
   title: SITE_CONFIG.name,

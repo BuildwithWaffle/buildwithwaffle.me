@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
 import { ProjectData, EventData, LoadingState, Speaker, AgendaItem } from '@/types';
 
 /**
@@ -230,34 +230,30 @@ export function useLocalStorage<T>(
  * Custom hook for media queries
  */
 export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState(false);
+  // useSyncExternalStore rather than useState + useEffect: the match is
+  // external state that can be read during render, so there is no need for the
+  // extra render pass that setState-in-an-effect costs.
+  const subscribe = useCallback(
+    (onChange: () => void) => {
+      const media = window.matchMedia(query);
+      media.addEventListener('change', onChange);
+      return () => media.removeEventListener('change', onChange);
+    },
+    [query],
+  );
 
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    setMatches(media.matches);
-
-    const listener = () => setMatches(media.matches);
-    media.addEventListener('change', listener);
-
-    return () => media.removeEventListener('change', listener);
-  }, [query]);
-
-  return matches;
+  return useSyncExternalStore(
+    subscribe,
+    () => window.matchMedia(query).matches,
+    // No media queries match on the server; assume false and let the client
+    // correct it on hydration.
+    () => false,
+  );
 }
 
-/**
- * Custom hook for dark mode
- */
-export function useDarkMode() {
-  const [isDarkMode, setIsDarkMode] = useLocalStorage('darkMode', false);
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.toggle('dark', isDarkMode);
-  }, [isDarkMode]);
-
-  return [isDarkMode, setIsDarkMode] as const;
-}
+/* useDarkMode was removed: it used a separate 'darkMode' storage key and a
+   .dark class that no stylesheet targeted, competing with useTheme in
+   src/contexts/ThemeContext.tsx. Use that instead. */
 
 /**
  * Custom hook for copy to clipboard
