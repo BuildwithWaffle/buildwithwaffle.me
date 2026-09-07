@@ -4,13 +4,13 @@ import { FaXTwitter } from 'react-icons/fa6';
 
 export default function AboutUs() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--background)' }}>
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--surface)' }}>
       {/* Hero Section - Hack Club Style */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br"
           style={{
-            backgroundImage: `linear-gradient(135deg, var(--primary-accent), var(--primary-accent-hover))`
+            backgroundImage: `linear-gradient(135deg, var(--brand), var(--brand-hover))`
           }} />
 
         {/* Main Content */}
@@ -25,10 +25,10 @@ export default function AboutUs() {
             </h1>
 
             {/* Subtitle */}
-            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/30 max-w-4xl mx-auto">
+            <div className="bg-card/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/30 max-w-4xl mx-auto">
               <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-relaxed">
                 If you build with your{" "}
-                <span className="bg-white text-black px-3 py-1 rounded-lg">
+                <span className="bg-card text-black px-3 py-1 rounded-lg">
                   whole soul
                 </span>
                 , you belong.
@@ -56,17 +56,17 @@ export default function AboutUs() {
             <div className="flex items-start gap-4 lg:hidden w-full">
               <div className="w-12 h-12 bg-gradient-to-br rounded-xl flex items-center justify-center flex-shrink-0"
                 style={{
-                  backgroundImage: `linear-gradient(135deg, var(--primary-accent), var(--primary-accent-hover))`
+                  backgroundImage: `linear-gradient(135deg, var(--brand), var(--brand-hover))`
                 }}>
                 <FaHeart className="text-lg text-white" />
               </div>
               <div className="flex-1">
                 <h2 className="text-2xl sm:text-3xl font-black mb-2"
-                  style={{ color: 'var(--primary-accent)' }}>
+                  style={{ color: 'var(--brand)' }}>
                   Build with soul.
                 </h2>
                 <p className="text-base sm:text-lg leading-relaxed"
-                  style={{ color: 'var(--text-secondary)' }}>
+                  style={{ color: 'var(--ink-2)' }}>
                   Anyone can learn tools. But soul? That's rare.
                   <br />
                   At Waffle, we don't just ship projects — we pour ourselves into what we make.
@@ -76,11 +76,11 @@ export default function AboutUs() {
             <div className="hidden lg:flex flex-1 text-left">
               <div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4"
-                  style={{ color: 'var(--primary-accent)' }}>
+                  style={{ color: 'var(--brand)' }}>
                   Build with soul.
                 </h2>
                 <p className="text-lg sm:text-xl leading-relaxed"
-                  style={{ color: 'var(--text-secondary)' }}>
+                  style={{ color: 'var(--ink-2)' }}>
                   Anyone can learn tools. But soul? That's rare.
                   <br />
                   At Waffle, we don't just ship projects — we pour ourselves into what we make.
@@ -90,7 +90,7 @@ export default function AboutUs() {
             <div className="hidden lg:flex flex-1 justify-end">
               <div className="w-20 h-20 bg-gradient-to-br rounded-2xl flex items-center justify-center"
                 style={{
-                  backgroundImage: `linear-gradient(135deg, var(--primary-accent), var(--primary-accent-hover))`
+                  backgroundImage: `linear-gradient(135deg, var(--brand), var(--brand-hover))`
                 }}>
                 <FaHeart className="text-2xl text-white" />
               </div>
@@ -99,7 +99,7 @@ export default function AboutUs() {
 
           {/* Divider */}
           <div className="flex justify-center">
-            <div className="w-24 h-px" style={{ backgroundColor: 'var(--border)' }}></div>
+            <div className="w-24 h-px" style={{ backgroundColor: 'var(--line)' }}></div>
           </div>
 
           {/* Card 2: Make weird stuff */}
@@ -120,7 +120,7 @@ export default function AboutUs() {
                 Make weird stuff.
               </h2>
               <p className="text-base sm:text-lg lg:text-xl leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}>
+                style={{ color: 'var(--ink-2)' }}>
                 We don't care if it's messy, unfinished, or insane.
                 <br />
                 If it's yours — we want to see it. That's how real builders begin.
@@ -130,7 +130,7 @@ export default function AboutUs() {
 
           {/* Divider */}
           <div className="flex justify-center">
-            <div className="w-24 h-px" style={{ backgroundColor: 'var(--border)' }}></div>
+            <div className="w-24 h-px" style={{ backgroundColor: 'var(--line)' }}></div>
           </div>
 
           {/* Card 3: Start before you're ready */}
@@ -151,7 +151,7 @@ export default function AboutUs() {
                 Start before you're ready.
               </h2>
               <p className="text-base sm:text-lg lg:text-xl leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}>
+                style={{ color: 'var(--ink-2)' }}>
                 The best projects don't wait for perfection.
                 <br />
                 They begin with a spark and evolve in public. That's how we roll.
@@ -161,7 +161,7 @@ export default function AboutUs() {
 
           {/* Divider */}
           <div className="flex justify-center">
-            <div className="w-24 h-px" style={{ backgroundColor: 'var(--border)' }}></div>
+            <div className="w-24 h-px" style={{ backgroundColor: 'var(--line)' }}></div>
           </div>
 
           {/* Card 4: No club. Just crew */}
@@ -182,7 +182,7 @@ export default function AboutUs() {
                 No club. Just crew.
               </h2>
               <p className="text-base sm:text-lg lg:text-xl leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}>
+                style={{ color: 'var(--ink-2)' }}>
                 Waffle isn't about rules, applications, or titles.
                 <br />
                 It's about finding people who give a damn and building together.
@@ -192,7 +192,7 @@ export default function AboutUs() {
 
           {/* Divider */}
           <div className="flex justify-center">
-            <div className="w-24 h-px" style={{ backgroundColor: 'var(--border)' }}></div>
+            <div className="w-24 h-px" style={{ backgroundColor: 'var(--line)' }}></div>
           </div>
 
           {/* Card 5: Writers, coders, dreamers, all */}
@@ -213,7 +213,7 @@ export default function AboutUs() {
                 Writers, coders, dreamers, all.
               </h2>
               <p className="text-base sm:text-lg lg:text-xl leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}>
+                style={{ color: 'var(--ink-2)' }}>
                 We believe creativity isn't boxed into roles.
                 <br />
                 If you make things — you're a builder here.
@@ -223,7 +223,7 @@ export default function AboutUs() {
 
           {/* Divider */}
           <div className="flex justify-center">
-            <div className="w-24 h-px" style={{ backgroundColor: 'var(--border)' }}></div>
+            <div className="w-24 h-px" style={{ backgroundColor: 'var(--line)' }}></div>
           </div>
 
           {/* Card 6: The work speaks */}
@@ -244,7 +244,7 @@ export default function AboutUs() {
                 The work speaks.
               </h2>
               <p className="text-base sm:text-lg lg:text-xl leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}>
+                style={{ color: 'var(--ink-2)' }}>
                 Forget clout. Forget followers.
                 <br />
                 Around here, what you build says who you are.
@@ -255,17 +255,17 @@ export default function AboutUs() {
           {/* Final Call to Action */}
           <div className="text-center pt-12">
             <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-3xl p-8 sm:p-12 border-2"
-              style={{ borderColor: 'var(--border)' }}>
-              <h2 className="text-3xl sm:text-4xl font-black mb-4" style={{ color: 'var(--text-primary)' }}>
+              style={{ borderColor: 'var(--line)' }}>
+              <h2 className="text-3xl sm:text-4xl font-black mb-4" style={{ color: 'var(--ink)' }}>
                 Ready to build with soul?
               </h2>
               <p className="text-lg sm:text-xl mb-8 max-w-2xl mx-auto leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}>
+                style={{ color: 'var(--ink-2)' }}>
                 Join our crew of builders, makers, and dreamers.
                 <br />
                 <span className="bg-clip-text text-transparent font-bold"
                   style={{
-                    backgroundImage: `linear-gradient(135deg, var(--primary-accent), var(--primary-accent-hover))`
+                    backgroundImage: `linear-gradient(135deg, var(--brand), var(--brand-hover))`
                   }}>
                   No applications. Just passion.
                 </span>
@@ -277,16 +277,16 @@ export default function AboutUs() {
                   rel="noopener noreferrer"
                   className="text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-110"
                   style={{
-                    backgroundColor: 'var(--primary-accent)',
-                    boxShadow: `0 20px 40px -10px var(--primary-accent-shadow)`
+                    backgroundColor: 'var(--brand)',
+                    boxShadow: `0 20px 40px -10px var(--brand-glow)`
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--primary-accent-hover)';
-                    e.currentTarget.style.boxShadow = `0 25px 50px -10px var(--primary-accent-shadow-hover)`;
+                    e.currentTarget.style.backgroundColor = 'var(--brand-hover)';
+                    e.currentTarget.style.boxShadow = `0 25px 50px -10px var(--brand-glow)`;
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
-                    e.currentTarget.style.boxShadow = `0 20px 40px -10px var(--primary-accent-shadow)`;
+                    e.currentTarget.style.backgroundColor = 'var(--brand)';
+                    e.currentTarget.style.boxShadow = `0 20px 40px -10px var(--brand-glow)`;
                   }}
                 >
                   Join the Crew
@@ -299,13 +299,13 @@ export default function AboutUs() {
       </article>
 
       {/* Social Media Footer */}
-      <section style={{ backgroundColor: 'var(--background-secondary)' }}>
+      <section style={{ backgroundColor: 'var(--surface-2)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
-            <h3 className="text-3xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
+            <h3 className="text-3xl font-bold mb-6" style={{ color: 'var(--ink)' }}>
               Connect with Us
             </h3>
-            <p className="text-xl mb-12 max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
+            <p className="text-xl mb-12 max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
               Follow our journey and join the conversation across platforms
             </p>
             <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12">
@@ -317,11 +317,11 @@ export default function AboutUs() {
                 aria-label="Join our Discord"
               >
                 <FaDiscord className="text-3xl sm:text-4xl lg:text-5xl transition-colors duration-300"
-                  style={{ color: 'var(--text-secondary)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary-accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'} />
+                  style={{ color: 'var(--ink-2)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--brand)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--ink-2)'} />
                 <span className="text-xs sm:text-sm font-medium group-hover:font-bold transition-all duration-300"
-                  style={{ color: 'var(--text-tertiary)' }}>
+                  style={{ color: 'var(--ink-3)' }}>
                   Discord
                 </span>
               </a>
@@ -333,11 +333,11 @@ export default function AboutUs() {
                 aria-label="Follow us on Instagram"
               >
                 <FaInstagram className="text-3xl sm:text-4xl lg:text-5xl transition-colors duration-300"
-                  style={{ color: 'var(--text-secondary)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary-accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'} />
+                  style={{ color: 'var(--ink-2)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--brand)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--ink-2)'} />
                 <span className="text-xs sm:text-sm font-medium group-hover:font-bold transition-all duration-300"
-                  style={{ color: 'var(--text-tertiary)' }}>
+                  style={{ color: 'var(--ink-3)' }}>
                   Instagram
                 </span>
               </a>
@@ -349,11 +349,11 @@ export default function AboutUs() {
                 aria-label="Follow us on X"
               >
                 <FaXTwitter className="text-3xl sm:text-4xl lg:text-5xl transition-colors duration-300"
-                  style={{ color: 'var(--text-secondary)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary-accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'} />
+                  style={{ color: 'var(--ink-2)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--brand)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--ink-2)'} />
                 <span className="text-xs sm:text-sm font-medium group-hover:font-bold transition-all duration-300"
-                  style={{ color: 'var(--text-tertiary)' }}>
+                  style={{ color: 'var(--ink-3)' }}>
                   X (Twitter)
                 </span>
               </a>
@@ -365,11 +365,11 @@ export default function AboutUs() {
                 aria-label="Connect on LinkedIn"
               >
                 <FaLinkedin className="text-3xl sm:text-4xl lg:text-5xl transition-colors duration-300"
-                  style={{ color: 'var(--text-secondary)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary-accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'} />
+                  style={{ color: 'var(--ink-2)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--brand)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--ink-2)'} />
                 <span className="text-xs sm:text-sm font-medium group-hover:font-bold transition-all duration-300"
-                  style={{ color: 'var(--text-tertiary)' }}>
+                  style={{ color: 'var(--ink-3)' }}>
                   LinkedIn
                 </span>
               </a>
@@ -381,11 +381,11 @@ export default function AboutUs() {
                 aria-label="Subscribe on YouTube"
               >
                 <FaYoutube className="text-3xl sm:text-4xl lg:text-5xl transition-colors duration-300"
-                  style={{ color: 'var(--text-secondary)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary-accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'} />
+                  style={{ color: 'var(--ink-2)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--brand)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--ink-2)'} />
                 <span className="text-xs sm:text-sm font-medium group-hover:font-bold transition-all duration-300"
-                  style={{ color: 'var(--text-tertiary)' }}>
+                  style={{ color: 'var(--ink-3)' }}>
                   YouTube
                 </span>
               </a>
@@ -397,11 +397,11 @@ export default function AboutUs() {
                 aria-label="Subscribe on YouTube"
               >
                 <FaWhatsapp className="text-3xl sm:text-4xl lg:text-5xl transition-colors duration-300"
-                  style={{ color: 'var(--text-secondary)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary-accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'} />
+                  style={{ color: 'var(--ink-2)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--brand)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--ink-2)'} />
                 <span className="text-xs sm:text-sm font-medium group-hover:font-bold transition-all duration-300"
-                  style={{ color: 'var(--text-tertiary)' }}>
+                  style={{ color: 'var(--ink-3)' }}>
                   Whatsapp
                 </span>
               </a>

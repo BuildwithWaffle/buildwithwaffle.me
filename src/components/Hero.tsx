@@ -1,67 +1,92 @@
-"use client";
-import { useRef } from "react";
+import { ArrowRight } from "lucide-react";
+import { EXTERNAL_LINKS } from "@/config";
+import eventsData from "@/data/events.json";
+import projectsData from "@/data/projects.json";
 
+// Derived from the content files so the numbers cannot drift out of date.
+const uniqueProjects = new Set(
+  [...projectsData.projectOfTheMonth, ...projectsData.recentProjects].map(
+    (project) => project.title,
+  ),
+).size;
+
+const stats = [
+  { value: `${eventsData.pastEvents.length}`, label: "events run" },
+  { value: `${eventsData.eventStats.totalAttendees}+`, label: "attendees" },
+  { value: `${uniqueProjects}`, label: "projects shipped" },
+];
+
+/**
+ * Server component: this section had a "use client" directive and a useRef that
+ * was never read, so it was shipping JS to do nothing.
+ */
 export default function Hero() {
-  const heroRef = useRef(null);
-
   return (
-    <section id="home" ref={heroRef} className="relative min-h-screen overflow-hidden"
-             style={{ 
-               background: 'linear-gradient(135deg, #fb923c, #f97316, #ea580c)',
-               backgroundSize: '100% 100%'
-             }}>
-      
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-32 h-32 rounded-full bg-white/20"></div>
-        <div className="absolute top-40 right-32 w-48 h-48 rounded-full bg-white/10"></div>
-        <div className="absolute bottom-32 left-1/3 w-24 h-24 rounded-full bg-white/15"></div>
-        <div className="absolute bottom-48 right-20 w-40 h-40 rounded-full bg-white/20"></div>
-        <div className="absolute top-1/2 left-10 w-16 h-16 rounded-full bg-white/25"></div>
-        <div className="absolute top-2/3 right-1/4 w-28 h-28 rounded-full bg-white/15"></div>
+    <section
+      id="home"
+      className="relative isolate overflow-hidden bg-[linear-gradient(150deg,#fb923c_0%,#ea580c_45%,#b03d09_100%)]"
+    >
+      {/* Texture: a soft light source plus the dot grid, instead of the six
+          hand-placed circles this had before. */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="dot-grid absolute inset-0 text-white opacity-[0.12]" />
+        <div className="absolute left-1/2 top-0 h-[38rem] w-[60rem] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(255,255,255,0.28),transparent)]" />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center mt-16 pt-20 sm:pt-16 md:pt-0">
-        <div className="text-center px-6 md:px-12 max-w-6xl mx-auto">
-          
-          {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-tight mb-8">
-            Build with{" "}
-            <span className="relative">
-              <span className="relative z-10 bg-white text-orange-600 px-4 py-2 rounded-2xl font-black shadow-2xl">
-                Waffle
-              </span>
-            </span>
-            <br />
-            Start movements.
-          </h1>
-          
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed mb-12 max-w-4xl mx-auto font-medium">
-            Where students lead, create, and start movements.
-          </p>
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-orange-600 font-black px-6 py-3 sm:px-8 sm:py-3 md:px-10 md:py-4 lg:px-12 lg:py-4 rounded-full transition-all duration-300 text-sm sm:text-base md:text-lg lg:text-xl hover:scale-105 transform shadow-2xl hover:shadow-3xl border-2 border-white/20"
-            >
-              Join the Movement
-            </a>
-            <a
-              href="https://discord.gg/FryPg2xj3E"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-black px-6 py-3 sm:px-8 sm:py-3 md:px-10 md:py-4 lg:px-12 lg:py-4 rounded-full transition-all duration-300 text-sm sm:text-base md:text-lg lg:text-xl hover:scale-105 transform border-2 border-white text-white hover:bg-white hover:text-orange-600 shadow-xl hover:shadow-2xl"
-            >
-              Join Discord
-            </a>
-          </div>
+      <div className="container-page relative px-6 pb-20 pt-36 text-center sm:pb-24 sm:pt-40 lg:pb-32 lg:pt-44">
+        <p className="mx-auto mb-6 w-fit rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm">
+          India&apos;s first student-led creator movement
+        </p>
+
+        <h1 className="mx-auto max-w-5xl font-display text-4xl font-extrabold leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+          Build with{" "}
+          <span className="inline-block rounded-2xl bg-white px-3 py-0.5 text-[#9a3412] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.45)]">
+            Waffle
+          </span>
+          <br className="hidden sm:block" /> Start movements.
+        </h1>
+
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
+          We&apos;re not a club. We&apos;re a call to action for misfits,
+          builders, hackers and designers who ship real things — before they feel
+          ready.
+        </p>
+
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a
+            href={EXTERNAL_LINKS.forms.joinCommunity}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-on-brand btn-lg w-full sm:w-auto"
+          >
+            Join the Movement
+            <ArrowRight className="size-4" aria-hidden />
+          </a>
+          <a
+            href={EXTERNAL_LINKS.social.discord}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-ghost-on-brand btn-lg w-full sm:w-auto"
+          >
+            Join Discord
+          </a>
         </div>
+
+        <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-3 gap-4 border-t border-white/25 pt-8">
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <dt className="sr-only">{stat.label}</dt>
+              <dd>
+                <span className="block font-display text-3xl font-extrabold text-white sm:text-4xl">
+                  {stat.value}
+                </span>
+                <span className="mt-1 block text-xs uppercase tracking-wider text-white/80 sm:text-sm sm:normal-case sm:tracking-normal">
+                  {stat.label}
+                </span>
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

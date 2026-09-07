@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 
 const variants = {
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -10 },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
 };
 
 export default function PageWrapper({ children }: { children: ReactNode }) {
@@ -21,7 +21,7 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
         animate="animate"
         exit="exit"
         variants={variants}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        transition={{ duration: 0.25, ease: "easeInOut" }}
       >
         {children}
       </motion.div>
