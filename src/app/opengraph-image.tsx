@@ -5,6 +5,10 @@ import { ImageResponse } from "next/og";
  * /images/og-image.jpg and /images/og-home.jpg, neither of which existed in
  * public/ — every social share was falling back to no preview image.
  */
+// The deploy workflow builds with output: "export", which requires image routes
+// to opt into static generation explicitly.
+export const dynamic = "force-static";
+
 export const alt = "Build with Waffle — India's first student-led creator movement";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
