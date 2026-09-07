@@ -50,14 +50,14 @@ export default function ProjectsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-white py-12 px-6 mt-16">
+    <div className="min-h-screen bg-card py-12 px-6 mt-16">
       <div className="max-w-6xl mx-auto">
         {/* Page Header */}
         <div className="text-center mb-5">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-ink">
             Student Builds 
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <p className="text-ink-2 max-w-2xl mx-auto text-lg">
             Discover amazing projects built by student developers in our community.
           </p>
         </div>
@@ -70,28 +70,28 @@ export default function ProjectsPage() {
               type="button"
               onClick={() => setSelectedCategory(category)}
               className={`px-5 py-2 rounded-full font-medium text-sm transition-colors ${selectedCategory === category
-                ? "bg-gray-800 text-white"
-                : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                ? "bg-panel text-panel-ink"
+                : "bg-surface-2 text-ink hover:bg-surface-3"
                 }`}
             >
               {category}
             </button>
           ))}
         </div>
-        <div className="border-b border-gray-200 mb-8"></div>
+        <div className="border-b border-line mb-8"></div>
 
         {/* Featured Project (Carousel, RecentProjects exact style) */}
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-6">
-            <span className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+            <span className="bg-brand text-white px-4 py-2 rounded-full text-sm font-semibold">
               Featured Builds
             </span>
           </div>
-          <div className="bg-white rounded-2xl p-4 sm:p-6 border-2 shadow-lg hover:shadow-xl transition-shadow duration-300 mb-6" style={{ borderColor: '#f97316' }}>
+          <div className="bg-card rounded-2xl p-4 sm:p-6 border-2 shadow-lg hover:shadow-xl transition-shadow duration-300 mb-6" style={{ borderColor: '#f97316' }}>
             <div className={`flex flex-col lg:flex-row gap-6 transition-opacity duration-300 ${carouselFade ? 'opacity-100' : 'opacity-0'}`}> 
               {/* Project Image */}
               <div className="lg:w-1/2 flex-shrink-0">
-                <div className="aspect-video rounded-xl overflow-hidden bg-gray-100 border-2 mb-4" style={{ borderColor: '#f97316' }}>
+                <div className="aspect-video rounded-xl overflow-hidden bg-surface-2 border-2 mb-4" style={{ borderColor: '#f97316' }}>
                   <Image
                     src={carouselProjects[carouselCurrent].image}
                     alt={carouselProjects[carouselCurrent].title}
@@ -103,12 +103,7 @@ export default function ProjectsPage() {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mt-3">
                   {carouselProjects[carouselCurrent].tags.map((tag, index) => (
-                    <span key={index} className="px-2 py-1 rounded-full text-xs font-medium border"
-                      style={{
-                        backgroundColor: '#fff7ed',
-                        color: '#ea580c',
-                        borderColor: '#f97316'
-                      }}>
+                    <span key={index} className="chip">
                       {tag}
                     </span>
                   ))}
@@ -117,22 +112,22 @@ export default function ProjectsPage() {
               {/* Project Details */}
               <div className="lg:w-1/2 space-y-4">
                 <div>
-                  <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                  <h3 className="text-2xl font-bold mb-2 text-ink">
                     {carouselProjects[carouselCurrent].title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-ink-2 leading-relaxed">
                     {carouselProjects[carouselCurrent].description}
                   </p>
                 </div>
                 {/* Builders Info */}
-                <div className="rounded-xl p-4 border-2 bg-gray-50" style={{ borderColor: '#f97316' }}>
-                  <p className="text-sm font-semibold text-gray-700 mb-3">Built by:</p>
+                <div className="rounded-xl p-4 border-2 bg-surface-2" style={{ borderColor: '#f97316' }}>
+                  <p className="text-sm font-semibold text-ink-2 mb-3">Built by:</p>
                   <div className="space-y-2">
                     {carouselProjects[carouselCurrent].builders.map((builder, index) => (
                       <div key={index} className="flex items-center gap-3">
-                        <span className="font-medium text-gray-900">{builder.name}</span>
+                        <span className="font-medium text-ink">{builder.name}</span>
                         {builder.github && (
-                          <a href={builder.github} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-gray-700 transition-colors">
+                          <a href={builder.github} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-panel text-panel-ink flex items-center justify-center hover:bg-panel-2 transition-colors">
                             {/* GitHub Icon */}
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M12 0C5.37 0 0 5.37 0 12
@@ -173,7 +168,7 @@ export default function ProjectsPage() {
                       href={carouselProjects[carouselCurrent].github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                      className="flex-1 bg-panel hover:bg-panel-2 text-panel-ink border border-panel-line px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
                     >
                       Code
                     </a>
@@ -183,7 +178,7 @@ export default function ProjectsPage() {
                       href={carouselProjects[carouselCurrent].liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                      className="flex-1 bg-brand hover:bg-brand-hover text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
                     >
                       Demo
                     </a>
@@ -197,7 +192,7 @@ export default function ProjectsPage() {
                 <button
                   key={idx}
                   onClick={() => goToCarousel(idx)}
-                  className={`w-3 h-3 rounded-full border-2 ${carouselCurrent === idx ? 'bg-orange-500 border-orange-600' : 'bg-gray-200 border-gray-400'} transition-all`}
+                  className={`w-3 h-3 rounded-full border-2 ${carouselCurrent === idx ? 'bg-brand border-orange-600' : 'bg-surface-3 border-gray-400'} transition-all`}
                   aria-label={`Go to project ${idx + 1}`}
                 />
               ))}
@@ -207,19 +202,19 @@ export default function ProjectsPage() {
 
         {/* All Projects */}
         <div className="mb-16">
-          <h2 className="text-2xl font-bold mb-8 text-gray-900">All Projects</h2>
+          <h2 className="text-2xl font-bold mb-8 text-ink">All Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.length === 0 ? (
-              <p className="text-gray-500 text-center col-span-full">
+              <p className="text-ink-3 text-center col-span-full">
                 No projects found in this category.
               </p>
             ) : (
               filteredProjects.map((project, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+                  className="bg-card rounded-xl border border-line overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
                 >
-                  <div className="aspect-video bg-gray-100 overflow-hidden">
+                  <div className="aspect-video bg-surface-2 overflow-hidden">
                     {project.image ? (
                       <Image
                         src={project.image}
@@ -228,7 +223,7 @@ export default function ProjectsPage() {
                         height={225}
                         className="w-full h-full object-cover" />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-sm text-gray-400">
+                      <div className="w-full h-full flex items-center justify-center text-sm text-ink-3">
                         No Image
                       </div>
                     )}
@@ -236,8 +231,8 @@ export default function ProjectsPage() {
 
                   <div className="p-6 flex-1 flex flex-col">
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold mb-3 text-gray-900">{project.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      <h3 className="text-xl font-bold mb-3 text-ink">{project.title}</h3>
+                      <p className="text-ink-2 text-sm leading-relaxed mb-4">
                         {project.description}
                       </p>
 
@@ -245,7 +240,7 @@ export default function ProjectsPage() {
                         {project.tags.slice(0, 3).map((tag, tagIndex) => (
                           <span
                             key={tagIndex}
-                            className="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-medium">
+                            className="bg-brand-soft text-brand-soft-ink px-2 py-1 rounded-full text-xs font-medium">
                             {tag}
                           </span>
                         ))}
@@ -253,7 +248,7 @@ export default function ProjectsPage() {
                     </div>
 
                     <div className="mb-4">
-                      <p className="text-xs font-semibold text-gray-500 mb-2">Built by:</p>
+                      <p className="text-xs font-semibold text-ink-3 mb-2">Built by:</p>
                       <div className="flex flex-wrap gap-2">
                         {project.builders.map((builder, builderIndex) => (
                           <div key={builderIndex} className="flex items-center gap-2">
@@ -264,12 +259,12 @@ export default function ProjectsPage() {
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group"
                               >
-                                <span className="text-xs text-gray-700 group-hover:text-blue-600 transition-colors">
+                                <span className="text-xs text-ink-2 group-hover:text-blue-600 transition-colors">
                                   {builder.name}
                                 </span>
                               </a>
                             ) : (
-                              <span className="text-xs text-gray-700">{builder.name}</span>
+                              <span className="text-xs text-ink-2">{builder.name}</span>
                             )}
                           </div>
                         ))}
@@ -281,7 +276,7 @@ export default function ProjectsPage() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 bg-gray-800 hover:bg-gray-700 text-white px-3 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 text-sm"
+                          className="flex-1 bg-panel hover:bg-panel-2 text-panel-ink border border-panel-line px-3 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 text-sm"
                         >
                           Code
                         </a>
@@ -291,7 +286,7 @@ export default function ProjectsPage() {
                           href={project.liveLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 text-sm"
+                          className="flex-1 bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 text-sm"
                         >
                           Demo
                         </a>
@@ -305,25 +300,25 @@ export default function ProjectsPage() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center bg-gray-50 rounded-xl p-12 border border-gray-200">
-          <h2 className="text-2xl font-bold mb-4 text-gray-900">
+        <div className="text-center bg-surface-2 rounded-xl p-12 border border-line">
+          <h2 className="text-2xl font-bold mb-4 text-ink">
             Ready to Build Something Amazing?
           </h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-ink-2 mb-8 max-w-2xl mx-auto">
             Join our community of student builders and showcase your projects to the world.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/postyourproject"
-              className="inline-flex items-center justify-center px-6 py-3 text-white bg-orange-500 hover:bg-orange-600 rounded-lg font-medium transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 text-white bg-brand hover:bg-brand-hover rounded-lg font-medium transition-colors"
             >
               Submit Your Project
             </a>
 
             <a
               href="/Philosophy"
-              className="inline-flex items-center justify-center px-6 py-3 text-gray-900 bg-white hover:bg-gray-50 rounded-lg font-medium transition-colors border border-gray-300"
+              className="inline-flex items-center justify-center px-6 py-3 text-ink bg-card hover:bg-surface-2 rounded-lg font-medium transition-colors border border-line-strong"
             >
               Learn More
             </a>

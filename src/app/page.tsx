@@ -28,21 +28,12 @@ export const metadata: Metadata = {
     description: "Join 200+ student builders, hackers, designers, and creators at Build with Waffle. We're not a club - we're a call to action for misfits who ship real products.",
     url: "https://buildwithwaffle.me",
     siteName: "Build with Waffle",
-    images: [
-      {
-        url: "/images/og-home.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Build with Waffle - Home",
-      },
-    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Build with Waffle | India's First Student-Led Creator Movement",
     description: "Join 200+ student builders, hackers, designers, and creators at Build with Waffle. We're not a club - we're a call to action for misfits who ship real products.",
-    images: ["/images/og-home.jpg"],
   },
   alternates: {
     canonical: "https://buildwithwaffle.me",

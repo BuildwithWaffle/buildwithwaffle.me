@@ -1,249 +1,118 @@
-"use client";
-import React from 'react';
-import Link from 'next/link';
-import { FaInstagram, FaLinkedin, FaYoutube, FaDiscord, FaWhatsapp } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
+import Link from "next/link";
+import type { IconType } from "react-icons";
+import {
+  FaDiscord,
+  FaInstagram,
+  FaLinkedin,
+  FaWhatsapp,
+  FaYoutube,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FOOTER_LINKS, SITE_CONFIG, SOCIAL_LINKS } from "@/config";
 
-const Footer = () => {
+const SOCIAL_ICONS: Record<string, IconType> = {
+  discord: FaDiscord,
+  twitter: FaXTwitter,
+  linkedin: FaLinkedin,
+  youtube: FaYoutube,
+  instagram: FaInstagram,
+  whatsapp: FaWhatsapp,
+};
+
+export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-black text-white px-6 md:px-20 py-16" role="contentinfo">
-      <div className="max-w-7xl mx-auto">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+    <footer
+      className="bg-panel text-panel-ink"
+      role="contentinfo"
+    >
+      <div className="container-page px-6 py-16 md:px-10">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="lg:col-span-2">
+            <Link href="/" className="flex w-fit items-center gap-2.5">
+              <span
+                className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-brand to-brand-hover text-lg font-extrabold text-brand-ink"
+                aria-hidden
+              >
+                W
+              </span>
+              <span className="font-display text-lg font-bold">Waffle</span>
+            </Link>
 
-          {/* Build with Waffle Section */}
-          <div className="lg:col-span-1">
-            <h3 className="text-lg font-semibold mb-6 text-white">Build with Waffle</h3>
-            <nav>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <Link href="/Philosophy" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Philosophy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/Events" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Events
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/projects" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Projects
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSfCH69gkopLdBQB7OQFPpU3bJ90-dM4IsHB281SIAs9VYdgjg/viewform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-white transition-colors duration-200"
-                  >
-                    Start a Chapter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:buildwithwaffle@gmail.com"
-                    className="text-gray-300 hover:text-white transition-colors duration-200"
-                  >
-                    Contact
-                  </a>
-                </li>
+            <p className="mt-5 max-w-sm leading-relaxed text-panel-ink-2">
+              {SITE_CONFIG.description}
+            </p>
+
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {SOCIAL_LINKS.map((social) => {
+                const Icon = SOCIAL_ICONS[social.icon];
+                if (!Icon) return null;
+                return (
+                  <li key={social.name}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.name}
+                      className="grid size-10 place-items-center rounded-full border border-panel-line bg-panel-2 text-panel-ink-2 transition-colors hover:border-brand hover:bg-brand hover:text-brand-ink"
+                    >
+                      <Icon className="size-[1.1rem]" aria-hidden />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          {Object.entries(FOOTER_LINKS).map(([heading, links]) => (
+            <nav key={heading} aria-label={heading}>
+              <h2 className="font-display text-sm font-semibold uppercase tracking-wider text-panel-ink">
+                {heading}
+              </h2>
+              <ul className="mt-5 space-y-3 text-sm">
+                {links.map((link) => {
+                  const external =
+                    "external" in link || link.href.startsWith("http");
+                  return (
+                    <li key={link.label}>
+                      {external ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-panel-ink-2 transition-colors hover:text-panel-ink"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-panel-ink-2 transition-colors hover:text-panel-ink"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
-          </div>
-
-          {/* Legal Section */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Legal</h3>
-            <nav>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <Link href="/terms" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Terms & Conditions
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/CodeOfConduct" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Code of Conduct
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          {/* Brand and Social Section */}
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-2xl">🧇</span>
-              <h3 className="text-lg font-semibold text-white">Build with Waffle</h3>
-            </div>
-
-            {/* Essential Social Media Icons */}
-            <div className="flex gap-3 mb-6">
-              <a
-                href="https://discord.gg/FryPg2xj3E"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                }}
-                aria-label="Discord"
-              >
-                <FaDiscord className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="https://x.com/Buildwithwaffle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                }}
-                aria-label="Twitter"
-              >
-                <FaXTwitter className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="https://www.instagram.com/buildwithwaffle/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                }}
-                aria-label="Instagram"
-              >
-                <FaInstagram className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/buildwithwaffle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                }}
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="https://www.youtube.com/@buildwithwaffle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                }}
-                aria-label="YouTube"
-              >
-                <FaYoutube className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="mailto:buildwithwaffle@gmail.com"
-                className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                }}
-                aria-label="Email"
-              >
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </a>
-              <a
-                href="https://chat.whatsapp.com/I8jl9x6qNvI242YuDlPEGw"
-                target="_blan"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                }}
-                aria-label="Whatsapp"
-              >
-                <FaWhatsapp className="w-5 h-5 text-white" />
-              </a>
-            </div>
-
-            {/* Contact Info */}
-            <div className="text-sm text-gray-300">
-              <p>buildwithwaffle@gmail.com</p>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Footer Bottom */}
-        <div className="border-t border-gray-700 pt-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div className="text-sm text-gray-400">
-              © {currentYear} Build with Waffle. Student-led movement.
-            </div>
-            <div className="text-sm text-gray-400">
-              Made with  Love by the Waffle community
-            </div>
-          </div>
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-panel-line pt-8 text-sm text-panel-ink-2 sm:flex-row">
+          <p>
+            © {currentYear} {SITE_CONFIG.name}. Built by students, for students.
+          </p>
+          <a
+            href={`mailto:${SITE_CONFIG.email}`}
+            className="transition-colors hover:text-panel-ink"
+          >
+            {SITE_CONFIG.email}
+          </a>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

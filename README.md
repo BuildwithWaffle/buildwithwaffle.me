@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# buildwithwaffle.me
+
+Marketing site for **Build with Waffle**, a student-led creator movement.
+Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · TypeScript.
+No runtime UI dependencies beyond React — icons come from `lucide-react` and
+`react-icons`, and all animation is plain CSS.
 
 ## Getting started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script              | What it does                          |
+| ------------------- | ------------------------------------- |
+| `npm run dev`       | Dev server (Turbopack, default in 16) |
+| `npm run build`     | Production build                      |
+| `npm start`         | Serve the production build            |
+| `npm run lint`      | ESLint                                |
+| `npm run typecheck` | `tsc --noEmit`                        |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+No environment variables are required — all content is static or lives in
+`src/data/`.
 
-## Learn More
+### Node version
 
-To learn more about Next.js, take a look at the following resources:
+Node 20 or 22 LTS is recommended. On Node 22+ the runtime exposes a
+non-functional `localStorage` global unless `--localstorage-file` is set, which
+Next's dev error overlay trips over. If `npm run dev` fails with
+`localStorage.getItem is not a function`, either use an LTS release or start the
+server with that global removed:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+NODE_OPTIONS="--require ./scripts/no-localstorage.cjs" npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Theming
 
-## Deploy on Vercel
+Colours are CSS custom properties defined once in `src/app/globals.css`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `:root` holds the light values, `[data-theme="dark"]` overrides them.
+- `@theme inline` maps them to Tailwind utilities, so `bg-surface`,
+  `text-ink`, `border-line`, `bg-brand` and friends follow the active theme
+  with no `dark:` variant needed at the call site.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Use the semantic tokens rather than raw palette classes:
+
+| Instead of                     | Use                             |
+| ------------------------------ | ------------------------------- |
+| `bg-white`, `bg-gray-50`       | `bg-card`, `bg-surface-2`       |
+| `text-gray-900`, `text-gray-600` | `text-ink`, `text-ink-2`      |
+| `border-gray-200`              | `border-line`                   |
+| `bg-orange-500`, `text-orange-600` | `bg-brand`, `text-accent`   |
+| a dark section (`bg-black`)    | `bg-panel` + `text-panel-ink`   |
+
+`--brand` is a fill that carries white text at 4.5:1. `--accent` is the
+text/icon accent and differs per theme so it clears AA on both surfaces. On the
+fixed-orange hero, keep using literal white — those surfaces do not change with
+the theme.
+
+Reusable classes: `.btn` (`.btn-primary` / `.btn-secondary` / `.btn-on-brand` /
+`.btn-ghost-on-brand`, plus `.btn-sm` / `.btn-lg`), `.card`, `.chip`,
+`.eyebrow`, `.field-input`, `.text-gradient-brand`, `.section`,
+`.container-page`.
+
+### Theme switching
+
+`src/lib/theme.ts` holds a small external store; `useTheme()` in
+`src/contexts/ThemeContext.tsx` reads it via `useSyncExternalStore`. The
+preference is `light`, `dark`, or `system` (the default, which keeps tracking
+the OS while the page is open). `THEME_INIT_SCRIPT` is inlined into `<head>` so
+`data-theme` is set before first paint and dark users see no white flash.
+
+## Layout of the code
+
+```
+src/
+  app/          routes; per-route layout.tsx carries metadata for client pages
+  components/   shared UI
+  config/       site config, navigation, external links
+  data/         events.json, projects.json — the content source of truth
+  hooks/        shared hooks
+  lib/          theme store, utils
+  types/        shared types
+```
+
+Homepage stats and the events/projects listings are derived from `src/data/`,
+so updating those JSON files updates the site.

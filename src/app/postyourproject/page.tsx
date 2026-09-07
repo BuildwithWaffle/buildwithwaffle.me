@@ -1,96 +1,99 @@
-'use client';
-import React, { useState } from 'react';
+"use client";
 
-const PostYourProject: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    projectTitle: '',
-    projectType: '',
-    projectDetails: '',
-    githubUrl: '',
-    liveUrl: '',
-    tags: '',
-  });
+import { useState } from "react";
+import { CheckCircle2, TriangleAlert } from "lucide-react";
 
+const PROJECT_TYPES = [
+  { value: "web-development", label: "Web Development" },
+  { value: "mobile-app", label: "Mobile App" },
+  { value: "desktop-app", label: "Desktop Application" },
+  { value: "ai-ml", label: "AI/ML Project" },
+  { value: "blockchain", label: "Blockchain/Web3" },
+  { value: "iot", label: "IoT Project" },
+  { value: "game-development", label: "Game Development" },
+  { value: "api-backend", label: "API/Backend" },
+  { value: "other", label: "Other" },
+];
+
+const EMPTY_FORM = {
+  name: "",
+  email: "",
+  projectTitle: "",
+  projectType: "",
+  projectDetails: "",
+  githubUrl: "",
+  liveUrl: "",
+  tags: "",
+};
+
+export default function PostYourProject() {
+  const [formData, setFormData] = useState(EMPTY_FORM);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">(
+    "idle",
+  );
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
   ) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData((previous) => ({ ...previous, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('idle');
-    
-    const submissionData = {
-      access_key: "254485ab-0966-4ec0-bdf6-e79855bebfe4",
-      subject: `New Project Submission: ${formData.projectTitle}`,
-      ...formData,
-    };
-    
+    setSubmitStatus("idle");
+
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(submissionData),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          // Web3Forms access keys are public by design; they only permit
+          // posting to this form's own inbox.
+          access_key: "254485ab-0966-4ec0-bdf6-e79855bebfe4",
+          subject: `New Project Submission: ${formData.projectTitle}`,
+          ...formData,
+        }),
       });
       const data = await response.json();
       if (data.success) {
-        setSubmitStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          projectTitle: '',
-          projectType: '',
-          projectDetails: '',
-          githubUrl: '',
-          liveUrl: '',
-          tags: '',
-        });
+        setSubmitStatus("success");
+        setFormData(EMPTY_FORM);
       } else {
-        setSubmitStatus('error');
+        setSubmitStatus("error");
       }
     } catch (error) {
       console.error(error);
-      setSubmitStatus('error');
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="min-h-screen mt-20 text-gray flex flex-col items-center justify-center p-4 font-sans text-sm md:text-base">
-      {/* Header Section */}
-      <div className="text-center mb-12">
-        <h4 className="inline-block text-sm md:text-base font-medium px-5 py-2 md:px-6 md:py-2.5 text-[#000] rounded-lg bg-gradient-to-r from-orange-500/80 via-red-500/10 to-orange-500/60 border border-orange-500/90 backdrop-blur-md hover:bg-orange-500/20 transition duration-300 shadow-md ">
-          Share Your Build
-        </h4>
-        <h1 className="text-4xl md:text-6xl font-semibold mt-8 leading-tight">
-          Post Your <span className="inline-block px-2 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Project</span>
-        </h1>
-        <p className="text-gray-400 text-sm md:text-base mt-4">
-          Showcase your amazing project to the Build with Waffle community.
-        </p>
-      </div>
+    <div className="section pt-32">
+      <div className="container-prose">
+        <header className="text-center">
+          <span className="chip">Share your build</span>
+          <h1 className="mt-5 font-display text-4xl font-bold text-ink md:text-5xl">
+            Post your <span className="text-gradient-brand">project</span>
+          </h1>
+          <p className="mt-4 text-lg text-ink-2">
+            Showcase what you&apos;ve built to the Build with Waffle community.
+          </p>
+        </header>
 
-      {/* Form Container */}
-      <div className="bg-orange-500/80 border-1 border-orange-400/30  p-4 sm:p-6 md:p-8 rounded-xl shadow-md w-full max-w-xl my-8 md:my-12">
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Name */}
+        <form
+          onSubmit={handleSubmit}
+          className="card mt-10 grid grid-cols-1 gap-5 p-6 sm:p-8 md:grid-cols-2"
+        >
           <div>
-            <label htmlFor="name" className="block text-white text-sm font-medium mb-2">
-              Name <span className="text-red-500">*</span>
+            <label htmlFor="name" className="field-label">
+              Name <span className="text-accent">*</span>
             </label>
             <input
               type="text"
@@ -99,15 +102,15 @@ const PostYourProject: React.FC = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="David Johnson"
-              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="field-input"
+              autoComplete="name"
               required
             />
           </div>
 
-          {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-white text-sm font-medium mb-2">
-              Email <span className="text-red-500">*</span>
+            <label htmlFor="email" className="field-label">
+              Email <span className="text-accent">*</span>
             </label>
             <input
               type="email"
@@ -116,15 +119,15 @@ const PostYourProject: React.FC = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="example@email.com"
-              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="field-input"
+              autoComplete="email"
               required
             />
           </div>
 
-          {/* Project Title */}
           <div className="md:col-span-2">
-            <label htmlFor="projectTitle" className="block text-white text-sm font-medium mb-2">
-              Project Title <span className="text-red-500">*</span>
+            <label htmlFor="projectTitle" className="field-label">
+              Project title <span className="text-accent">*</span>
             </label>
             <input
               type="text"
@@ -132,49 +135,38 @@ const PostYourProject: React.FC = () => {
               name="projectTitle"
               value={formData.projectTitle}
               onChange={handleChange}
-              placeholder="My Awesome Project"
-              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              placeholder="My awesome project"
+              className="field-input"
               required
             />
           </div>
 
-          {/* Project Type Select */}
           <div className="md:col-span-2">
-            <label htmlFor="projectType" className="block text-white text-sm font-medium mb-2">
-              Project Type <span className="text-red-500">*</span>
+            <label htmlFor="projectType" className="field-label">
+              Project type <span className="text-accent">*</span>
             </label>
-            <div className="relative">
-              <select
-                id="projectType"
-                name="projectType"
-                value={formData.projectType}
-                onChange={handleChange}
-                className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white appearance-none pr-8"
-                required
-              >
-                <option value="" disabled hidden>Select Project Type</option>
-                <option value="web-development">Web Development</option>
-                <option value="mobile-app">Mobile App</option>
-                <option value="desktop-app">Desktop Application</option>
-                <option value="ai-ml">AI/ML Project</option>
-                <option value="blockchain">Blockchain/Web3</option>
-                <option value="iot">IoT Project</option>
-                <option value="game-development">Game Development</option>
-                <option value="api-backend">API/Backend</option>
-                <option value="other">Other</option>
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                <svg className="fill-current h-4 w-4" viewBox="0 0 20 20">
-                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                </svg>
-              </div>
-            </div>
+            <select
+              id="projectType"
+              name="projectType"
+              value={formData.projectType}
+              onChange={handleChange}
+              className="field-input"
+              required
+            >
+              <option value="" disabled>
+                Select project type
+              </option>
+              {PROJECT_TYPES.map((type) => (
+                <option key={type.value} value={type.value}>
+                  {type.label}
+                </option>
+              ))}
+            </select>
           </div>
 
-          {/* Project Details */}
           <div className="md:col-span-2">
-            <label htmlFor="projectDetails" className="block text-white text-sm font-medium mb-2">
-              Project Details
+            <label htmlFor="projectDetails" className="field-label">
+              Project details
             </label>
             <textarea
               id="projectDetails"
@@ -183,13 +175,12 @@ const PostYourProject: React.FC = () => {
               onChange={handleChange}
               placeholder="Tell us more about your project."
               rows={5}
-              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400 resize-y"
+              className="field-input resize-y"
             />
           </div>
 
-          {/* GitHub URL */}
           <div>
-            <label htmlFor="githubUrl" className="block text-white text-sm font-medium mb-2">
+            <label htmlFor="githubUrl" className="field-label">
               GitHub URL
             </label>
             <input
@@ -199,13 +190,12 @@ const PostYourProject: React.FC = () => {
               value={formData.githubUrl}
               onChange={handleChange}
               placeholder="https://github.com/username/project"
-              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="field-input"
             />
           </div>
 
-          {/* Live URL */}
           <div>
-            <label htmlFor="liveUrl" className="block text-white text-sm font-medium mb-2">
+            <label htmlFor="liveUrl" className="field-label">
               Live URL
             </label>
             <input
@@ -215,13 +205,12 @@ const PostYourProject: React.FC = () => {
               value={formData.liveUrl}
               onChange={handleChange}
               placeholder="https://yourproject.com"
-              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="field-input"
             />
           </div>
 
-          {/* Tags */}
           <div className="md:col-span-2">
-            <label htmlFor="tags" className="block text-white text-sm font-medium mb-2">
+            <label htmlFor="tags" className="field-label">
               Tags
             </label>
             <input
@@ -231,46 +220,46 @@ const PostYourProject: React.FC = () => {
               value={formData.tags}
               onChange={handleChange}
               placeholder="React, TypeScript, Node.js (separate with commas)"
-              className="w-full px-3 py-1.5 rounded-sm bg-white border-b border-neutral-700 focus:outline-none focus:border-white text-white placeholder-gray-400"
+              className="field-input"
             />
+            <p className="mt-1.5 text-xs text-ink-3">
+              Comma-separated. These help people find your project.
+            </p>
           </div>
 
-          {/* Submit Button & Message */}
-          <div className="md:col-span-2 flex flex-col sm:flex-row items-center justify-between mt-4">
+          <div className="md:col-span-2 mt-2 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`${
-                isSubmitting 
-                  ? 'bg-gray-400 cursor-not-allowed' 
-                  : 'bg-white hover:bg-gray-200'
-              } text-orange-500 font-bold py-3 px-6 text-sm rounded-lg transition duration-300 ease-in-out w-full sm:w-auto mb-4 sm:mb-0`}
+              className="btn btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
             >
-              {isSubmitting ? 'Submitting...' : 'Submit'}
+              {isSubmitting ? "Submitting…" : "Submit project"}
             </button>
-            
-            {submitStatus === 'success' && (
-              <p className="text-green-500 text-sm text-center sm:text-right">
-                Project submitted successfully! We'll contact you within 24 business hours.
-              </p>
-            )}
-            
-            {submitStatus === 'error' && (
-              <p className="text-red-500 text-sm text-center sm:text-right">
-                Something went wrong. Please try again.
-              </p>
-            )}
-            
-            {submitStatus === 'idle' && (
-              <p className="text-white text-sm text-center sm:text-right">
-                We will contact you within 24 business hours.
-              </p>
-            )}
+
+            {/* role="status" so the outcome is announced, not just shown. */}
+            <p
+              role="status"
+              aria-live="polite"
+              className="flex items-center gap-2 text-sm text-ink-2"
+            >
+              {submitStatus === "success" && (
+                <>
+                  <CheckCircle2 className="size-4 text-accent" aria-hidden />
+                  Submitted. We&apos;ll be in touch within 24 business hours.
+                </>
+              )}
+              {submitStatus === "error" && (
+                <>
+                  <TriangleAlert className="size-4 text-accent" aria-hidden />
+                  Something went wrong. Please try again.
+                </>
+              )}
+              {submitStatus === "idle" &&
+                "We will contact you within 24 business hours."}
+            </p>
           </div>
         </form>
       </div>
     </div>
   );
-};
-
-export default PostYourProject;
+}

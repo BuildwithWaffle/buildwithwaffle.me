@@ -1,151 +1,171 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
+import { EXTERNAL_LINKS } from "@/config";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "Philosophy", href: "/Philosophy" },
   { label: "Projects", href: "/projects" },
   { label: "Events", href: "/Events" },
-  { label: "Start a Chapter", href: "https://docs.google.com/forms/d/e/1FAIpQLSfCH69gkopLdBQB7OQFPpU3bJ90-dM4IsHB281SIAs9VYdgjg/viewform?usp=header" },
-  { label: "Join Waffle", href: "https://docs.google.com/forms/d/e/1FAIpQLScqckW5RAs5GVeMNpAzFZF2Ro5TNmVgtOZGc68ifDAxDn_VlA/viewform?usp=sharing&ouid=100170810435940346187", isCTA: true },
+  { label: "Start a Chapter", href: EXTERNAL_LINKS.forms.startChapter },
 ];
+
+const isExternal = (href: string) => href.startsWith("http");
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [renderedPath, setRenderedPath] = useState("");
+  const pathname = usePathname();
+
+  // Close the mobile sheet on navigation by adjusting state during render,
+  // which React prefers over a setState-in-effect (no extra render pass).
+  if (renderedPath !== pathname) {
+    setRenderedPath(pathname);
+    setIsOpen(false);
+  }
+
+  // Lock scroll and allow Escape to dismiss while the sheet is open.
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen]);
 
   return (
-    <nav className="fixed top-4 left-4 right-4 z-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="relative">
-          {/* Permanent Floating Background */}
-          <div className="absolute inset-0 backdrop-blur-md border rounded-2xl shadow-xl"
-               style={{
-                 backgroundColor: 'var(--background-secondary)',
-                 borderColor: 'var(--border)'
-               }}></div>
-          
-          {/* Content */}
-          <div className="relative flex justify-between items-center px-6 py-3">
-            {/* Logo with W Icon */}
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-lg"
-                   style={{
-                     background: 'linear-gradient(135deg, #ea580c 0%, #dc2626 100%)',
-                   }}>
-                W
-              </div>
-              <span className="font-bold text-xl text-gray-900">Waffle</span>
-            </Link>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => {
-                const isExternal = item.href.startsWith('http');
-                const Component = isExternal ? 'a' : Link;
-                const linkProps = isExternal 
-                  ? { href: item.href, target: '_blank', rel: 'noopener noreferrer' }
-                  : { href: item.href };
-                
-                return (
-                  <Component
-                    key={item.label}
-                    {...linkProps}
-                    className={`${
-                      item.isCTA
-                        ? `px-4 py-2 backdrop-blur-sm border rounded-full transition-all duration-300 hover:scale-105 text-white`
-                        : `transition-colors duration-200 relative group text-gray-600 hover:text-gray-900`
-                    }`}
-                    style={item.isCTA ? {
-                      backgroundColor: 'var(--primary-accent)',
-                      borderColor: 'var(--primary-accent)',
-                      boxShadow: '0 4px 6px -1px var(--primary-accent-shadow)'
-                    } : {}}
-                    onMouseEnter={item.isCTA ? (e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--primary-accent-hover)';
-                      e.currentTarget.style.boxShadow = '0 10px 25px -5px var(--primary-accent-shadow-hover), 0 4px 6px -2px var(--primary-accent-shadow-hover)';
-                    } : undefined}
-                    onMouseLeave={item.isCTA ? (e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
-                      e.currentTarget.style.boxShadow = '0 4px 6px -1px var(--primary-accent-shadow)';
-                    } : undefined}
-                  >
-                    {item.label}
-                    {!item.isCTA && (
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
-                            style={{ backgroundColor: 'var(--primary-accent)' }}></span>
-                    )}
-                  </Component>
-                );
-              })}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded-lg transition-all duration-300 bg-white/10 backdrop-blur-sm border"
-              style={{
-                backgroundColor: 'var(--primary-accent-light)',
-                borderColor: 'var(--primary-accent)'
-              }}
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+      <nav
+        aria-label="Main"
+        className="container-page rounded-2xl border border-line bg-surface/80 shadow-e2 backdrop-blur-xl"
+      >
+        <div className="flex items-center justify-between gap-4 px-4 py-2.5 sm:px-5">
+          <Link
+            href="/"
+            className="flex shrink-0 items-center gap-2.5"
+            aria-label="Build with Waffle, home"
+          >
+            <span
+              className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-brand to-brand-hover text-lg font-extrabold text-brand-ink shadow-brand"
+              aria-hidden
             >
-              <div className="w-6 h-6 flex flex-col justify-center items-center">
-                <span className={`h-0.5 w-6 rounded transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1' : ''}`}
-                      style={{ backgroundColor: 'var(--primary-accent)' }}></span>
-                <span className={`h-0.5 w-6 rounded transition-all duration-300 ${isOpen ? 'opacity-0' : 'my-1'}`}
-                      style={{ backgroundColor: 'var(--primary-accent)' }}></span>
-                <span className={`h-0.5 w-6 rounded transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1' : ''}`}
-                      style={{ backgroundColor: 'var(--primary-accent)' }}></span>
-              </div>
-            </button>
+              W
+            </span>
+            <span className="font-display text-lg font-bold tracking-tight text-ink">
+              Waffle
+            </span>
+          </Link>
+
+          <div className="hidden items-center gap-1 md:flex">
+            {navItems.map((item) => {
+              const external = isExternal(item.href);
+              const active = !external && pathname === item.href;
+              const Tag = external ? "a" : Link;
+
+              return (
+                <Tag
+                  key={item.label}
+                  href={item.href}
+                  {...(external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "rounded-full px-3 py-2 text-sm font-medium transition-colors",
+                    active
+                      ? "bg-brand-soft text-brand-soft-ink"
+                      : "text-ink-2 hover:bg-surface-2 hover:text-ink",
+                  )}
+                >
+                  {item.label}
+                </Tag>
+              );
+            })}
           </div>
 
-          {/* Mobile Menu */}
-          {isOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 mt-2 backdrop-blur-md border overflow-hidden transition-all duration-300 bg-white/90 border-gray-200 rounded-2xl shadow-xl"
-                 style={{
-                   backgroundColor: 'var(--background-secondary)',
-                   borderColor: 'var(--border)'
-                 }}>
-              <div className="p-4 space-y-2">
-                {navItems.map((item) => {
-                  const isExternal = item.href.startsWith('http');
-                  const Component = isExternal ? 'a' : Link;
-                  const linkProps = isExternal 
-                    ? { href: item.href, target: '_blank', rel: 'noopener noreferrer' }
-                    : { href: item.href };
-                  
-                  return (
-                    <Component
-                      key={item.label}
-                      {...linkProps}
-                      onClick={() => setIsOpen(false)}
-                      className={`block py-2 text-center transition-all duration-300 ${
-                        item.isCTA
-                          ? 'w-full py-3 backdrop-blur-sm border rounded-lg text-white'
-                          : "text-gray-600 hover:text-gray-900"
-                      }`}
-                      style={item.isCTA ? {
-                        backgroundColor: 'var(--primary-accent)',
-                        borderColor: 'var(--primary-accent)',
-                        boxShadow: '0 4px 6px -1px var(--primary-accent-shadow)'
-                      } : {}}
-                      onMouseEnter={item.isCTA ? (e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--primary-accent-hover)';
-                      } : undefined}
-                      onMouseLeave={item.isCTA ? (e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--primary-accent)';
-                      } : undefined}
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <a
+              href={EXTERNAL_LINKS.forms.joinCommunity}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary btn-sm hidden sm:inline-flex"
+            >
+              Join Waffle
+            </a>
+            <button
+              type="button"
+              onClick={() => setIsOpen((open) => !open)}
+              className="grid size-9 place-items-center rounded-full border border-line bg-surface-2 text-ink transition-colors hover:border-line-strong md:hidden"
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              {isOpen ? (
+                <X className="size-[1.05rem]" aria-hidden />
+              ) : (
+                <Menu className="size-[1.05rem]" aria-hidden />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {isOpen && (
+          <div
+            id="mobile-menu"
+            className="border-t border-line px-3 py-3 md:hidden"
+          >
+            <ul className="flex flex-col gap-1">
+              {navItems.map((item) => {
+                const external = isExternal(item.href);
+                const active = !external && pathname === item.href;
+                const Tag = external ? "a" : Link;
+
+                return (
+                  <li key={item.label}>
+                    <Tag
+                      href={item.href}
+                      {...(external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      aria-current={active ? "page" : undefined}
+                      className={cn(
+                        "block rounded-xl px-3 py-2.5 text-base font-medium transition-colors",
+                        active
+                          ? "bg-brand-soft text-brand-soft-ink"
+                          : "text-ink-2 hover:bg-surface-2 hover:text-ink",
+                      )}
                     >
                       {item.label}
-                    </Component>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </nav>
+                    </Tag>
+                  </li>
+                );
+              })}
+              <li className="pt-2">
+                <a
+                  href={EXTERNAL_LINKS.forms.joinCommunity}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary w-full"
+                >
+                  Join Waffle
+                </a>
+              </li>
+            </ul>
+          </div>
+        )}
+      </nav>
+    </header>
   );
 }

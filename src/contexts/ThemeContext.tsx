@@ -1,66 +1,63 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { useCallback, useSyncExternalStore } from "react";
+import {
+  getServerSnapshot,
+  getSnapshot,
+  parseSnapshot,
+  setPreference,
+  subscribe,
+  type ResolvedTheme,
+  type ThemePreference,
+} from "@/lib/theme";
 
-type Theme = 'light' | 'dark';
-
-interface ThemeContextType {
-  theme: Theme;
-  toggleTheme: () => void;
+export interface ThemeState {
+  /** What the user chose: an explicit theme, or "system" to follow the OS. */
+  preference: ThemePreference;
+  /** What that actually resolves to right now. */
+  resolvedTheme: ResolvedTheme;
+  setTheme: (preference: ThemePreference) => void;
+  /** Cycles light -> dark -> system, for the single-button toggle. */
+  cycleTheme: () => void;
+  /** True once the client store has taken over from the server snapshot. */
+  mounted: boolean;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ORDER: ThemePreference[] = ["light", "dark", "system"];
 
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
-};
+/** Canonical "have we hydrated yet" read: false on the server, true after. */
+const emptySubscribe = () => () => {};
+const alwaysTrue = () => true;
+const alwaysFalse = () => false;
 
-interface ThemeProviderProps {
-  children: React.ReactNode;
-}
+/**
+ * No provider needed — every consumer subscribes to the same external store,
+ * so this is safe to call from any client component.
+ */
+export function useTheme(): ThemeState {
+  const snapshot = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    alwaysTrue,
+    alwaysFalse,
+  );
+  const { preference, resolvedTheme } = parseSnapshot(snapshot);
 
-export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<Theme>('light');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      // Check system preference
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      setTheme(systemTheme);
-    }
+  const cycleTheme = useCallback(() => {
+    const current = parseSnapshot(getSnapshot()).preference;
+    const next = ORDER[(ORDER.indexOf(current) + 1) % ORDER.length];
+    setPreference(next);
   }, []);
 
-  useEffect(() => {
-    if (mounted) {
-      // Apply theme to document
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    }
-  }, [theme, mounted]);
-
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+  return {
+    preference,
+    resolvedTheme,
+    setTheme: setPreference,
+    cycleTheme,
+    mounted,
   };
-
-  // Prevent hydration mismatch
-  if (!mounted) {
-    return <div style={{ visibility: 'hidden' }}>{children}</div>;
-  }
-
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
-};
+}
