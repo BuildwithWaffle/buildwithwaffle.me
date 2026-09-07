@@ -1,30 +1,26 @@
 "use client";
 
-import { motion, AnimatePresence } from "motion/react";
 import { usePathname } from "next/navigation";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
-const variants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-};
-
+/**
+ * Route-change fade.
+ *
+ * This used to be a motion.div, which server-rendered as
+ * `<div style="opacity:0">` wrapping the whole page — so until the animation
+ * library loaded and hydrated, the entire site was invisible, and it stayed
+ * invisible for anyone without JavaScript.
+ *
+ * A CSS animation degrades the right way instead: if it never runs, opacity is
+ * simply its default of 1. Remounting on `key` restarts it on each navigation,
+ * and the global prefers-reduced-motion rule shortens it to nothing.
+ */
 export default function PageWrapper({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={pathname}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        variants={variants}
-        transition={{ duration: 0.25, ease: "easeInOut" }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div key={pathname} className="page-fade">
+      {children}
+    </div>
   );
 }

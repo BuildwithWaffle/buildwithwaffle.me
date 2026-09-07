@@ -2,6 +2,8 @@
 
 Marketing site for **Build with Waffle**, a student-led creator movement.
 Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · TypeScript.
+No runtime UI dependencies beyond React — icons come from `lucide-react` and
+`react-icons`, and all animation is plain CSS.
 
 ## Getting started
 
