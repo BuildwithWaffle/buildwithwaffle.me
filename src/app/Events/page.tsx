@@ -144,8 +144,8 @@ export default function EventsPage() {
             </div>
           </header>
 
-          {/* Upcoming Event Section */}
-          <section className="mb-20">
+          {/* Upcoming Event Section DYNAMIC */}
+          <section className="mb-20 hidden">
             <div className="flex items-center gap-3 mb-8">
               <h2 className="text-3xl font-bold text-ink flex items-center gap-2">
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
@@ -312,7 +312,11 @@ export default function EventsPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {pastEvents.map((event) => (
+              {[...pastEvents]
+                .sort(
+                  (a, b) =>
+                    new Date(b.date).getTime() - new Date(a.date).getTime()
+                ).map((event) => (
                 <div key={event.id} className="bg-card rounded-xl overflow-hidden border border-white/20 hover:shadow-2xl transition-all duration-300 group"
                   style={{
                     boxShadow: `0 10px 25px -5px rgba(255, 255, 255, 0.2), 0 4px 6px -2px rgba(255, 255, 255, 0.2)`
