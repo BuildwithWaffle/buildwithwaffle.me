@@ -195,12 +195,42 @@
       "emoji": "🎨",
       "galleryLink": "https://drive.google.com/drive/folders/1QBJp4ATZq_lldxmr8zPKD-wkLS4FA1-L?usp=sharing",
       "highlights": ["UI/UX", "Ideas", "Figma", "Design", "Creative-Thinking"]
+    },
+    {
+      "id": "event-10",
+      "title": "GIT Init",
+      "description": "GIT INIT is a hands-on workshop on Git and GitHub organized by BuildWithWaffle and AlgoZenith. The session introduced freshers to version control and covered essential Git commands such as init, clone, add, commit, push, and touch. The workshop also included a quiz session to make learning interactive and help participants strengthen their understanding of Git and GitHub.",
+      "date": "2025-09-17",
+      "time": "10:00 AM - 1:00 PM",
+      "location": "LT-003 AB3, Amity University Lucknow",
+      "image": "/images/events/github.png",
+      "isVirtual": false,
+      "tags": ["Story of GIT", "Git v/s GitHub", "Basic Git commands", "GitHub Setup"],
+      "attendees": 60,
+      "emoji": "🚀",
+      "galleryLink": "",
+      "highlights":  ["Git Basics", "Git Commands", "GitHub", "Version Control", "Quiz"]
+    },
+    {
+      "id": "event-11",
+      "title": "AlgoArena",
+      "description": "AlgoArena is an ICPC-inspired competitive coding event that simulates the pressure and strategy of global programming contests. Spanning 5 hours, it follows a multi-round elimination format with progressively challenging algorithmic problems.",
+      "date": "2026-02-18",
+      "time": "TBD",
+      "location": "Amity University Lucknow Campus",
+      "image": "/images/events/AlgoArena.png",
+      "isVirtual": false,
+      "tags": ["Competitive Programming", "Algorithms", "Coding Contest"],
+      "attendees": 60,
+      "emoji": "🎈",
+      "galleryLink": "",
+      "highlights":  ["ICPC-inspired", "Codding", "Balloon Burst", "Multi-round"]
     }
   ],
   "eventStats": {
-    "totalEvents": 8,
+    "totalEvents": 11,
     "totalAttendees": 460,
     "averageAttendance": 50,
-    "upcomingEvents": 1
+    "upcomingEvents": 2
   }
 }
