@@ -98,22 +98,90 @@
       "tags": ["Next.js", "Tailwind CSS", "Express.js"]
     },
     {
-      "id": "waffle-website",
-      "image": "/images/projects/Waffle Website.png",
-      "title": "Waffle Website",
-      "description": "The Waffle Website Project is the official platform for Build With Waffle — a student-led community for creators, coders, and builders.It enables users to start chapters, join events, and showcase projects ",
-      "category": "Design",
+      "id": "istream",
+      "image": "/images/projects/iStream.png",
+      "title": "iStream",
+      "description": "iStream is a production-grade live-streaming platform built from primitives without managed streaming services. It supports RTMP ingest, adaptive-bitrate FFmpeg streaming, HLS delivery, Cloudflare R2-based VOD storage, real-time chat, payments, notifications, and an autoscaling transcoding worker pool.",
+      "category": "Software",
       "builders": [
         {
-          "name": "Waffle Community",
-          "github": "https://github.com/BuildwithWaffle",
-          "linkedin": "https://www.linkedin.com/company/buildwithwaffle/"
+          "name": "Kushagra Gupta",
+          "github": "https://github.com/kush1jpeg",
+          "linkedin": "https://www.linkedin.com/in/kushagra-gupta-dystopia"
         }
       ],
-      "github": "https://github.com/BuildwithWaffle/buildwithwaffle.me",
-      "liveLink": "https://buildwithwaffle.me",
-      "tags": ["Next.js", "React"]
-    } 
+      "github": "https://github.com/kush1jpeg/iStream",
+      "liveLink": "https://youtu.be/ukJ5Uw1WdHg?si=S96CU9g0YujTSJJi",
+      "tags": [
+        "Live Streaming",
+        "FFmpeg",
+        "RTMP",
+        "HLS",
+        "Docker",
+        "Redis",
+        "Socket.IO",
+        "Cloudflare R2",
+        "Razorpay"
+      ]
+    },
+    {
+      "id": "kitcat",
+      "image": "/images/projects/kitcat.png",
+      "title": "kitcat",
+      "description": "A Git-compatible version control system built from scratch in Go. kitcat implements Git's core object model — content-addressed storage, a binary index, zlib-compressed objects, and a full porcelain command set — using the same on-disk format as Git itself.",
+      "category": "Software",
+      "builders": [
+        {
+          "name": "Zeeshan Ahmad Alavi",
+          "github": "https://github.com/LeeFred3042U",
+          "linkedin": ""
+        }
+      ],
+      "github": "https://github.com/LeeFred3042U/kitcat",
+      "liveLink": "https://www.linkedin.com/in/zeeshan-ahmad-alavi/",
+      "tags": ["Git Clone", "Version Control"]
+    },
+    {
+      "id": "vybe",
+      "image": "/images/projects/vybe.png",
+      "title": "Vybe - Your Digital Social Circle",
+      "description": "Vybe is a Firebase-powered social media platform built with React and Chakra UI that enables users to connect, create, and collaborate through community circles called VybeCircles. It provides real-time messaging, social interactions, user profiles, notifications, trending content, and interest-based communities.",
+      "category": "Software",
+      "builders": [
+        {
+          "name": "Pushkar Nanwani",
+          "github": "https://github.com/pushkar1007",
+          "linkedin": "https://www.linkedin.com/in/pushkar-nanwani/"
+        }
+      ],
+      "github": "https://github.com/pushkar1007/Vybe",
+      "liveLink": "",
+      "tags": [
+        "React",
+        "Chakra UI",
+        "Firebase",
+        "Firestore",
+        "Cloudinary",
+        "React Context API"
+      ]
+    },
+    {
+      "id": "veren",
+      "image": "/images/projects/veren.png",
+      "title": "Veren",
+      "description": "Veren is a backend-driven deployment system that automates building and deploying applications from source repositories using a service-oriented architecture.",
+      "category": "Software",
+      "builders": [
+        {
+          "name": "Atith Singh",
+          "github": "https://github.com/atithi4dev",
+          "linkedin": "https://www.linkedin.com/in/singhatithi/"
+        }
+      ],
+      "github": "https://github.com/atithi4dev/veren",
+      "liveLink": "",
+      "tags": ["Backend", "Deployment", "Docker", "Cloud-Native", "Service-Oriented Architecture"]
+    }
    ]
 }
 

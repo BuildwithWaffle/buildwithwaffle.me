@@ -24,7 +24,7 @@ export default function Events() {
   ].filter((detail) => Boolean(detail.value));
 
   return (
-    <section id="events" className="section bg-surface">
+    <section id="events" className="section bg-surface hidden">
       <div className="container-page">
         <div className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">What&apos;s next</span>
