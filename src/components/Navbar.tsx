@@ -13,6 +13,7 @@ const navItems = [
   { label: "Projects", href: "/projects" },
   { label: "Events", href: "/Events" },
   { label: "Start a Chapter", href: EXTERNAL_LINKS.forms.startChapter },
+  { label: "Join Waffle", href: EXTERNAL_LINKS.forms.startChapter }
 ];
 
 const isExternal = (href: string) => href.startsWith("http");

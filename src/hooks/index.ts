@@ -80,7 +80,11 @@ export function useEvents(): EventData & LoadingState {
         
         const transformedData: EventData = {
           upcomingEvent: eventsData.upcomingEvent,
-          pastEvents: eventsData.pastEvents.map(event => ({
+          pastEvents:  [...eventsData.pastEvents]
+          .sort(
+           (a, b) =>
+              new Date(b.date).getTime() - new Date(a.date).getTime()
+           ).map(event => ({
             ...event,
             speakers: (event as Record<string, unknown>).speakers as Speaker[] || [],
             agenda: (event as Record<string, unknown>).agenda as AgendaItem[] || [],
