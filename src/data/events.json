@@ -80,7 +80,7 @@
       "image": "/images/events/Machina.png",
       "isVirtual": false,
       "tags": ["Robotics", "AI", "Philosophy", "Discussion"],
-      "attendees": 10,
+      "attendees": 12,
       "emoji": "🤖",
       "galleryLink": "https://drive.google.com/drive/folders/1DvIPzvu-8ykrBjTcLKhctFbg8QVl1L7W?usp=drive_link",
       "highlights": [
@@ -99,7 +99,7 @@
       "image": "/images/events/Meetup.png",
       "isVirtual": false,
       "tags": ["Casual", "Conversation", "Ideas", "Community"],
-      "attendees": 20,
+      "attendees": 27,
       "emoji": "☕",
       "highlights": [
         "Raw conversation",
@@ -117,7 +117,7 @@
       "image": "/images/events/Converge.png",
       "isVirtual": false,
       "tags": ["Summit", "Lightning Talks", "Hackathons", "Founders"],
-      "attendees": 200,
+      "attendees": 210,
       "emoji": "🌐",
       "galleryLink": "https://drive.google.com/drive/folders/1kfKIEhxSzNk2rse4gN545dEPWdlc2som?usp=sharing",
       "highlights": [
@@ -137,7 +137,7 @@
       "image": "/images/events/Techwiz.png",
       "isVirtual": false,
       "tags": ["Trivia", "Challenges", "Problem-solving", "Competition"],
-      "attendees": 75,
+      "attendees": 72,
       "emoji": "🧪",
       "galleryLink": "https://drive.google.com/drive/folders/1_2RJe8jI1ekdNlLXkElZqp4OyBzoWA6P?usp=drive_link",
       "highlights": [
@@ -156,7 +156,7 @@
       "image": "/images/events/JSJuggernauts.png",
       "isVirtual": false,
       "tags": ["JavaScript", "Frontend", "React", "Bootcamp"],
-      "attendees": 50,
+      "attendees": 47,
       "emoji": "🧠",
       "galleryLink": "https://drive.google.com/drive/folders/1LtDFU061ZeyQITx814LRH7IzWjpth5dw?usp=drive_link",
       "highlights": [
@@ -176,7 +176,7 @@
       "image": "/images/events/Bootcamp.png",
       "isVirtual": false,
       "tags": ["Product Building", "Identity", "Collaboration", "Roadmap"],
-      "attendees": 60,
+      "attendees": 55,
       "emoji": "🧭",
       "galleryLink": "https://drive.google.com/drive/folders/12n4FgZfjCwYS60udSkrMQmk_WDKJjb4r?usp=sharing",
       "highlights": ["Product Building", "Ideas", "Collab", "Roadmap"]
@@ -190,7 +190,7 @@
       "location": "LT-003 AB3, Amity University Lucknow",
       "image": "/images/events/UItopia.png",
       "isVirtual": false,
-      "attendees": 30,
+      "attendees": 33,
       "tags": ["Frontend", "UI/UX", "Design", "Figma"],
       "emoji": "🎨",
       "galleryLink": "https://drive.google.com/drive/folders/1QBJp4ATZq_lldxmr8zPKD-wkLS4FA1-L?usp=sharing",
@@ -206,7 +206,7 @@
       "image": "/images/events/github.png",
       "isVirtual": false,
       "tags": ["Story of GIT", "Git v/s GitHub", "Basic Git commands", "GitHub Setup"],
-      "attendees": 60,
+      "attendees": 64,
       "emoji": "🚀",
       "galleryLink": "",
       "highlights":  ["Git Basics", "Git Commands", "GitHub", "Version Control", "Quiz"]
@@ -221,7 +221,7 @@
       "image": "/images/events/AlgoArena.png",
       "isVirtual": false,
       "tags": ["Competitive Programming", "Algorithms", "Coding Contest"],
-      "attendees": 60,
+      "attendees": 82,
       "emoji": "🎈",
       "galleryLink": "",
       "highlights":  ["ICPC-inspired", "Codding", "Balloon Burst", "Multi-round"]
@@ -230,7 +230,7 @@
   "eventStats": {
     "totalEvents": 11,
     "totalAttendees": 460,
-    "averageAttendance": 50,
+    "averageAttendance": 57,
     "upcomingEvents": 2
   }
 }
